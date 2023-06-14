@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Combat : MonoBehaviour
 {
-    private Player player;
     public ParticleSystem damageParticleSlot1;
     public ParticleSystem damageParticleSlot2;
     public ParticleSystem damageParticleSlot3;
@@ -24,49 +23,73 @@ public class Combat : MonoBehaviour
     public ParticleSystem damageparticleSlot4_Combate3;
     public ParticleSystem damageparticleSlot5_Combate3;
     public ParticleSystem damageparticleSlot6_Combate3;
-    public Enemy enemyy;
-    int playercontador;
-    public Deck deckscript;
+    [SerializeField]
+    private ParticleSystem[] DamageParticlesInTheCombats;
+    
+
+
     public CardDisplay carddisplayscriptinSlot1;
     public CardDisplay carddisplayscriptinSlot2;
     public CardDisplay carddisplayscriptinSlot3;
+    [SerializeField]
+    private CardDisplay[] CardDisplayScriptsInTheSlots;
+
+
     public VigorCardsDisplay carddisplayscriptinSlot4;
     public VigorCardsDisplay carddisplayscriptinSlot5;
     public VigorCardsDisplay carddisplayscriptinSlot6;
+    [SerializeField]
+    private VigorCardsDisplay[] VigorCardDisplayScriptsInTheSlots;
+
+
     public Image cardOrange1;
     public Image cardOrange2;
     public Image cardOrange3;
     public Image cardOrange4;
     public Image cardOrange5;
     public Image cardOrange6;
-    public Button passButton;
+    [SerializeField]
+    private Image[] OrangeCards;
+
+
     public Button button1;
     public Button button2;
     public Button button3;
     public Button button4;
     public Button button5;
     public Button button6;
+    [SerializeField]
+    private Button[] ButtonsofSlot;
+
     private bool cartafueUsada = true;
     private bool cartafueUsada2 = true;
     private bool cartafueUsada3 = true;
     private bool cartafueUsada4 = true;
     private bool cartafueUsada5 = true;
     private bool cartafueUsada6 = true;
-    private bool enemyattack = false;
-    public VigorDeck VigorDeckScript;
-    public StadisticPlayer PlayerStadisticsScript;
+    [SerializeField]
+    private bool[] CardsHadBeenUsed;
+
 
     public CanvasGroup[] TheCanvasesForFade;
 
-    public object WaitForSeconds3 { get; private set; }
 
+    public Button passButton;
+    private bool enemyattack = false;
+    public VigorDeck VigorDeckScript;
+    public StadisticPlayer PlayerStadisticsScript;
+    public Enemy enemyy;
+    int playercontador;
+    public Deck deckscript;
+    private Player player;
+    public object WaitForSeconds3 { get; private set; }
     void Start()
     {
 
     }
     void Update()
     {
-        
+
     }
 
     public void activaryDesactivarCartaAlUsarlaSlot1()
@@ -122,7 +145,7 @@ public class Combat : MonoBehaviour
             button4.interactable = true;
             button5.interactable = true;
             button6.interactable = true;
-            
+
             enemyy.Enemyturn();
             //contador = 0;
             playercontador = 0;
@@ -198,7 +221,7 @@ public class Combat : MonoBehaviour
                 activaryDesactivarCartaAlUsarlaSlot6();
             }
             enemyattack = false;
-            
+
         }
     }
     IEnumerator FadeAnimSlot1(int myplace)
@@ -363,7 +386,7 @@ public class Combat : MonoBehaviour
         if (carddisplayscriptinSlot2.myslot == 2 && playercontador == 0)
         {
             StartCoroutine(FadeAnimSlot2(1));
-           
+
         }
     }
     public void clickonslotthree()
@@ -371,7 +394,7 @@ public class Combat : MonoBehaviour
         if (carddisplayscriptinSlot3.myslot == 3 && playercontador == 0)
         {
             StartCoroutine(FadeAnimSlot3(2));
-            
+
         }
     }
     public void clickonslotfour()
@@ -379,7 +402,7 @@ public class Combat : MonoBehaviour
         if (PlayerStadisticsScript.vigor >= carddisplayscriptinSlot4.actualizarinformacióncostedeVigor())
         {
             StartCoroutine(FadeAnimSlot4(3));
-            
+
         }
     }
     public void clickonslotfive()
