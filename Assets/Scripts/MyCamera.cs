@@ -11,19 +11,15 @@ public class MyCamera : MonoBehaviour
 
     public bool canMoveCamera;
 
-
-
     void Start()
     {
         canMoveCamera = true;
-    Cursor.lockState = CursorLockMode.Locked;
-
+        Cursor.lockState = CursorLockMode.Locked;
         target = GameObject.Find("Player").transform;
     }
 
     void LateUpdate()
     {
-
         if (canMoveCamera == false)
         {
 
@@ -33,12 +29,7 @@ public class MyCamera : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, target.position + offset, lerpValue);
             offset = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * sensibilidad, Vector3.up) * offset;
             transform.LookAt(target);
-
         }
-
     }
-
-
-
 }
 

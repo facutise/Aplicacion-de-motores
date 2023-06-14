@@ -13,32 +13,29 @@ public class Deck : MonoBehaviour
     public bool SlotBool1 = false;
     public bool SlotBool2 = false;
     public bool SlotBool3 = false;
-    //public Card[] DeckDisplayerInventory;
     public Card[] DeckOfTheDeck;
     public bool[] EquipOrUnequipTheNormalCardBool;
     public List<Card> TrueDeckInCombat = new List<Card>();
-    
 
     private void Awake()
     {
         _deck = Resources.FindObjectsOfTypeAll<Card>();
-        
     }
-    
+
     public void BuildMyDeck(Card browser, int ThePlaceInArray)
     {
-        
-        if (EquipOrUnequipTheNormalCardBool[ThePlaceInArray] == false)
+        if (!EquipOrUnequipTheNormalCardBool[ThePlaceInArray])
         {
             DeckOfTheDeck[ThePlaceInArray] = browser;
             EquipOrUnequipTheNormalCardBool[ThePlaceInArray] = true;
         }
-        else if (EquipOrUnequipTheNormalCardBool[ThePlaceInArray] == true)
+        else
         {
             DeckOfTheDeck[ThePlaceInArray] = null;
             EquipOrUnequipTheNormalCardBool[ThePlaceInArray] = false;
         }
     }
+
     public void CreateListOfMyrCardsBuildForCombat()
     {
         foreach (Card objeto in DeckOfTheDeck)
@@ -70,29 +67,25 @@ public class Deck : MonoBehaviour
             for (int i = 0; i <= availableCardSlots; i++)
             {
                 Card randomCard = TrueDeckInCombat[Random.Range(0, TrueDeckInCombat.Count)];
-                if (i == 0 && SlotBool1 == false)
+                if (i == 0 && !SlotBool1)
                 {
                     Slot1.card = randomCard;
                     Slot1.actualizarinfodeUIdeCadaCarta();
                     SlotBool1 = true;
                 }
-                else if (i == 1 && SlotBool2 == false)
+                else if (i == 1 && !SlotBool2)
                 {
                     Slot2.card = randomCard;
                     Slot2.actualizarinfodeUIdeCadaCarta();
                     SlotBool2 = true;
                 }
-                else if (i == 2 && SlotBool3 == false)
+                else if (i == 2 && !SlotBool3)
                 {
                     Slot3.card = randomCard;
                     Slot3.actualizarinfodeUIdeCadaCarta();
                     SlotBool3 = true;
                 }
-
             }
-
         }
-
-
     }
 }

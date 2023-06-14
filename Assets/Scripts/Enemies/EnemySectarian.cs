@@ -53,8 +53,6 @@ public class EnemySectarian : Enemy
     }
     public void BasicDamage()
     {
-        //player._maxhealth -= 3;
-      
         PlayerStadisticsScript.health -= 3;
         Debug.Log("El enemigo inflingio 3 de daño al jugador con un ataque basico");
        
@@ -62,8 +60,6 @@ public class EnemySectarian : Enemy
     }
     public void HeavyDamage()
     {
-        //player._maxhealth -= 5;
-        
         PlayerStadisticsScript.health -= 5;
         Debug.Log("El enemigo inflingio 5 de daño al jugador con un golpe pesado");
        

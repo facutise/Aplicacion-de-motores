@@ -16,11 +16,9 @@ public class inventoryObjectsActions : MonoBehaviour
     public GameObject[] cardsOnInventory;
     public bool[] ActivatorsOfCards;
     public int CardsOnCountdown;
-    // private bool inventoryTutorialTrigger = false;
 
     AudioSource MyAudioSource;
     public AudioClip OpenCardBox;
-
 
     public int HealthPotions;
     public StadisticPlayer StadisticPlayerScript;
@@ -30,20 +28,17 @@ public class inventoryObjectsActions : MonoBehaviour
     public GameObject DoorHolder;
 
     public ParticleSystem healthPotionParticles;
-
     public ParticleSystem healthPotionMiniParticles;
 
     public Light healthPotionLight;
-
     public Light lightCardbox;
-
     public Light demonWhispersLight;
 
     public Animator animationDoor;
+
     private void Awake()
     {
         MyAudioSource = GetComponent<AudioSource>();
-       
     }
 
     public void PlayAudioInventory(AudioClip AC)
@@ -51,19 +46,18 @@ public class inventoryObjectsActions : MonoBehaviour
         MyAudioSource.clip = AC;
         MyAudioSource.Play();
     }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.H) && HealthPotions > 0 && combatpositionscript.CombatON == true)
         {
-            // Llamar a tu función aquí
-            //TuFuncion();
             StadisticPlayerScript.health += 10;
             HealthPotions -= 1;
             HealthPotionParticles.Play();
             Debug.Log("Te has curado 10 puntos de salud con una mejora de salud");
-
         }
     }
+
     public void UsePotion()
     {
         if (HealthPotions > 0 && combatpositionscript.CombatON == true)
@@ -82,10 +76,6 @@ public class inventoryObjectsActions : MonoBehaviour
             ActivatorsOfCards[CardsOnCountdown] = true;
             cardsOnInventory[CardsOnCountdown].gameObject.SetActive(ActivatorsOfCards[CardsOnCountdown]);
             Debug.Log("Has obtenido una nueva carta [i] para ver el inventario");
-            /*if (inventoryTutorialTrigger == false)
-            {
-                inventoryTutorialTrigger = true;
-            //}*/
             Destroy(other.gameObject);
 
             CardsOnCountdown += 1;
@@ -128,7 +118,6 @@ public class inventoryObjectsActions : MonoBehaviour
         }
         if (other.gameObject.layer == 8)
         {
-            //llave
             KeyForTheBlackDoor = 1;
             Destroy(other.gameObject);
         }
@@ -138,7 +127,6 @@ public class inventoryObjectsActions : MonoBehaviour
             if (KeyForTheBlackDoor == 1)
             {
                 animationDoor.Play("AnimationDoor");
-                // Destroy(other.gameObject);
                 Destroy(DoorHolder);
             }
 
@@ -147,55 +135,17 @@ public class inventoryObjectsActions : MonoBehaviour
         {
             menumanagerscript.Restartscene();
         }
-
-
     }
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.layer == 15)
         {
-
             lightCardbox.enabled = false;
         }
         if (other.gameObject.layer == 6)
         {
-
             demonWhispersLight.enabled = false;
         }
     }
-
-    /*private void Update()
-    {
-        if(combatMode == true)
-        {
-            fightStarts();
-        }
-        if (aldeano.health <= 0)
-        {
-            fightIsOver();
-        }
-        if (isfrozen == true)
-        {
-           
-        }
-        player2.frozee();
-    }
-
-    public void isFreeze()
-    {
-        isfrozen = true;
-    }
-    public void fightStarts()
-    {
-        transform.LookAt(enemy.transform);
-        mainCameraa.transform.LookAt(enemy.transform);
-        isFreeze();
-        //transicion de cámara
-
-    }
-    public void fightIsOver()
-    {
-        isfrozen = false;
-        //transicion de cámara
-    }*/
 }

@@ -53,21 +53,15 @@ public class EnemyTank : Enemy
     }
     public void BasicDamage()
     {
-        //player._maxhealth -= 4;
-        
         PlayerStadisticsScript.health -= 4;
         Debug.Log("El enemigo inflingio 4 de daño al jugador con un ataque basico");
         PlayBasicAttackParticles();
-
     }
     public void HeavyDamage()
     {
-        //player._maxhealth -= 6;
-       
         PlayerStadisticsScript.health -= 6;
         Debug.Log("El enemigo inflingio 6 de daño al jugador con un golpe pesado");
         PlayHeavyAttackParticles();
-
     }
     public void Regeneration()
     {

@@ -24,17 +24,7 @@ public class Combat : MonoBehaviour
     public ParticleSystem damageparticleSlot4_Combate3;
     public ParticleSystem damageparticleSlot5_Combate3;
     public ParticleSystem damageparticleSlot6_Combate3;
-    //public ParticleSystem ataqueEnemy1;
-    //public ParticleSystem ataqueEnemigo2;
-    //public ParticleSystem ataqueEnemy1_Combate2;
-    //public ParticleSystem ataqueEnemigo2_Combate2;
-    //public ParticleSystem ataqueEnemy1_Combate3;
-    //public ParticleSystem ataqueEnemigo2_Combate3;
-    //int contador;
-    //public EnemyAldeano enemyaldean;
     public Enemy enemyy;
-    //private CombatPosition combat;
-    //private bool combatmode = false;
     int playercontador;
     public Deck deckscript;
     public CardDisplay carddisplayscriptinSlot1;
@@ -67,7 +57,6 @@ public class Combat : MonoBehaviour
     public StadisticPlayer PlayerStadisticsScript;
 
     public CanvasGroup[] TheCanvasesForFade;
-    //int MoreVigorPerRound=10;
 
     public object WaitForSeconds3 { get; private set; }
 
@@ -122,21 +111,6 @@ public class Combat : MonoBehaviour
     {
         enemyy = enemy;
     }
-    /*public void carddmg()
-    {
-        if (contador == 0)
-        {
-            enemyaldean.health -= 2;
-            Debug.Log("El player inflingio 2 de daño");
-            Debug.Log("Al enemigo le queda " + enemyaldean.health + " de vida ");
-            contador += 1;
-
-        }
-    }*/
-    /*public void combatmodeON()
-    {
-        combatmode = true;
-    }*/
     public void Enemydealsdamage()
     {
         if (enemyattack == true)
@@ -182,18 +156,6 @@ public class Combat : MonoBehaviour
             enemyattack = false;
             Debug.Log("Final del turno");
             Debug.Log("Inicio el siguiente turno");
-            //if (enemyy.attackType == 1)
-            //{
-            //    ataqueEnemy1.Play();
-            //    ataqueEnemy1_Combate2.Play();
-            //    ataqueEnemy1_Combate3.Play();
-            //}
-            //else if (enemyy.attackType == 2)
-            //{
-            //    ataqueEnemigo2.Play();
-            //    ataqueEnemigo2_Combate2.Play();
-            //    ataqueEnemigo2_Combate3.Play();
-            //}
         }
     }
     public void EndOfCombat()
@@ -207,7 +169,6 @@ public class Combat : MonoBehaviour
             button4.interactable = true;
             button5.interactable = true;
             button6.interactable = true;
-            //contador = 0;
             playercontador = 0;
             deckscript.DrawCards();
             VigorDeckScript.DrawCards();
@@ -267,9 +228,6 @@ public class Combat : MonoBehaviour
         TheCanvasesForFade[0].alpha = 1;
         yield return null;
     }
-
-
-
     IEnumerator FadeAnimSlot2(int myplace)
     {
         float alpha = 1;
@@ -297,7 +255,6 @@ public class Combat : MonoBehaviour
         TheCanvasesForFade[myplace].alpha = 1;
         yield return null;
     }
-
     IEnumerator FadeAnimSlot3(int myplace)
     {
         float alpha = 1;
@@ -325,7 +282,6 @@ public class Combat : MonoBehaviour
         TheCanvasesForFade[myplace].alpha = 1;
         yield return null;
     }
-
     IEnumerator FadeAnimSlot4(int myplace)
     {
         float alpha = 1;
@@ -349,7 +305,6 @@ public class Combat : MonoBehaviour
         TheCanvasesForFade[myplace].alpha = 1;
         yield return null;
     }
-
     IEnumerator FadeAnimSlot5(int myplace)
     {
         float alpha = 1;
@@ -373,7 +328,6 @@ public class Combat : MonoBehaviour
         TheCanvasesForFade[myplace].alpha = 1;
         yield return null;
     }
-
     IEnumerator FadeAnimSlot6(int myplace)
     {
         float alpha = 1;
@@ -397,12 +351,6 @@ public class Combat : MonoBehaviour
         TheCanvasesForFade[myplace].alpha = 1;
         yield return null;
     }
-
-
-
-
-
-
     public void clickonslotone()
     {
         if (carddisplayscriptinSlot1.myslot == 1 && playercontador == 0)

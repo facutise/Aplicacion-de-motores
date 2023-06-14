@@ -11,10 +11,6 @@ public class Enemy : MonoBehaviour
     public string tipodeenemigo;
     public StadisticPlayer PlayerStadisticsScript;
 
-
-
-
-
     public Transform ataqueEnemy1SpawnPoint;
     public Transform ataqueEnemigo2SpawnPoint;
     public Transform ataqueEnemy1SpawnPoint_Combate2;
@@ -32,8 +28,6 @@ public class Enemy : MonoBehaviour
     private ParticleSystem ataqueEnemigo2_combate3;
     private ParticleSystem debris_combate3;
 
-
-
     public virtual void Start()
     {
         Enemyapears();
@@ -41,9 +35,7 @@ public class Enemy : MonoBehaviour
 
         if (PlayerObject != null)
         {
-            // Obtener la referencia al script "OtroScript" en el objeto encontrado
             combat = PlayerObject.GetComponent<Combat>();
-
         }
 
         ataqueEnemy1 = GameObject.Find("AtaqueEnemy1").GetComponent<ParticleSystem>();
@@ -56,8 +48,7 @@ public class Enemy : MonoBehaviour
         ataqueEnemigo2_combate3 = GameObject.Find("AtaqueEnemigo2_Combat3").GetComponent<ParticleSystem>();
         debris_combate3 = GameObject.Find("Debris_Combat3").GetComponent<ParticleSystem>();
 
-
-        ataqueEnemy1.Stop(); 
+        ataqueEnemy1.Stop();
         ataqueEnemigo2.Stop();
         debris.Stop();
         ataqueEnemy1_combate2.Stop();
@@ -67,33 +58,38 @@ public class Enemy : MonoBehaviour
         ataqueEnemigo2_combate3.Stop();
         debris_combate3.Stop();
     }
+
     void Enemyapears()
     {
         Debug.Log("Aparecio un " + tipodeenemigo);
     }
+
     private void Update()
     {
         EnemyDies();
     }
+
     public virtual void Enemyturn()
     {
 
     }
-    
+
     public void Setcombat(CombatPosition combatPosition)
     {
         _combatposition = combatPosition;
     }
+
     public void SetPlayer(StadisticPlayer playerreference)
     {
         PlayerStadisticsScript = playerreference;
     }
+
     public virtual void EnemyDies()
     {
         if (health <= 0)
         {
-            combat.EndOfCombat();//prueba
-            PlayerStadisticsScript.vigor = 3;//prueba
+            combat.EndOfCombat();
+            PlayerStadisticsScript.vigor = 3;
             _combatposition.salircombate();
             Destroy(gameObject);
         }
@@ -104,7 +100,6 @@ public class Enemy : MonoBehaviour
         ataqueEnemy1.Play();
         ataqueEnemy1_combate2.Play();
         ataqueEnemy1_combate3.Play();
-
     }
 
     public void PlayHeavyAttackParticles()
@@ -116,6 +111,5 @@ public class Enemy : MonoBehaviour
         debris.Play();
         debris_combate2.Play();
         debris_combate3.Play();
-
     }
 }
