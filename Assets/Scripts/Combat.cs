@@ -25,7 +25,7 @@ public class Combat : MonoBehaviour
     public ParticleSystem damageparticleSlot6_Combate3;
     [SerializeField]
     private ParticleSystem[] DamageParticlesInTheCombats;
-    
+
 
 
     public CardDisplay carddisplayscriptinSlot1;
@@ -83,15 +83,12 @@ public class Combat : MonoBehaviour
     public Deck deckscript;
     private Player player;
     public object WaitForSeconds3 { get; private set; }
-    void Start()
+
+    public void ActivateOrDeactivateCardInTheSlot(int MyCardOrangeAndCardUsedInTheArray)//Nuevo metodo para reemplazar los de abajo
     {
-
+        CardsHadBeenUsed[MyCardOrangeAndCardUsedInTheArray] = !CardsHadBeenUsed[MyCardOrangeAndCardUsedInTheArray];
+        OrangeCards[MyCardOrangeAndCardUsedInTheArray].gameObject.SetActive(CardsHadBeenUsed[MyCardOrangeAndCardUsedInTheArray]);
     }
-    void Update()
-    {
-
-    }
-
     public void activaryDesactivarCartaAlUsarlaSlot1()
     {
         cartafueUsada = !cartafueUsada;
@@ -138,21 +135,33 @@ public class Combat : MonoBehaviour
     {
         if (enemyattack == true)
         {
+            for(int i = 0; i <= ButtonsofSlot.Length; i++)//NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
+            {
+                ButtonsofSlot[i].interactable = true;
+            }
+            
             PlayerStadisticsScript.vigor += 1;
-            button1.interactable = true;
+           /* button1.interactable = true;
             button2.interactable = true;
             button3.interactable = true;
             button4.interactable = true;
             button5.interactable = true;
-            button6.interactable = true;
+            button6.interactable = true;*/
 
             enemyy.Enemyturn();
-            //contador = 0;
             playercontador = 0;
             deckscript.DrawCards();
             VigorDeckScript.DrawCards();
 
-            if (cartafueUsada == false)
+            for (int i = 0; i <= 6; i++)//NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
+            {
+                if (CardsHadBeenUsed[i] == false)
+                {
+                    ActivateOrDeactivateCardInTheSlot(i);
+                }
+            }
+
+            /*if (cartafueUsada == false)
             {
                 activaryDesactivarCartaAlUsarlaSlot1();
             }
@@ -176,6 +185,7 @@ public class Combat : MonoBehaviour
             {
                 activaryDesactivarCartaAlUsarlaSlot6();
             }
+            */
             enemyattack = false;
             Debug.Log("Final del turno");
             Debug.Log("Inicio el siguiente turno");
@@ -186,17 +196,31 @@ public class Combat : MonoBehaviour
         if (enemyattack == true)
         {
             PlayerStadisticsScript.vigor += 1;
-            button1.interactable = true;
+
+            for (int i = 0; i <= ButtonsofSlot.Length; i++)//NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
+            {
+                ButtonsofSlot[i].interactable = true;
+            }
+            /*button1.interactable = true;
             button2.interactable = true;
             button3.interactable = true;
             button4.interactable = true;
             button5.interactable = true;
-            button6.interactable = true;
+            button6.interactable = true;*/
             playercontador = 0;
             deckscript.DrawCards();
             VigorDeckScript.DrawCards();
 
-            if (cartafueUsada == false)
+            for (int i = 0; i <= 6; i++)//NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
+            {
+                if (CardsHadBeenUsed[i] == false)
+                {
+                    ActivateOrDeactivateCardInTheSlot(i);
+                }
+            }
+            enemyattack = false;
+
+            /*if (cartafueUsada == false)
             {
                 activaryDesactivarCartaAlUsarlaSlot1();
             }
@@ -219,11 +243,18 @@ public class Combat : MonoBehaviour
             if (cartafueUsada6 == false)
             {
                 activaryDesactivarCartaAlUsarlaSlot6();
-            }
-            enemyattack = false;
+            }*/
+
 
         }
     }
+
+    /*IEnumerator CardFunctionAndFade(int TheSlotClicked)                    //FUNCIÓN AÚN EN PRUEBA PARA REEMPLAZAR LOS FadeAnimSlot
+    {
+
+    }
+    */
+
     IEnumerator FadeAnimSlot1(int myplace)
     {
         float alpha = 1;
