@@ -138,7 +138,7 @@ public class Combat : MonoBehaviour
     {
         if (enemyattack == true)
         {
-            for (int i = 0; i <= 5; i++)                                                   //NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
+            for (int i = 0; i < 5; i++)                                                   //NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
             {
                 ButtonsofSlot[i].interactable = true;
             }
@@ -156,7 +156,7 @@ public class Combat : MonoBehaviour
             deckscript.TheUltimateDrawCards();
             VigorDeckScript.VigorDrawCards();
 
-            for (int i = 0; i <= 6; i++)                                                          //NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
+            for (int i = 0; i < 6; i++)                                                          //NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
             {
                 if (CardsHadBeenUsed[i] == false)
                 {
@@ -200,7 +200,7 @@ public class Combat : MonoBehaviour
         {
             PlayerStadisticsScript.vigor += 1;
 
-            for (int i = 0; i <= 5; i++)//NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
+            for (int i = 0; i < 5; i++)//NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
             {
                 ButtonsofSlot[i].interactable = true;
             }
@@ -214,7 +214,7 @@ public class Combat : MonoBehaviour
             deckscript.TheUltimateDrawCards();
             VigorDeckScript.VigorDrawCards();
 
-            for (int i = 0; i <= 6; i++)//NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
+            for (int i = 0; i < 6; i++)//NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
             {
                 if (CardsHadBeenUsed[i] == false)
                 {
