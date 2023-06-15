@@ -91,8 +91,8 @@ public class CombatPosition : MonoBehaviour
         mainCamera.transform.LookAt(enemytransf);
         playerRB.constraints = RigidbodyConstraints.FreezeAll;
         Debug.Log("Entraste en combate");
-        deckscript.DrawCards();
-        vigordeckscript.DrawCards();
+        deckscript.TheUltimateDrawCards();
+        vigordeckscript.VigorDrawCards();
         CombatON = true;
     }
 

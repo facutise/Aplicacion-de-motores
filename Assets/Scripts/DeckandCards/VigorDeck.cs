@@ -7,13 +7,19 @@ using UnityEngine.UI;
 public class VigorDeck : MonoBehaviour
 {
     public VigorCards[] _deck;
-    private int availableCardSlots = 3;
+    
     public VigorCardsDisplay Slot4;
     public VigorCardsDisplay Slot5;
     public VigorCardsDisplay Slot6;
+    [SerializeField]
+    public VigorCardsDisplay[] VigorCardDisplaysScripts;
+
     public bool SlotBool4 = false;
     public bool SlotBool5 = false;
     public bool SlotBool6 = false;
+    [SerializeField]
+    public bool[] SlotBools;
+
     public VigorCards[] DeckOfTheVigorDeck;
     public bool[] EquipOrUnequipTheCardBool;
     public List<VigorCards> TrueVigorDeckInCombat = new List<VigorCards>();
@@ -68,11 +74,11 @@ public class VigorDeck : MonoBehaviour
         return contadorNoNulos;
     }
 
-    public void DrawCards()
+    public void VigorDrawCards()
     {
-        if (TrueVigorDeckInCombat.Count >= 1)
+        /*if (TrueVigorDeckInCombat.Count >= 1)
         {
-            for (int i = 0; i <= availableCardSlots; i++)
+            for (int i = 0; i <= 3; i++)
             {
                 VigorCards randomCard = TrueVigorDeckInCombat[Random.Range(0, TrueVigorDeckInCombat.Count)];
                 if (i == 0 && SlotBool4 == false)
@@ -96,6 +102,35 @@ public class VigorDeck : MonoBehaviour
 
             }
 
+        }
+        */
+
+        if (TrueVigorDeckInCombat.Count >= 1)
+        {
+            for (int i = 0; i <= 2; i++)
+            {
+                VigorCards randomCard = TrueVigorDeckInCombat[Random.Range(0, TrueVigorDeckInCombat.Count)];
+                if (i == 0 && !SlotBools[i])
+                {
+                    VigorCardDisplaysScripts[i].card = randomCard;
+                    VigorCardDisplaysScripts[i].actualizarinfodeUIdeCadaCarta();
+                    SlotBools[i] = true;
+                }
+
+                else if (i == 1 && !SlotBools[i])
+                {
+                    VigorCardDisplaysScripts[i].card = randomCard;
+                    VigorCardDisplaysScripts[i].actualizarinfodeUIdeCadaCarta();
+                    SlotBools[i] = true;
+                }
+                else if (i == 2 && !SlotBools[i])
+                {
+                    VigorCardDisplaysScripts[i].card = randomCard;
+                    VigorCardDisplaysScripts[i].actualizarinfodeUIdeCadaCarta();
+                    SlotBools[i] = true;
+                }
+
+            }
         }
 
 

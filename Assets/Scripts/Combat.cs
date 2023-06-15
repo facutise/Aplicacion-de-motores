@@ -82,13 +82,16 @@ public class Combat : MonoBehaviour
     int playercontador;
     public Deck deckscript;
     private Player player;
+
+
     public object WaitForSeconds3 { get; private set; }
 
-    public void ActivateOrDeactivateCardInTheSlot(int MyCardOrangeAndCardUsedInTheArray)//Nuevo metodo para reemplazar los de abajo
+    public void ActivateOrDeactivateCardInTheSlot(int MyCardOrangeAndCardUsedInTheArray)                            //NUEVO METODO PARA REEMPLAZAR LO DE ABAJO
     {
         CardsHadBeenUsed[MyCardOrangeAndCardUsedInTheArray] = !CardsHadBeenUsed[MyCardOrangeAndCardUsedInTheArray];
         OrangeCards[MyCardOrangeAndCardUsedInTheArray].gameObject.SetActive(CardsHadBeenUsed[MyCardOrangeAndCardUsedInTheArray]);
     }
+   /*
     public void activaryDesactivarCartaAlUsarlaSlot1()
     {
         cartafueUsada = !cartafueUsada;
@@ -125,7 +128,7 @@ public class Combat : MonoBehaviour
         cartafueUsada6 = !cartafueUsada6;
         cardOrange6.gameObject.SetActive(cartafueUsada6);
 
-    }
+    }*/
 
     public void setenemy(Enemy enemy)
     {
@@ -135,25 +138,25 @@ public class Combat : MonoBehaviour
     {
         if (enemyattack == true)
         {
-            for(int i = 0; i <= ButtonsofSlot.Length; i++)//NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
+            for (int i = 0; i <= 5; i++)                                                   //NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
             {
                 ButtonsofSlot[i].interactable = true;
             }
-            
+
             PlayerStadisticsScript.vigor += 1;
-           /* button1.interactable = true;
-            button2.interactable = true;
-            button3.interactable = true;
-            button4.interactable = true;
-            button5.interactable = true;
-            button6.interactable = true;*/
+            /* button1.interactable = true;
+             button2.interactable = true;
+             button3.interactable = true;
+             button4.interactable = true;
+             button5.interactable = true;
+             button6.interactable = true;*/
 
             enemyy.Enemyturn();
             playercontador = 0;
-            deckscript.DrawCards();
-            VigorDeckScript.DrawCards();
+            deckscript.TheUltimateDrawCards();
+            VigorDeckScript.VigorDrawCards();
 
-            for (int i = 0; i <= 6; i++)//NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
+            for (int i = 0; i <= 6; i++)                                                          //NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
             {
                 if (CardsHadBeenUsed[i] == false)
                 {
@@ -197,7 +200,7 @@ public class Combat : MonoBehaviour
         {
             PlayerStadisticsScript.vigor += 1;
 
-            for (int i = 0; i <= ButtonsofSlot.Length; i++)//NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
+            for (int i = 0; i <= 5; i++)//NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
             {
                 ButtonsofSlot[i].interactable = true;
             }
@@ -208,8 +211,8 @@ public class Combat : MonoBehaviour
             button5.interactable = true;
             button6.interactable = true;*/
             playercontador = 0;
-            deckscript.DrawCards();
-            VigorDeckScript.DrawCards();
+            deckscript.TheUltimateDrawCards();
+            VigorDeckScript.VigorDrawCards();
 
             for (int i = 0; i <= 6; i++)//NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
             {
@@ -249,11 +252,59 @@ public class Combat : MonoBehaviour
         }
     }
 
-    /*IEnumerator CardFunctionAndFade(int TheSlotClicked)                    //FUNCIÓN AÚN EN PRUEBA PARA REEMPLAZAR LOS FadeAnimSlot
+    public void UltimateClickOnSlot(int MySlot)  //PRUEBA RENDIMIENTO
     {
+        StartCoroutine(CardFunctionAndFade(MySlot));
 
     }
-    */
+    IEnumerator CardFunctionAndFade(int TheSlotClicked)                    //FUNCIÓN AÚN EN PRUEBA PARA REEMPLAZAR LOS FadeAnimSlot
+    {
+        float AlphaFloat = 1;
+
+        while (AlphaFloat >= 0)
+        {
+            AlphaFloat -= 0.1f;
+            yield return new WaitForEndOfFrame();
+            TheCanvasesForFade[TheSlotClicked].alpha = AlphaFloat;
+        }
+        if (TheSlotClicked <= 2)
+        {
+            deckscript.SlotBools[TheSlotClicked] = false;
+            int carddmgtrue = CardDisplayScriptsInTheSlots[TheSlotClicked].Thecarddmg();
+            enemyy.health -= carddmgtrue;
+            CardDisplayScriptsInTheSlots[TheSlotClicked].ejecutarpasivadelacarta();
+            //particulas
+            enemyattack = true;
+            playercontador = 1;
+            deckscript.TheUltimateDrawCards();
+            ActivateOrDeactivateCardInTheSlot(TheSlotClicked);
+            ButtonsofSlot[TheSlotClicked].interactable = false;
+            TheCanvasesForFade[TheSlotClicked].alpha = 1;
+
+        }
+        else if (TheSlotClicked > 2)
+        {
+
+            PlayerStadisticsScript.vigor -= VigorCardDisplayScriptsInTheSlots[TheSlotClicked].actualizarinformacióncostedeVigor();
+            VigorCardDisplayScriptsInTheSlots[TheSlotClicked].ejecutarpasivadelacartadevigor();
+            ActivateOrDeactivateCardInTheSlot(TheSlotClicked);
+            ButtonsofSlot[TheSlotClicked].interactable = false;
+            VigorDeckScript.SlotBools[TheSlotClicked] = false;
+            //damagePartciles
+            TheCanvasesForFade[TheSlotClicked].alpha = 1;
+
+        }
+        yield return null;
+    }
+
+
+
+
+
+
+
+
+    /*
 
     IEnumerator FadeAnimSlot1(int myplace)
     {
@@ -276,7 +327,7 @@ public class Combat : MonoBehaviour
         Debug.Log("Al enemigo le queda " + enemyy.health + " de vida ");
         enemyattack = true;
         playercontador = 1;
-        deckscript.DrawCards();
+        deckscript.TheUltimateDrawCards();
         activaryDesactivarCartaAlUsarlaSlot1();
         button1.interactable = false;
         TheCanvasesForFade[0].alpha = 1;
@@ -405,6 +456,8 @@ public class Combat : MonoBehaviour
         TheCanvasesForFade[myplace].alpha = 1;
         yield return null;
     }
+
+
     public void clickonslotone()
     {
         if (carddisplayscriptinSlot1.myslot == 1 && playercontador == 0)
@@ -452,4 +505,5 @@ public class Combat : MonoBehaviour
 
         }
     }
+    */
 }

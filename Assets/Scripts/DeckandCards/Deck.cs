@@ -7,12 +7,20 @@ public class Deck : MonoBehaviour
 {
     public Card[] _deck;
     private int availableCardSlots = 3;
+
+
     public CardDisplay Slot1;
     public CardDisplay Slot2;
     public CardDisplay Slot3;
+    [SerializeField]
+    public CardDisplay[] CarddisplaysScriptsInTheSlots;
+
     public bool SlotBool1 = false;
     public bool SlotBool2 = false;
     public bool SlotBool3 = false;
+    [SerializeField]
+    public bool[] SlotBools;
+
     public Card[] DeckOfTheDeck;
     public bool[] EquipOrUnequipTheNormalCardBool;
     public List<Card> TrueDeckInCombat = new List<Card>();
@@ -60,9 +68,41 @@ public class Deck : MonoBehaviour
         return contadorNoNulos;
     }
 
-    public void DrawCards()
+    /*public void UltimateDrawCards(int MyPlace)
     {
         if (TrueDeckInCombat.Count >= 1)
+        {
+            for (int i = 0; i <= 3; i++)
+            {
+                Card randomCard = TrueDeckInCombat[Random.Range(0, TrueDeckInCombat.Count)];
+                if (i == 0 && !SlotBools[i])
+                {
+                    CarddisplaysScriptsInTheSlots[i].card = randomCard;
+                    CarddisplaysScriptsInTheSlots[i].actualizarinfodeUIdeCadaCarta();
+                    SlotBools[i] = true;
+                }
+
+                else if (i == 2 && !SlotBools[i])
+                {
+                    CarddisplaysScriptsInTheSlots[i].card = randomCard;
+                    CarddisplaysScriptsInTheSlots[i].actualizarinfodeUIdeCadaCarta();
+                    SlotBools[i] = true;
+                }
+                else if (i == 3 && !SlotBools[i])
+                {
+                    CarddisplaysScriptsInTheSlots[i].card = randomCard;
+                    CarddisplaysScriptsInTheSlots[i].actualizarinfodeUIdeCadaCarta();
+                    SlotBools[i] = true;
+                }
+
+            }
+        }
+
+    }*/
+
+    public void TheUltimateDrawCards()
+    {
+        /*if (TrueDeckInCombat.Count >= 1)
         {
             for (int i = 0; i <= availableCardSlots; i++)
             {
@@ -86,6 +126,34 @@ public class Deck : MonoBehaviour
                     SlotBool3 = true;
                 }
             }
+        }*/
+        if (TrueDeckInCombat.Count >= 1)
+        {
+            for (int i = 0; i <= 2; i++)
+            {
+                Card randomCard = TrueDeckInCombat[Random.Range(0, TrueDeckInCombat.Count)];
+                if (i == 0 && !SlotBools[i])
+                {
+                    CarddisplaysScriptsInTheSlots[i].card = randomCard;
+                    CarddisplaysScriptsInTheSlots[i].actualizarinfodeUIdeCadaCarta();
+                    SlotBools[i] = true;
+                }
+
+                else if (i == 1 && !SlotBools[i])
+                {
+                    CarddisplaysScriptsInTheSlots[i].card = randomCard;
+                    CarddisplaysScriptsInTheSlots[i].actualizarinfodeUIdeCadaCarta();
+                    SlotBools[i] = true;
+                }
+                else if (i == 2 && !SlotBools[i])
+                {
+                    CarddisplaysScriptsInTheSlots[i].card = randomCard;
+                    CarddisplaysScriptsInTheSlots[i].actualizarinfodeUIdeCadaCarta();
+                    SlotBools[i] = true;
+                }
+
+            }
         }
+
     }
 }
