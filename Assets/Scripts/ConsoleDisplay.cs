@@ -12,7 +12,7 @@ public class ConsoleDisplay : MonoBehaviour
     private List<MessageInfo> logMessages;
     private Coroutine clearConsoleCoroutine;
 
-    private class MessageInfo
+    private struct MessageInfo
     {
         public string message;
         public float startTime;
