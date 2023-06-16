@@ -6,27 +6,28 @@ using UnityEngine.UI;
 
 public class VigorDeck : MonoBehaviour
 {
-    public VigorCards[] _deck;
+    /*public VigorCards[] _deck;
     
     public VigorCardsDisplay Slot4;
     public VigorCardsDisplay Slot5;
-    public VigorCardsDisplay Slot6;
+    public VigorCardsDisplay Slot6;*/
     [SerializeField]
     public VigorCardsDisplay[] VigorCardDisplaysScripts;
 
-    public bool SlotBool4 = false;
+    /*public bool SlotBool4 = false;
     public bool SlotBool5 = false;
-    public bool SlotBool6 = false;
+    public bool SlotBool6 = false;*/
     [SerializeField]
     public bool[] SlotBools;
 
     public VigorCards[] DeckOfTheVigorDeck;
     public bool[] EquipOrUnequipTheCardBool;
-    public List<VigorCards> TrueVigorDeckInCombat = new List<VigorCards>();
+    [SerializeField]
+    private List<VigorCards> TrueVigorDeckInCombat = new List<VigorCards>();
 
     private void Awake()
     {
-        _deck = Resources.FindObjectsOfTypeAll<VigorCards>();
+        //_deck = Resources.FindObjectsOfTypeAll<VigorCards>();
 
         //DeckOfTheDeck.CopyTo(_deck, 0);
         //DeckOfTheVigorDeck[2] = _deck[2];

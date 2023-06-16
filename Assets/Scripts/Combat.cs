@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Combat : MonoBehaviour
 {
-    public ParticleSystem damageParticleSlot1;
+    /*public ParticleSystem damageParticleSlot1;
     public ParticleSystem damageParticleSlot2;
     public ParticleSystem damageParticleSlot3;
     public ParticleSystem damageparticleSlot4;
@@ -22,66 +22,71 @@ public class Combat : MonoBehaviour
     public ParticleSystem damageParticleSlot3_Combate3;
     public ParticleSystem damageparticleSlot4_Combate3;
     public ParticleSystem damageparticleSlot5_Combate3;
-    public ParticleSystem damageparticleSlot6_Combate3;
+    public ParticleSystem damageparticleSlot6_Combate3;*/
     [SerializeField]
     private ParticleSystem[] DamageParticlesInTheCombats;
 
 
 
-    public CardDisplay carddisplayscriptinSlot1;
+    /*public CardDisplay carddisplayscriptinSlot1;
     public CardDisplay carddisplayscriptinSlot2;
-    public CardDisplay carddisplayscriptinSlot3;
+    public CardDisplay carddisplayscriptinSlot3;*/
     [SerializeField]
     private CardDisplay[] CardDisplayScriptsInTheSlots;
 
 
-    public VigorCardsDisplay carddisplayscriptinSlot4;
+    /*public VigorCardsDisplay carddisplayscriptinSlot4;
     public VigorCardsDisplay carddisplayscriptinSlot5;
-    public VigorCardsDisplay carddisplayscriptinSlot6;
+    public VigorCardsDisplay carddisplayscriptinSlot6;*/
     [SerializeField]
     private VigorCardsDisplay[] VigorCardDisplayScriptsInTheSlots;
 
 
-    public Image cardOrange1;
+    /*public Image cardOrange1;
     public Image cardOrange2;
     public Image cardOrange3;
     public Image cardOrange4;
     public Image cardOrange5;
-    public Image cardOrange6;
+    public Image cardOrange6;*/
     [SerializeField]
     private Image[] OrangeCards;
 
 
-    public Button button1;
+    /*public Button button1;
     public Button button2;
     public Button button3;
     public Button button4;
     public Button button5;
-    public Button button6;
+    public Button button6;*/
     [SerializeField]
     private Button[] ButtonsofSlot;
 
-    private bool cartafueUsada = true;
+    /*private bool cartafueUsada = true;
     private bool cartafueUsada2 = true;
     private bool cartafueUsada3 = true;
     private bool cartafueUsada4 = true;
     private bool cartafueUsada5 = true;
-    private bool cartafueUsada6 = true;
+    private bool cartafueUsada6 = true;*/
     [SerializeField]
     private bool[] CardsHadBeenUsed;
 
 
     public CanvasGroup[] TheCanvasesForFade;
 
+    [SerializeField]
+    private Button passButton;
 
-    public Button passButton;
     private bool enemyattack = false;
-    public VigorDeck VigorDeckScript;
-    public StadisticPlayer PlayerStadisticsScript;
-    public Enemy enemyy;
-    int playercontador;
-    public Deck deckscript;
-    private Player player;
+    [SerializeField]
+    private VigorDeck VigorDeckScript;
+    [SerializeField]
+    private StadisticPlayer PlayerStadisticsScript;
+    [SerializeField]
+    private Enemy enemyy;
+    private int playercontador;
+    [SerializeField]
+    private Deck deckscript;
+    //private Player player;
 
 
     public object WaitForSeconds3 { get; private set; }

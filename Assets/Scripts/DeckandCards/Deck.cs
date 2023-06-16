@@ -5,30 +5,32 @@ using UnityEngine.UI;
 
 public class Deck : MonoBehaviour
 {
-    public Card[] _deck;
-    private int availableCardSlots = 3;
+    //public Card[] _deck;
 
 
-    public CardDisplay Slot1;
+
+    /*public CardDisplay Slot1;
     public CardDisplay Slot2;
-    public CardDisplay Slot3;
+    public CardDisplay Slot3;*/
     [SerializeField]
     public CardDisplay[] CarddisplaysScriptsInTheSlots;
 
-    public bool SlotBool1 = false;
+    /*public bool SlotBool1 = false;
     public bool SlotBool2 = false;
-    public bool SlotBool3 = false;
-    [SerializeField]
+    public bool SlotBool3 = false;*/
+
     public bool[] SlotBools;
 
     public Card[] DeckOfTheDeck;
-    public bool[] EquipOrUnequipTheNormalCardBool;
-    public List<Card> TrueDeckInCombat = new List<Card>();
 
-    private void Awake()
-    {
-        _deck = Resources.FindObjectsOfTypeAll<Card>();
-    }
+    public bool[] EquipOrUnequipTheNormalCardBool;
+    [SerializeField]
+    private List<Card> TrueDeckInCombat = new List<Card>();
+
+    /* private void Awake()
+     {
+         //_deck = Resources.FindObjectsOfTypeAll<Card>();
+     }*/
 
     public void BuildMyDeck(Card browser, int ThePlaceInArray)
     {
