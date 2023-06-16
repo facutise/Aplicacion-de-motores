@@ -91,44 +91,44 @@ public class Combat : MonoBehaviour
         CardsHadBeenUsed[MyCardOrangeAndCardUsedInTheArray] = !CardsHadBeenUsed[MyCardOrangeAndCardUsedInTheArray];
         OrangeCards[MyCardOrangeAndCardUsedInTheArray].gameObject.SetActive(CardsHadBeenUsed[MyCardOrangeAndCardUsedInTheArray]);
     }
-   /*
-    public void activaryDesactivarCartaAlUsarlaSlot1()
-    {
-        cartafueUsada = !cartafueUsada;
-        cardOrange1.gameObject.SetActive(cartafueUsada);
+    /*
+     public void activaryDesactivarCartaAlUsarlaSlot1()
+     {
+         cartafueUsada = !cartafueUsada;
+         cardOrange1.gameObject.SetActive(cartafueUsada);
 
-    }
-    public void activaryDesactivarCartaAlUsarlaSlot2()
-    {
-        cartafueUsada2 = !cartafueUsada2;
-        cardOrange2.gameObject.SetActive(cartafueUsada2);
+     }
+     public void activaryDesactivarCartaAlUsarlaSlot2()
+     {
+         cartafueUsada2 = !cartafueUsada2;
+         cardOrange2.gameObject.SetActive(cartafueUsada2);
 
-    }
-    public void activaryDesactivarCartaAlUsarlaSlot3()
-    {
-        cartafueUsada3 = !cartafueUsada3;
-        cardOrange3.gameObject.SetActive(cartafueUsada3);
+     }
+     public void activaryDesactivarCartaAlUsarlaSlot3()
+     {
+         cartafueUsada3 = !cartafueUsada3;
+         cardOrange3.gameObject.SetActive(cartafueUsada3);
 
-    }
+     }
 
-    public void activaryDesactivarCartaAlUsarlaSlot4()
-    {
-        cartafueUsada4 = !cartafueUsada4;
-        cardOrange4.gameObject.SetActive(cartafueUsada4);
+     public void activaryDesactivarCartaAlUsarlaSlot4()
+     {
+         cartafueUsada4 = !cartafueUsada4;
+         cardOrange4.gameObject.SetActive(cartafueUsada4);
 
-    }
-    public void activaryDesactivarCartaAlUsarlaSlot5()
-    {
-        cartafueUsada5 = !cartafueUsada5;
-        cardOrange5.gameObject.SetActive(cartafueUsada5);
+     }
+     public void activaryDesactivarCartaAlUsarlaSlot5()
+     {
+         cartafueUsada5 = !cartafueUsada5;
+         cardOrange5.gameObject.SetActive(cartafueUsada5);
 
-    }
-    public void activaryDesactivarCartaAlUsarlaSlot6()
-    {
-        cartafueUsada6 = !cartafueUsada6;
-        cardOrange6.gameObject.SetActive(cartafueUsada6);
+     }
+     public void activaryDesactivarCartaAlUsarlaSlot6()
+     {
+         cartafueUsada6 = !cartafueUsada6;
+         cardOrange6.gameObject.SetActive(cartafueUsada6);
 
-    }*/
+     }*/
 
     public void setenemy(Enemy enemy)
     {
@@ -138,7 +138,7 @@ public class Combat : MonoBehaviour
     {
         if (enemyattack == true)
         {
-            for (int i = 0; i < 5; i++)                                                   //NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
+            for (int i = 0; i < 6; i++)                                                   //NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
             {
                 ButtonsofSlot[i].interactable = true;
             }
@@ -200,7 +200,7 @@ public class Combat : MonoBehaviour
         {
             PlayerStadisticsScript.vigor += 1;
 
-            for (int i = 0; i < 5; i++)//NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
+            for (int i = 0; i < 6; i++)//NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
             {
                 ButtonsofSlot[i].interactable = true;
             }
@@ -259,16 +259,18 @@ public class Combat : MonoBehaviour
     }
     IEnumerator CardFunctionAndFade(int TheSlotClicked)                    //FUNCIÓN AÚN EN PRUEBA PARA REEMPLAZAR LOS FadeAnimSlot
     {
-        float AlphaFloat = 1;
+       
+        if (TheSlotClicked <= 2 && playercontador == 0)
+        {
+            float AlphaFloat = 1;
 
-        while (AlphaFloat >= 0)
-        {
-            AlphaFloat -= 0.1f;
-            yield return new WaitForEndOfFrame();
-            TheCanvasesForFade[TheSlotClicked].alpha = AlphaFloat;
-        }
-        if (TheSlotClicked <= 2)
-        {
+            while (AlphaFloat >= 0)
+            {
+                AlphaFloat -= 0.1f;
+                yield return new WaitForEndOfFrame();
+                TheCanvasesForFade[TheSlotClicked].alpha = AlphaFloat;
+            }
+
             deckscript.SlotBools[TheSlotClicked] = false;
             int carddmgtrue = CardDisplayScriptsInTheSlots[TheSlotClicked].Thecarddmg();
             enemyy.health -= carddmgtrue;
@@ -282,9 +284,16 @@ public class Combat : MonoBehaviour
             TheCanvasesForFade[TheSlotClicked].alpha = 1;
 
         }
-        else if (TheSlotClicked > 2)
+        else if (TheSlotClicked > 2 && PlayerStadisticsScript.vigor >= VigorCardDisplayScriptsInTheSlots[TheSlotClicked].actualizarinformacióncostedeVigor())
         {
+            float AlphaFloat = 1;
 
+            while (AlphaFloat >= 0)
+            {
+                AlphaFloat -= 0.1f;
+                yield return new WaitForEndOfFrame();
+                TheCanvasesForFade[TheSlotClicked].alpha = AlphaFloat;
+            }
             PlayerStadisticsScript.vigor -= VigorCardDisplayScriptsInTheSlots[TheSlotClicked].actualizarinformacióncostedeVigor();
             VigorCardDisplayScriptsInTheSlots[TheSlotClicked].ejecutarpasivadelacartadevigor();
             ActivateOrDeactivateCardInTheSlot(TheSlotClicked);

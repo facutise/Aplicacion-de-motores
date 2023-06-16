@@ -107,23 +107,23 @@ public class VigorDeck : MonoBehaviour
 
         if (TrueVigorDeckInCombat.Count >= 1)
         {
-            for (int i = 0; i <= 2; i++)
+            for (int i = 3; i <= 5; i++)
             {
                 VigorCards randomCard = TrueVigorDeckInCombat[Random.Range(0, TrueVigorDeckInCombat.Count)];
-                if (i == 0 && !SlotBools[i])
+                if (i == 3 && !SlotBools[i])
                 {
                     VigorCardDisplaysScripts[i].card = randomCard;
                     VigorCardDisplaysScripts[i].actualizarinfodeUIdeCadaCarta();
                     SlotBools[i] = true;
                 }
 
-                else if (i == 1 && !SlotBools[i])
+                else if (i == 4 && !SlotBools[i])
                 {
                     VigorCardDisplaysScripts[i].card = randomCard;
                     VigorCardDisplaysScripts[i].actualizarinfodeUIdeCadaCarta();
                     SlotBools[i] = true;
                 }
-                else if (i == 2 && !SlotBools[i])
+                else if (i == 5 && !SlotBools[i])
                 {
                     VigorCardDisplaysScripts[i].card = randomCard;
                     VigorCardDisplaysScripts[i].actualizarinfodeUIdeCadaCarta();
