@@ -3,7 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Deck : MonoBehaviour
+public interface IDeckable
+{
+    
+    public void CreateListOfMyCardBuildForCombat();
+
+    public void DrawCards();
+
+}
+
+public class Deck : MonoBehaviour,IDeckable
 {
     //public Card[] _deck;
 
@@ -47,7 +56,7 @@ public class Deck : MonoBehaviour
         }
     }
 
-    public void CreateListOfMyrCardsBuildForCombat()
+    public void CreateListOfMyCardBuildForCombat()
     {
         foreach (Card objeto in DeckOfTheDeck)
         {
@@ -58,7 +67,7 @@ public class Deck : MonoBehaviour
         }
     }
 
-    public int PermissionToLeaveTheInventoryMinimumDeckCards(Card[] deckOfTheDeck)
+    public int PermissionToLeaveTheInventory(Card[] deckOfTheDeck)
     {
         int contadorNoNulos = 0;
         foreach (Card objeto in deckOfTheDeck)
@@ -81,20 +90,20 @@ public class Deck : MonoBehaviour
                 if (i == 0 && !SlotBools[i])
                 {
                     CarddisplaysScriptsInTheSlots[i].card = randomCard;
-                    CarddisplaysScriptsInTheSlots[i].actualizarinfodeUIdeCadaCarta();
+                    CarddisplaysScriptsInTheSlots[i].TheVigorCostOfMyCard();
                     SlotBools[i] = true;
                 }
 
                 else if (i == 2 && !SlotBools[i])
                 {
                     CarddisplaysScriptsInTheSlots[i].card = randomCard;
-                    CarddisplaysScriptsInTheSlots[i].actualizarinfodeUIdeCadaCarta();
+                    CarddisplaysScriptsInTheSlots[i].TheVigorCostOfMyCard();
                     SlotBools[i] = true;
                 }
                 else if (i == 3 && !SlotBools[i])
                 {
                     CarddisplaysScriptsInTheSlots[i].card = randomCard;
-                    CarddisplaysScriptsInTheSlots[i].actualizarinfodeUIdeCadaCarta();
+                    CarddisplaysScriptsInTheSlots[i].TheVigorCostOfMyCard();
                     SlotBools[i] = true;
                 }
 
@@ -103,7 +112,7 @@ public class Deck : MonoBehaviour
 
     }*/
 
-    public void TheUltimateDrawCards()
+    public void DrawCards()
     {
         /*if (TrueDeckInCombat.Count >= 1)
         {
@@ -113,19 +122,19 @@ public class Deck : MonoBehaviour
                 if (i == 0 && !SlotBool1)
                 {
                     Slot1.card = randomCard;
-                    Slot1.actualizarinfodeUIdeCadaCarta();
+                    Slot1.TheVigorCostOfMyCard();
                     SlotBool1 = true;
                 }
                 else if (i == 1 && !SlotBool2)
                 {
                     Slot2.card = randomCard;
-                    Slot2.actualizarinfodeUIdeCadaCarta();
+                    Slot2.TheVigorCostOfMyCard();
                     SlotBool2 = true;
                 }
                 else if (i == 2 && !SlotBool3)
                 {
                     Slot3.card = randomCard;
-                    Slot3.actualizarinfodeUIdeCadaCarta();
+                    Slot3.TheVigorCostOfMyCard();
                     SlotBool3 = true;
                 }
             }
@@ -139,20 +148,20 @@ public class Deck : MonoBehaviour
                 {
                    
                     CarddisplaysScriptsInTheSlots[i].card = randomCard;
-                    CarddisplaysScriptsInTheSlots[i].actualizarinfodeUIdeCadaCarta();
+                    CarddisplaysScriptsInTheSlots[i].UpdateUiCardInfo();
                     SlotBools[i] = true;
                 }
 
                 else if (i == 1 && !SlotBools[i])
                 {
                     CarddisplaysScriptsInTheSlots[i].card = randomCard;
-                    CarddisplaysScriptsInTheSlots[i].actualizarinfodeUIdeCadaCarta();
+                    CarddisplaysScriptsInTheSlots[i].UpdateUiCardInfo();
                     SlotBools[i] = true;
                 }
                 else if (i == 2 && !SlotBools[i])
                 {
                     CarddisplaysScriptsInTheSlots[i].card = randomCard;
-                    CarddisplaysScriptsInTheSlots[i].actualizarinfodeUIdeCadaCarta();
+                    CarddisplaysScriptsInTheSlots[i].UpdateUiCardInfo();
                     SlotBools[i] = true;
                 }
 

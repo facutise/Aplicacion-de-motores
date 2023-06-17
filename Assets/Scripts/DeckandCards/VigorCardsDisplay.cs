@@ -3,29 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VigorCardsDisplay : MonoBehaviour
+public class VigorCardsDisplay : MonoBehaviour,IDisplayable
 {
     public VigorCards card;
-    public Text nametext;
-    public Text descriptiontext;
-    public Image image;
+    [SerializeField]
+    private Text nametext;
+    [SerializeField]
+    private Text descriptiontext;
+    [SerializeField]
+    private Image image;
 
+    
     public Text vigortext;
-    public VigorDeck vigorscriptdeck;
-    public int myslot;
+    [SerializeField]
+    private VigorDeck vigorscriptdeck;
+    [SerializeField]
+    private int myslot;
+    
     public int thevigorCostOfMyCard;
 
-    public string NombredelaCartadeVigoryEjecutarPasiva;
-    public Player player;
-    public StadisticPlayer stadisticplayerScipt;
+    
+    private string NameOfVigorCardAndExecutePassive;
+
+    //public Player player;
+    [SerializeField]
+    private StadisticPlayer stadisticplayerScipt;
+    
     private int SpiritGrowthStacks;
     private int ProtectionTottemStacks;
-    public Enemy enemyy;
-
-    public AudioSource MyAudioSource;
-    public AudioClip WarriorPendantAudio;
-    public AudioClip DeadEyeAudio;
-    public AudioClip CaosAudio;
+    [SerializeField]
+    private Enemy enemyy;
+    [SerializeField]
+    private AudioSource MyAudioSource;
+    [SerializeField]
+    private AudioClip WarriorPendantAudio;
+    [SerializeField]
+    private AudioClip DeadEyeAudio;
+    [SerializeField]
+    private AudioClip CaosAudio;
 
 
    // private void Awake()
@@ -48,11 +63,11 @@ public class VigorCardsDisplay : MonoBehaviour
         thevigorCostOfMyCard = card.vigorcost;
 
     }
-    public void setenemy(Enemy enemy)
+    public void SetEnemy(Enemy enemy)
     {
         enemyy = enemy;
     }
-    public void actualizarinfodeUIdeCadaCarta()
+    public void UpdateUiCardInfo()
     {
         nametext.text = card.name;
         descriptiontext.text = card.description;
@@ -60,26 +75,26 @@ public class VigorCardsDisplay : MonoBehaviour
 
         vigortext.text = card.vigorcost.ToString();
     }
-    public int actualizarinformacióncostedeVigor()
+    public int TheVigorCostOfMyCard()
     {
         thevigorCostOfMyCard = card.vigorcost;
         return (thevigorCostOfMyCard);
     }
-    public void ejecutarpasivadelacartadevigor()
+    public void ExecuteCardPassive()
     {
-        NombredelaCartadeVigoryEjecutarPasiva = card.name;
+        NameOfVigorCardAndExecutePassive = card.name;
 
-        switch (NombredelaCartadeVigoryEjecutarPasiva)
+        switch (NameOfVigorCardAndExecutePassive)
         {
             case "Warrior Pendant":
                 stadisticplayerScipt.health += 8;
-                protectiontottempasive();
+                ProtectionTottemPa();
                 PlayAudio(WarriorPendantAudio);
                 Debug.Log("te has curado 5 puntos de salud");
                 break;
             case "Senpukku":
 
-                protectiontottempasive();
+                ProtectionTottemPa();
                 enemyy.health -= 4;
                 if (stadisticplayerScipt.health <= 20)
                 {
@@ -90,7 +105,7 @@ public class VigorCardsDisplay : MonoBehaviour
             case "Sacrifice":
 
                 enemyy.health -= 12;
-                protectiontottempasive();
+                ProtectionTottemPa();
                 stadisticplayerScipt.health -= 3;
                 Debug.Log("te has inflingido daño pero mucho mas al enemigo");
                 break;
@@ -98,7 +113,7 @@ public class VigorCardsDisplay : MonoBehaviour
 
                 SpiritGrowthStacks += 1;
                 enemyy.health -= 1;
-                protectiontottempasive();
+                ProtectionTottemPa();
                 if (SpiritGrowthStacks >= 3)
                 {
                     enemyy.health -= 3;
@@ -107,12 +122,12 @@ public class VigorCardsDisplay : MonoBehaviour
                 break;
             case "Unbreakable":
                 stadisticplayerScipt.vigor += 5;
-                protectiontottempasive();
+                ProtectionTottemPa();
                 Debug.Log("te has aumentado 5 puntos de vigor");
                 break;
             case "Protection Tottem":
                 stadisticplayerScipt.health += 1;
-                protectiontottempasive();
+                ProtectionTottemPa();
                 Debug.Log("te has curado 1 puntos de salud");
                 ProtectionTottemStacks += 1;
                 if (ProtectionTottemStacks == 5)
@@ -122,7 +137,7 @@ public class VigorCardsDisplay : MonoBehaviour
                 break;
             case "Caos":
                 enemyy.health -= 9;
-                protectiontottempasive();
+                ProtectionTottemPa();
                 PlayAudio(CaosAudio);
                 Debug.Log("Has inflingido 9 de daño");
                 Debug.Log("Al enemigo le queda " + enemyy.health + " de vida ");
@@ -130,7 +145,7 @@ public class VigorCardsDisplay : MonoBehaviour
             case "Dead eye":
                 enemyy.health -= 7;
                 stadisticplayerScipt.health += 3;
-                protectiontottempasive();
+                ProtectionTottemPa();
                 PlayAudio(DeadEyeAudio);
                 Debug.Log("Has inflingido 7 de daño y te has curado 2 puntos de salud");
                 Debug.Log("Al enemigo le queda " + enemyy.health + " de vida ");
@@ -138,28 +153,28 @@ public class VigorCardsDisplay : MonoBehaviour
             case "Prominence burn":
                 enemyy.health -= 3;
                 stadisticplayerScipt.health += 3;
-                protectiontottempasive();
+                ProtectionTottemPa();
                 Debug.Log("Has inflingido 3 de daño y te has curado 3 puntos de salud");
                 Debug.Log("Al enemigo le queda " + enemyy.health + " de vida ");
                 break;
             case "Absolution":
                 enemyy.health -= 6;
                 stadisticplayerScipt.health += 4;
-                protectiontottempasive();
+                ProtectionTottemPa();
                 Debug.Log("Has inflingido 6 de daño y te has curado 4 puntos de salud");
                 Debug.Log("Al enemigo le queda " + enemyy.health + " de vida ");
                 break;
             case "Uncontrolled pride":
                 enemyy.health -= 5;
                 Debug.Log("Has inflingido 5 de daño");
-                protectiontottempasive();
+                ProtectionTottemPa();
                 Debug.Log("Al enemigo le queda " + enemyy.health + " de vida ");
                 break;
         }
 
 
     }
-    public void protectiontottempasive()
+    public void ProtectionTottemPa()
     {
         if (ProtectionTottemStacks >= 5)
         {

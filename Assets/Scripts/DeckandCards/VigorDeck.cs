@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class VigorDeck : MonoBehaviour
+public class VigorDeck : MonoBehaviour,IDeckable
 {
     /*public VigorCards[] _deck;
     
@@ -25,9 +25,6 @@ public class VigorDeck : MonoBehaviour
     [SerializeField]
     private List<VigorCards> TrueVigorDeckInCombat = new List<VigorCards>();
 
-    
-
-    private int activeComponentIndex;
 
     private void Awake()
     {
@@ -41,7 +38,7 @@ public class VigorDeck : MonoBehaviour
 
         
     }
-    public void CreateListOfMyVigorCardsBuildForCombat()
+    public void CreateListOfMyCardBuildForCombat()
     {
         foreach (VigorCards objeto in DeckOfTheVigorDeck)
         {
@@ -52,7 +49,7 @@ public class VigorDeck : MonoBehaviour
         }
     }
 
-    public void BuildMyVigorDeck(VigorCards browser, int ThePlaceInArray)
+    public void BuildMyDeck(VigorCards browser, int ThePlaceInArray)
     {
         //DeckOfTheVigorDeck[ThePlaceInArray] = browser;
         //DeckOfTheVigorDeck[ThePlaceInArray] = null;
@@ -81,7 +78,7 @@ public class VigorDeck : MonoBehaviour
         return contadorNoNulos;
     }
 
-    public void VigorDrawCards()
+    public void DrawCards()
     {
         /*if (TrueVigorDeckInCombat.Count >= 1)
         {
@@ -91,19 +88,19 @@ public class VigorDeck : MonoBehaviour
                 if (i == 0 && SlotBool4 == false)
                 {
                     Slot4.card = randomCard;
-                    Slot4.actualizarinfodeUIdeCadaCarta();
+                    Slot4.TheVigorCostOfMyCard();
                     SlotBool4 = true;
                 }
                 else if (i == 1 && SlotBool5 == false)
                 {
                     Slot5.card = randomCard;
-                    Slot5.actualizarinfodeUIdeCadaCarta();
+                    Slot5.TheVigorCostOfMyCard();
                     SlotBool5 = true;
                 }
                 else if (i == 2 && SlotBool6 == false)
                 {
                     Slot6.card = randomCard;
-                    Slot6.actualizarinfodeUIdeCadaCarta();
+                    Slot6.TheVigorCostOfMyCard();
                     SlotBool6 = true;
                 }
 
@@ -121,7 +118,7 @@ public class VigorDeck : MonoBehaviour
                 {
                     
                     VigorCardDisplaysScripts[i].card = randomCard;
-                    VigorCardDisplaysScripts[i].actualizarinfodeUIdeCadaCarta();
+                    VigorCardDisplaysScripts[i].UpdateUiCardInfo();
                     SlotBools[i] = true;
                 }
 
@@ -129,14 +126,14 @@ public class VigorDeck : MonoBehaviour
                 {
                    
                     VigorCardDisplaysScripts[i].card = randomCard;
-                    VigorCardDisplaysScripts[i].actualizarinfodeUIdeCadaCarta();
+                    VigorCardDisplaysScripts[i].UpdateUiCardInfo();
                     SlotBools[i] = true;
                 }
                 else if (i == 5 && !SlotBools[i])
                 {
                    
                     VigorCardDisplaysScripts[i].card = randomCard;
-                    VigorCardDisplaysScripts[i].actualizarinfodeUIdeCadaCarta();
+                    VigorCardDisplaysScripts[i].UpdateUiCardInfo();
                     SlotBools[i] = true;
                 }
 

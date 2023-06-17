@@ -4,24 +4,47 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CardDisplay : MonoBehaviour
+public interface IDisplayable
+{
+    public void PlayAudio(AudioClip AC);
+    public void UpdateUiCardInfo();
+    public void ExecuteCardPassive();
+
+}
+
+public class CardDisplay : MonoBehaviour,IDisplayable
 {
     public Card card;
-    public Text nametext;
-    public Text descriptiontext;
-    public Image image;
+    [SerializeField]
+    private Text nametext;
+    [SerializeField]
+    private Text descriptiontext;
+    [SerializeField]
+    private Image image;
+
     public Text attacktext;
-    public Deck scriptdeck;
-    public int myslot;
+    [SerializeField]
+    private Deck scriptdeck;
+    [SerializeField]
+    private int myslot;
+
     public int attackdmg;
-    public string NombredelaCartayEjecutarPasiva;
-    public Player player;
+    [SerializeField]
+    private string NameOfTheCardAndExecutePassive;
+
+    //public Player player;
+
     public StadisticPlayer StatsPlayerScript;
-    public AudioSource MyAudioSource;
-    public AudioClip BigBangAudio;
-    public AudioClip fireExplosionAudio;
-    public AudioClip DestructionAudio;
-    public AudioClip NormalAudioCard;
+    [SerializeField]
+    private AudioSource MyAudioSource;
+    [SerializeField]
+    private AudioClip BigBangAudio;
+    [SerializeField]
+    private AudioClip fireExplosionAudio;
+    [SerializeField]
+    private AudioClip DestructionAudio;
+    [SerializeField]
+    private AudioClip NormalAudioCard;
 
     private void Start()
     {
@@ -43,7 +66,7 @@ public class CardDisplay : MonoBehaviour
         return attackdmg;
     }
 
-    public void actualizarinfodeUIdeCadaCarta()
+    public void UpdateUiCardInfo()
     {
         nametext.text = card.name;
         descriptiontext.text = card.description;
@@ -51,11 +74,11 @@ public class CardDisplay : MonoBehaviour
         attacktext.text = card.attack.ToString();
     }
 
-    public void ejecutarpasivadelacarta()
+    public void ExecuteCardPassive()
     {
-        NombredelaCartayEjecutarPasiva = card.name;
+        NameOfTheCardAndExecutePassive = card.name;
 
-        switch (NombredelaCartayEjecutarPasiva)
+        switch (NameOfTheCardAndExecutePassive)
         {
             case "Sacred Font":
                 StatsPlayerScript.health += 5;

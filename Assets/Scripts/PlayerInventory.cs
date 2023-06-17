@@ -95,7 +95,7 @@ public class PlayerInventory : MonoBehaviour
     }
     public void ToggleInventory()
     {
-        int deckCardsCount = DeckScript.PermissionToLeaveTheInventoryMinimumDeckCards(DeckScript.DeckOfTheDeck);
+        int deckCardsCount = DeckScript.PermissionToLeaveTheInventory(DeckScript.DeckOfTheDeck);
         int vigorCardsCount = VigorDeckScript.PermissionToLeaveTheInventoryMinimumVigorDeckCards(VigorDeckScript.DeckOfTheVigorDeck);
         if (deckCardsCount < 4 || deckCardsCount > 6 || vigorCardsCount < 5 || vigorCardsCount > 8)
         {

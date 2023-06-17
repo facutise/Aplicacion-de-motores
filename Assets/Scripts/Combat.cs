@@ -170,8 +170,8 @@ public class Combat : MonoBehaviour
 
             enemyy.Enemyturn();
             playercontador = 0;
-            deckscript.TheUltimateDrawCards();
-            VigorDeckScript.VigorDrawCards();
+            deckscript.DrawCards();
+            VigorDeckScript.DrawCards();
 
             for (int i = 0; i < 6; i++)                                                          //NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
             {
@@ -230,8 +230,8 @@ public class Combat : MonoBehaviour
             button5.interactable = true;
             button6.interactable = true;*/
             playercontador = 0;
-            deckscript.TheUltimateDrawCards();
-            VigorDeckScript.VigorDrawCards();
+            deckscript.DrawCards();
+            VigorDeckScript.DrawCards();
 
             for (int i = 0; i < 6; i++)//NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
             {
@@ -293,17 +293,17 @@ public class Combat : MonoBehaviour
             deckscript.SlotBools[TheSlotClicked] = false;
             int carddmgtrue = CardDisplayScriptsInTheSlots[TheSlotClicked].Thecarddmg();
             enemyy.health -= carddmgtrue;
-            CardDisplayScriptsInTheSlots[TheSlotClicked].ejecutarpasivadelacarta();
+            CardDisplayScriptsInTheSlots[TheSlotClicked].ExecuteCardPassive();
             //particulas
             enemyattack = true;
             playercontador = 1;
-            deckscript.TheUltimateDrawCards();
+            deckscript.DrawCards();
             ActivateOrDeactivateCardInTheSlot(TheSlotClicked);
             ButtonsofSlot[TheSlotClicked].interactable = false;
             TheCanvasesForFade[TheSlotClicked].alpha = 1;
 
         }
-        else if (TheSlotClicked > 2 && PlayerStadisticsScript.vigor >= VigorCardDisplayScriptsInTheSlots[TheSlotClicked].actualizarinformacióncostedeVigor())
+        else if (TheSlotClicked > 2 && PlayerStadisticsScript.vigor >= VigorCardDisplayScriptsInTheSlots[TheSlotClicked].TheVigorCostOfMyCard())
         {
             float AlphaFloat = 1;
 
@@ -313,8 +313,8 @@ public class Combat : MonoBehaviour
                 yield return new WaitForEndOfFrame();
                 TheCanvasesForFade[TheSlotClicked].alpha = AlphaFloat;
             }
-            PlayerStadisticsScript.vigor -= VigorCardDisplayScriptsInTheSlots[TheSlotClicked].actualizarinformacióncostedeVigor();
-            VigorCardDisplayScriptsInTheSlots[TheSlotClicked].ejecutarpasivadelacartadevigor();
+            PlayerStadisticsScript.vigor -= VigorCardDisplayScriptsInTheSlots[TheSlotClicked].TheVigorCostOfMyCard();
+            VigorCardDisplayScriptsInTheSlots[TheSlotClicked].ExecuteCardPassive();
             ActivateOrDeactivateCardInTheSlot(TheSlotClicked);
             ButtonsofSlot[TheSlotClicked].interactable = false;
             VigorDeckScript.SlotBools[TheSlotClicked] = false;
@@ -347,7 +347,7 @@ public class Combat : MonoBehaviour
         deckscript.SlotBool1 = false;
         int carddmgtrue = carddisplayscriptinSlot1.Thecarddmg();
         enemyy.health -= carddmgtrue;
-        carddisplayscriptinSlot1.ejecutarpasivadelacarta();
+        carddisplayscriptinSlot1.ExecuteCardPassive();
         damageParticleSlot1.Play();
         damageParticleSlot1Combate2.Play();
         damageParticleSlot1_Combate3.Play();
@@ -355,7 +355,7 @@ public class Combat : MonoBehaviour
         Debug.Log("Al enemigo le queda " + enemyy.health + " de vida ");
         enemyattack = true;
         playercontador = 1;
-        deckscript.TheUltimateDrawCards();
+        deckscript.DrawCards();
         activaryDesactivarCartaAlUsarlaSlot1();
         button1.interactable = false;
         TheCanvasesForFade[0].alpha = 1;
@@ -374,7 +374,7 @@ public class Combat : MonoBehaviour
         deckscript.SlotBool2 = false;
         int carddmgtrue = carddisplayscriptinSlot2.Thecarddmg();
         enemyy.health -= carddmgtrue;
-        carddisplayscriptinSlot2.ejecutarpasivadelacarta();
+        carddisplayscriptinSlot2.ExecuteCardPassive();
         damageParticleSlot2.Play();
         damageParticleSlot2Combate2.Play();
         damageParticleSlot2_Combate3.Play();
@@ -401,7 +401,7 @@ public class Combat : MonoBehaviour
         deckscript.SlotBool3 = false;
         int carddmgtrue = carddisplayscriptinSlot3.Thecarddmg();
         enemyy.health -= carddmgtrue;
-        carddisplayscriptinSlot3.ejecutarpasivadelacarta();
+        carddisplayscriptinSlot3.ExecuteCardPassive();
         damageParticleSlot3.Play();
         damageParticleSlot3Combate2.Play();
         damageParticleSlot3_Combate3.Play();
@@ -425,9 +425,9 @@ public class Combat : MonoBehaviour
             yield return new WaitForEndOfFrame();
             TheCanvasesForFade[myplace].alpha = alpha;
         }
-        PlayerStadisticsScript.vigor -= carddisplayscriptinSlot4.actualizarinformacióncostedeVigor();
+        PlayerStadisticsScript.vigor -= carddisplayscriptinSlot4.TheVigorCostOfMyCard();
         Debug.Log("restan " + PlayerStadisticsScript.vigor + " puntos de vigor");
-        carddisplayscriptinSlot4.ejecutarpasivadelacartadevigor();
+        carddisplayscriptinSlot4.ExecuteCardPassive();
         activaryDesactivarCartaAlUsarlaSlot4();
 
         button4.interactable = false;
@@ -448,9 +448,9 @@ public class Combat : MonoBehaviour
             yield return new WaitForEndOfFrame();
             TheCanvasesForFade[myplace].alpha = alpha;
         }
-        PlayerStadisticsScript.vigor -= carddisplayscriptinSlot5.actualizarinformacióncostedeVigor();
+        PlayerStadisticsScript.vigor -= carddisplayscriptinSlot5.TheVigorCostOfMyCard();
         Debug.Log("restan " + PlayerStadisticsScript.vigor + " puntos de vigor");
-        carddisplayscriptinSlot5.ejecutarpasivadelacartadevigor();
+        carddisplayscriptinSlot5.ExecuteCardPassive();
 
         activaryDesactivarCartaAlUsarlaSlot5();
         button5.interactable = false;
@@ -471,9 +471,9 @@ public class Combat : MonoBehaviour
             yield return new WaitForEndOfFrame();
             TheCanvasesForFade[myplace].alpha = alpha;
         }
-        PlayerStadisticsScript.vigor -= carddisplayscriptinSlot6.actualizarinformacióncostedeVigor();
+        PlayerStadisticsScript.vigor -= carddisplayscriptinSlot6.TheVigorCostOfMyCard();
         Debug.Log("restan " + PlayerStadisticsScript.vigor + " puntos de vigor");
-        carddisplayscriptinSlot6.ejecutarpasivadelacartadevigor();
+        carddisplayscriptinSlot6.ExecuteCardPassive();
 
         activaryDesactivarCartaAlUsarlaSlot6();
         VigorDeckScript.SlotBool6 = false;
@@ -511,7 +511,7 @@ public class Combat : MonoBehaviour
     }
     public void clickonslotfour()
     {
-        if (PlayerStadisticsScript.vigor >= carddisplayscriptinSlot4.actualizarinformacióncostedeVigor())
+        if (PlayerStadisticsScript.vigor >= carddisplayscriptinSlot4.TheVigorCostOfMyCard())
         {
             StartCoroutine(FadeAnimSlot4(3));
 
@@ -519,7 +519,7 @@ public class Combat : MonoBehaviour
     }
     public void clickonslotfive()
     {
-        if (PlayerStadisticsScript.vigor >= carddisplayscriptinSlot5.actualizarinformacióncostedeVigor())
+        if (PlayerStadisticsScript.vigor >= carddisplayscriptinSlot5.TheVigorCostOfMyCard())
         {
             StartCoroutine(FadeAnimSlot5(4));
 
@@ -527,7 +527,7 @@ public class Combat : MonoBehaviour
     }
     public void clickonslotsix()
     {
-        if (PlayerStadisticsScript.vigor >= carddisplayscriptinSlot6.actualizarinformacióncostedeVigor())
+        if (PlayerStadisticsScript.vigor >= carddisplayscriptinSlot6.TheVigorCostOfMyCard())
         {
             StartCoroutine(FadeAnimSlot6(5));
 

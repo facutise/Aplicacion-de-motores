@@ -21,7 +21,7 @@ public class EnemySpawn : MonoBehaviour
             Enemy actualenemy = Instantiate(enemyGObj[Random.Range(0, enemyGObj.Count)], areaWhereTheEnemySpawns.transform.position, areaWhereTheEnemySpawns.transform.rotation).GetComponent<Enemy>();
             actualenemy.Setcombat(combatpositionscript);
             actualenemy.SetPlayer(player);
-            combatscript.setenemy(actualenemy);
+            combatscript.SetEnemy(actualenemy);
             Destroy(areaWhereTheEnemySpawns.gameObject);
             combatpositionscript.combatON();
         }
