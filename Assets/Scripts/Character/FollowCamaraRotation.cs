@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class FollowCamaraRotation : MonoBehaviour
 {
-    public Camera mainCamera;
-    public Transform target;
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private Transform target;
 
-    public void Update()
+    private void Update()
     {
         Quaternion camRotation = mainCamera.transform.rotation;
         target.rotation = camRotation;

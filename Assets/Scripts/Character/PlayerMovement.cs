@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //public ParticleSystem dust;
-
     private Rigidbody myRig;
     private float yVelocity;
-    public float speed = 200f;
+    [SerializeField] private float speed = 200f;
 
-    private PlayerJump jumpy;
-
+    private PlayerJumpFuncional jumpy;
     Charview view;
 
     private void Awake()
     {
         myRig = GetComponent<Rigidbody>();
-        jumpy = GetComponent<PlayerJump>();
+        jumpy = GetComponent<PlayerJumpFuncional>();
         view = GetComponent<Charview>();
     }
 
@@ -41,14 +38,12 @@ public class PlayerMovement : MonoBehaviour
             // Apply movement velocity only on the x and z axes
             Vector3 horizontalMove = moveDirection * speed * Time.deltaTime;
             myRig.velocity = new Vector3(horizontalMove.x, myRig.velocity.y, horizontalMove.z);
-
-           
         }
         else // If the player is in the air
         {
-            // Apply movement velocity in the direction the player is facing
-            Vector3 forwardMove = transform.forward * speed * Time.deltaTime;
-            myRig.velocity = new Vector3(forwardMove.x, myRig.velocity.y, forwardMove.z);
+            // Apply movement velocity in the movement direction
+            Vector3 move = moveDirection * speed * Time.deltaTime;
+            myRig.velocity = new Vector3(move.x, myRig.velocity.y, move.z);
         }
     }
 }

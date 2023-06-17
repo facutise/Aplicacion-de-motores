@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class PlayerJumpFuncional : MonoBehaviour
 {
-    //public ParticleSystem dustJump;
-
     Rigidbody myRig;
-    private PlayerJump jumpy;
-    public float jumpForce = 5;
+    //private PlayerJumpFuncional jumpy;
+    [SerializeField] private float jumpForce = 5;
     public bool onFloor = true;
+    Charview view;
 
     void Awake()
     {
         myRig = GetComponent<Rigidbody>();
-        jumpy = GetComponent<PlayerJump>();
+        //jumpy = GetComponent<PlayerJumpFuncional>();
     }
 
     void Update()
@@ -24,15 +23,13 @@ public class PlayerJumpFuncional : MonoBehaviour
             AnimRealJump();
         }
     }
-    public void AnimRealJump()
+
+    void AnimRealJump()
     {
-        Vector3 jumpDirection = transform.forward * myRig.velocity.magnitude;
-        jumpDirection.y = jumpForce;
+        Vector3 jumpDirection = Vector3.up * jumpForce;
 
-        myRig.velocity = jumpDirection;
+        myRig.velocity += jumpDirection;
         onFloor = false;
-
-        //dustJump.Play();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -40,7 +37,7 @@ public class PlayerJumpFuncional : MonoBehaviour
         if (collision.gameObject.tag == "Floor")
         {
             onFloor = true;
-            //dustJump.Play();
         }
     }
 }
+
