@@ -31,6 +31,7 @@ public class Deck : MonoBehaviour
      {
          //_deck = Resources.FindObjectsOfTypeAll<Card>();
      }*/
+    
 
     public void BuildMyDeck(Card browser, int ThePlaceInArray)
     {
@@ -136,6 +137,7 @@ public class Deck : MonoBehaviour
                 Card randomCard = TrueDeckInCombat[Random.Range(0, TrueDeckInCombat.Count)];
                 if (i == 0 && !SlotBools[i])
                 {
+                   
                     CarddisplaysScriptsInTheSlots[i].card = randomCard;
                     CarddisplaysScriptsInTheSlots[i].actualizarinfodeUIdeCadaCarta();
                     SlotBools[i] = true;

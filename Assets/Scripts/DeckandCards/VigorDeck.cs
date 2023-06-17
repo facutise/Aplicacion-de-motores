@@ -25,6 +25,10 @@ public class VigorDeck : MonoBehaviour
     [SerializeField]
     private List<VigorCards> TrueVigorDeckInCombat = new List<VigorCards>();
 
+    
+
+    private int activeComponentIndex;
+
     private void Awake()
     {
         //_deck = Resources.FindObjectsOfTypeAll<VigorCards>();
@@ -34,6 +38,8 @@ public class VigorDeck : MonoBehaviour
         //_deck.CopyTo(DeckOfTheVigorDeck, browser);
         //DeckOfTheVigorDeck[browser] = _deck[browser];
         //cardsondeck = EquipOrUnequipTheCardBool.Count
+
+        
     }
     public void CreateListOfMyVigorCardsBuildForCombat()
     {
@@ -113,6 +119,7 @@ public class VigorDeck : MonoBehaviour
                 VigorCards randomCard = TrueVigorDeckInCombat[Random.Range(0, TrueVigorDeckInCombat.Count)];
                 if (i == 3 && !SlotBools[i])
                 {
+                    
                     VigorCardDisplaysScripts[i].card = randomCard;
                     VigorCardDisplaysScripts[i].actualizarinfodeUIdeCadaCarta();
                     SlotBools[i] = true;
@@ -120,12 +127,14 @@ public class VigorDeck : MonoBehaviour
 
                 else if (i == 4 && !SlotBools[i])
                 {
+                   
                     VigorCardDisplaysScripts[i].card = randomCard;
                     VigorCardDisplaysScripts[i].actualizarinfodeUIdeCadaCarta();
                     SlotBools[i] = true;
                 }
                 else if (i == 5 && !SlotBools[i])
                 {
+                   
                     VigorCardDisplaysScripts[i].card = randomCard;
                     VigorCardDisplaysScripts[i].actualizarinfodeUIdeCadaCarta();
                     SlotBools[i] = true;
@@ -136,4 +145,5 @@ public class VigorDeck : MonoBehaviour
 
 
     }
+   
 }

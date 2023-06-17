@@ -23,9 +23,13 @@ public class Combat : MonoBehaviour
     public ParticleSystem damageparticleSlot4_Combate3;
     public ParticleSystem damageparticleSlot5_Combate3;
     public ParticleSystem damageparticleSlot6_Combate3;*/
+
     [SerializeField]
     private ParticleSystem[] DamageParticlesInTheCombats;
 
+    private ParticleSystem particleSystemUsing;
+
+    
 
 
     /*public CardDisplay carddisplayscriptinSlot1;
@@ -95,6 +99,14 @@ public class Combat : MonoBehaviour
     {
         CardsHadBeenUsed[MyCardOrangeAndCardUsedInTheArray] = !CardsHadBeenUsed[MyCardOrangeAndCardUsedInTheArray];
         OrangeCards[MyCardOrangeAndCardUsedInTheArray].gameObject.SetActive(CardsHadBeenUsed[MyCardOrangeAndCardUsedInTheArray]);
+
+        if (ButtonsofSlot[0].interactable == true)
+        {
+            particleSystemUsing = DamageParticlesInTheCombats[0];
+            particleSystemUsing = DamageParticlesInTheCombats[6];
+            particleSystemUsing = DamageParticlesInTheCombats[12];
+            particleSystemUsing.Play();
+        }
     }
     /*
      public void activaryDesactivarCartaAlUsarlaSlot1()
@@ -209,6 +221,8 @@ public class Combat : MonoBehaviour
             {
                 ButtonsofSlot[i].interactable = true;
             }
+
+            
             /*button1.interactable = true;
             button2.interactable = true;
             button3.interactable = true;
