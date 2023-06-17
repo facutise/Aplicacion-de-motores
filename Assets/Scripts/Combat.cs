@@ -24,13 +24,7 @@ public class Combat : MonoBehaviour
     public ParticleSystem damageparticleSlot5_Combate3;
     public ParticleSystem damageparticleSlot6_Combate3;*/
 
-    [SerializeField]
-    private ParticleSystem[] DamageParticlesInTheCombats;
-
-    private ParticleSystem particleSystemUsing;
-
     
-
 
     /*public CardDisplay carddisplayscriptinSlot1;
     public CardDisplay carddisplayscriptinSlot2;
@@ -102,10 +96,7 @@ public class Combat : MonoBehaviour
 
         if (ButtonsofSlot[0].interactable == true)
         {
-            particleSystemUsing = DamageParticlesInTheCombats[0];
-            particleSystemUsing = DamageParticlesInTheCombats[6];
-            particleSystemUsing = DamageParticlesInTheCombats[12];
-            particleSystemUsing.Play();
+            
         }
     }
     /*
