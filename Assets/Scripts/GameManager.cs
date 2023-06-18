@@ -6,33 +6,21 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    [SerializeField]
-    private Player player;
-    [SerializeField]
-    private Image combatUI;
-    [SerializeField]
-    private Image Inventory;
+    [SerializeField] private Player player;
+    [SerializeField] private Image combatUI;
+    [SerializeField] private Image Inventory;
     public bool cardsEquiped = false;
     public bool inventoryactive = false;
-    [SerializeField]
-    private List<Card> deck = new List<Card>();
-    [SerializeField]
-    private Transform[] cardslots;
-    [SerializeField]
-    private bool[] availableCardSlots;
-    [SerializeField]
-    private Text deckSizeText;
+    [SerializeField] private List<Card> deck = new List<Card>();
+    [SerializeField] private Transform[] cardslots;
+    [SerializeField] private bool[] availableCardSlots;
+    [SerializeField] private Text deckSizeText;
     public bool gameispaused;
-    [SerializeField]
-    private Image PauseMenu;
-    [SerializeField]
-    private GameObject Menu;
-    [SerializeField]
-    private GameObject controls;
-    [SerializeField]
-    private MyCamera camerascript;
-    [SerializeField]
-    private Rigidbody playerRB;
+    [SerializeField] private Image PauseMenu;
+    [SerializeField] private GameObject Menu;
+    [SerializeField] private GameObject controls;
+    [SerializeField] private MyCamera camerascript;
+    [SerializeField] private Rigidbody playerRB;
 
     public void DrawCard()
     {

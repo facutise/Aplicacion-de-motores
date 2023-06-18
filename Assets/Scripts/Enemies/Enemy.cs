@@ -4,26 +4,17 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    [SerializeField]
-    private Combat combat;
-    [SerializeField]
-    private CombatPosition _combatposition;
+    [SerializeField] private Combat combat;
+    [SerializeField] private CombatPosition _combatposition;
     public int health;
-    [SerializeField]
-    private string enemyType;
+    [SerializeField] private string enemyType;
     public StadisticPlayer PlayerStadisticsScript;
-    [SerializeField]
-    private Transform ataqueEnemy1SpawnPoint;
-    [SerializeField]
-    private Transform ataqueEnemigo2SpawnPoint;
-    [SerializeField]
-    private Transform ataqueEnemy1SpawnPoint_Combate2;
-    [SerializeField]
-    private Transform ataqueEnemigo2SpawnPoint_Combate2;
-    [SerializeField]
-    private Transform ataqueEnemy1SpawnPoint_Combate3;
-    [SerializeField]
-    private Transform ataqueEnemigo2SpawnPoint_Combate3;
+    [SerializeField] private Transform ataqueEnemy1SpawnPoint;
+    [SerializeField] private Transform ataqueEnemigo2SpawnPoint;
+    [SerializeField] private Transform ataqueEnemy1SpawnPoint_Combate2;
+    [SerializeField] private Transform ataqueEnemigo2SpawnPoint_Combate2;
+    [SerializeField] private Transform ataqueEnemy1SpawnPoint_Combate3;
+    [SerializeField] private Transform ataqueEnemigo2SpawnPoint_Combate3;
 
     private ParticleSystem ataqueEnemy1;
     private ParticleSystem ataqueEnemigo2;
