@@ -10,14 +10,14 @@ public class AnimacionCartas : MonoBehaviour, IPointerEnterHandler, IPointerExit
 {
     private Vector3 initialScale;
 
-    public Image MySprite;
+    public Image mySprite;
     [SerializeField]
     private Combat combatScript;
     public Button myButton;
 
     void Start()
     {
-        MySprite.gameObject.SetActive(false);
+        mySprite.gameObject.SetActive(false);
 
         initialScale = transform.localScale; 
     }
@@ -25,11 +25,11 @@ public class AnimacionCartas : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         if (myButton.interactable == false)
         {
-            MySprite.GetComponent<Image>().gameObject.SetActive(false);
+            mySprite.GetComponent<Image>().gameObject.SetActive(false);
         }
         else if (myButton.interactable == true)
         {
-            MySprite.GetComponent<Image>().gameObject.SetActive(true);
+            mySprite.GetComponent<Image>().gameObject.SetActive(true);
         }
     }
 
@@ -37,15 +37,15 @@ public class AnimacionCartas : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         LeanTween.scale(gameObject, initialScale * 1.2f, 0.2f);
         
-        MySprite.transform.position = transform.position;
+        mySprite.transform.position = transform.position;
 
         if (myButton.interactable == false)
         {
-            MySprite.GetComponent<Image>().gameObject.SetActive(false);
+            mySprite.GetComponent<Image>().gameObject.SetActive(false);
         }
         else if(myButton.interactable == true)
         {
-            MySprite.GetComponent<Image>().gameObject.SetActive(true);
+            mySprite.GetComponent<Image>().gameObject.SetActive(true);
         }
     }
 
@@ -53,6 +53,6 @@ public class AnimacionCartas : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         LeanTween.scale(gameObject, initialScale, 0.2f);
 
-        MySprite.gameObject.SetActive(false);
+        mySprite.gameObject.SetActive(false);
     }
 }
