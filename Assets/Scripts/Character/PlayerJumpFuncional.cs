@@ -18,9 +18,10 @@ public class PlayerJumpFuncional : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && onFloor == true)
         {
             AnimRealJump();
+            onFloor = false;
         }
     }
 
