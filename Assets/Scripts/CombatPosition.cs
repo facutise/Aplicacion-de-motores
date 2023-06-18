@@ -5,35 +5,54 @@ using Cinemachine;
 
 public class CombatPosition : MonoBehaviour
 {
-    public Enemy enemyy;
-    public Combat combatscript;
-    public List<GameObject> enemyGObj;
-    public Transform enemytransf;
-    public GameObject areaWhereTheEnemySpawns;
-    public List<GameObject> AreasWhereTheEnemiesSpawns;
-    public int CounterforPlacesWhereEnemiesSpawns;
+    private Enemy enemyy;
+    [SerializeField]
+    private Combat combatscript;
+    [SerializeField]
+    private List<GameObject> enemyGObj;
+    [SerializeField]
+    private Transform enemytransf;
+    [SerializeField]
+    private GameObject areaWhereTheEnemySpawns;
+    [SerializeField]
+    private List<GameObject> AreasWhereTheEnemiesSpawns;
+    [SerializeField]
+    private int CounterforPlacesWhereEnemiesSpawns;
     public bool battlePosition = false;
     public bool CombatON = false;
     public bool enemyInvoke = false;
-    public Rigidbody playerRB;
-    public Camera mainCamera;
-    public Player player;
-    public List<CinemachineVirtualCamera> cameras;
+    [SerializeField]
+    private Rigidbody playerRB;
+    [SerializeField]
+    private Camera mainCamera;
+    [SerializeField]
+    private Player player;
+    [SerializeField]
+    private List<CinemachineVirtualCamera> cameras;
     public CinemachineVirtualCamera ActiveCamera;
-    GameManager myGM;
-    public MyCamera camerascript;
-    public int enemiesreminder;
-    public Deck deckscript;
-    public VigorDeck vigordeckscript;
+    private GameManager myGM;
+    [SerializeField]
+    private MyCamera camerascript;
+    [SerializeField]
+    private int enemiesreminder;
+    [SerializeField]
+    private Deck deckscript;
+    [SerializeField]
+    private VigorDeck vigordeckscript;
     public VigorCardsDisplay ScriptVigorCardDisplaySlot4;
     public VigorCardsDisplay ScriptVigorCardDisplaySlot5;
     public VigorCardsDisplay ScriptVigorCardDisplaySlot6;
-    public StadisticPlayer stadisticPlayerScript;
-    public EnemyHeathPointsUI EnemyHealthPointsScript;
-    AudioSource MyAudioSource;
-    public AudioClip CardSwipe;
-    public AudioClip EnemyDiesAudio;
-    public float TransitionCounter;
+    [SerializeField]
+    private StadisticPlayer stadisticPlayerScript;
+    [SerializeField]
+    private EnemyHeathPointsUI EnemyHealthPointsScript;
+    private AudioSource MyAudioSource;
+    [SerializeField]
+    private AudioClip CardSwipe;
+    [SerializeField]
+    private AudioClip EnemyDiesAudio;
+    [SerializeField]
+    private float TransitionCounter;
 
     private void Awake()
     {
