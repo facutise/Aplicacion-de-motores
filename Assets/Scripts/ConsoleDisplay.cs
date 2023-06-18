@@ -5,9 +5,12 @@ using UnityEngine.UI;
 
 public class ConsoleDisplay : MonoBehaviour
 {
-    public Text consoleText;
-    public float messageTime;
-    public Image backgroundImage;
+    [SerializeField]
+    private Text consoleText;
+    [SerializeField]
+    private float messageTime;
+    [SerializeField]
+    private Image backgroundImage;
 
     private List<MessageInfo> logMessages;
     private Coroutine clearConsoleCoroutine;
