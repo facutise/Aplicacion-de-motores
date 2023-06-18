@@ -7,9 +7,11 @@ public class inventoryObjectsActions : MonoBehaviour
 {
     private int WhispersCount;
     public int KeyForTheBlackDoor;
-    public CombatPosition combatpositionscript;
+    [SerializeField]
+    private  CombatPosition combatpositionscript;
 
-    public Camera mainCamera;
+    [SerializeField]
+    private Camera mainCamera;
     public MenuManager menumanagerscript;
     [SerializeField] LayerMask doormask;
 
@@ -23,18 +25,25 @@ public class inventoryObjectsActions : MonoBehaviour
     public int HealthPotions;
     public StadisticPlayer StadisticPlayerScript;
 
-    public ParticleSystem HealthPotionParticles;
+    [SerializeField]
+    private ParticleSystem HealthPotionParticles;
 
     public GameObject DoorHolder;
 
-    public ParticleSystem healthPotionParticles;
-    public ParticleSystem healthPotionMiniParticles;
+    [SerializeField]
+    private ParticleSystem healthPotionParticles;
+    [SerializeField]
+    private ParticleSystem healthPotionMiniParticles;
 
-    public Light healthPotionLight;
-    public Light lightCardbox;
-    public Light demonWhispersLight;
+    [SerializeField]
+    private Light healthPotionLight;
+    [SerializeField]
+    private Light lightCardbox;
+    [SerializeField]
+    private Light demonWhispersLight;
 
-    public Animator animationDoor;
+    [SerializeField]
+    private Animator animationDoor;
 
     private void Awake()
     {
