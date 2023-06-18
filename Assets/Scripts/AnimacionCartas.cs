@@ -11,7 +11,8 @@ public class AnimacionCartas : MonoBehaviour, IPointerEnterHandler, IPointerExit
     private Vector3 initialScale;
 
     public Image MySprite;
-    public Combat combatScript;
+    [SerializeField]
+    private Combat combatScript;
     public Button MyButton;
 
     void Start()
