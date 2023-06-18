@@ -109,6 +109,7 @@ public class FragilePlatform : MonoBehaviour
     private IEnumerator DeactivatePlatform()
     {
         yield return new WaitForSeconds(2f);
+        dustShake.Stop();
         isActive = false;
     }
 }
