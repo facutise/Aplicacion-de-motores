@@ -40,21 +40,21 @@ public class CardDisplay : MonoBehaviour, IDisplayable
     private ParticleSystem cristalPierceParticles3;
 
 
-    public Card card;
+    public Card Card;
     [SerializeField]
-    private Text nametext;
+    private Text NameText;
     [SerializeField]
-    private Text descriptiontext;
+    private Text DescriptionText;
     [SerializeField]
-    private Image image;
+    private Image Image;
 
-    public Text attacktext;
+    public Text AttackText;
     [SerializeField]
-    private Deck scriptdeck;
+    private Deck ScriptDeck;
     [SerializeField]
-    private int myslot;
+    private int MySlot;
 
-    public int attackdmg;
+    public int AttackDamage;
     [SerializeField]
     private string NameOfTheCardAndExecutePassive;
 
@@ -74,10 +74,10 @@ public class CardDisplay : MonoBehaviour, IDisplayable
 
     private void Start()
     {
-        nametext.text = card.name;
-        descriptiontext.text = card.description;
-        image.sprite = card.image;
-        attacktext.text = card.attack.ToString();
+        NameText.text = Card.name;
+        DescriptionText.text = Card.description;
+        Image.sprite = Card.image;
+        AttackText.text = Card.attack.ToString();
     }
 
     public void PlayAudio(AudioClip AC)
@@ -88,21 +88,21 @@ public class CardDisplay : MonoBehaviour, IDisplayable
 
     public int Thecarddmg()
     {
-        attackdmg = card.attack;
-        return attackdmg;
+        AttackDamage = Card.attack;
+        return AttackDamage;
     }
 
     public void UpdateUiCardInfo()
     {
-        nametext.text = card.name;
-        descriptiontext.text = card.description;
-        image.sprite = card.image;
-        attacktext.text = card.attack.ToString();
+        NameText.text = Card.name;
+        DescriptionText.text = Card.description;
+        Image.sprite = Card.image;
+        AttackText.text = Card.attack.ToString();
     }
 
     public void ExecuteCardPassive()
     {
-        NameOfTheCardAndExecutePassive = card.name;
+        NameOfTheCardAndExecutePassive = Card.name;
 
         switch (NameOfTheCardAndExecutePassive)
         {

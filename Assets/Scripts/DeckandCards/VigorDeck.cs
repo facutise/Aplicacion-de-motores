@@ -26,7 +26,7 @@ public class VigorDeck : MonoBehaviour,IDeckable
     private List<VigorCards> TrueVigorDeckInCombat = new List<VigorCards>();
 
 
-    private void Awake()
+   /* private void Awake()
     {
         //_deck = Resources.FindObjectsOfTypeAll<VigorCards>();
 
@@ -37,7 +37,7 @@ public class VigorDeck : MonoBehaviour,IDeckable
         //cardsondeck = EquipOrUnequipTheCardBool.Count
 
         
-    }
+    }*/
     public void CreateListOfMyCardBuildForCombat()
     {
         foreach (VigorCards objeto in DeckOfTheVigorDeck)
@@ -87,19 +87,19 @@ public class VigorDeck : MonoBehaviour,IDeckable
                 VigorCards randomCard = TrueVigorDeckInCombat[Random.Range(0, TrueVigorDeckInCombat.Count)];
                 if (i == 0 && SlotBool4 == false)
                 {
-                    Slot4.card = randomCard;
+                    Slot4.Card = randomCard;
                     Slot4.TheVigorCostOfMyCard();
                     SlotBool4 = true;
                 }
                 else if (i == 1 && SlotBool5 == false)
                 {
-                    Slot5.card = randomCard;
+                    Slot5.Card = randomCard;
                     Slot5.TheVigorCostOfMyCard();
                     SlotBool5 = true;
                 }
                 else if (i == 2 && SlotBool6 == false)
                 {
-                    Slot6.card = randomCard;
+                    Slot6.Card = randomCard;
                     Slot6.TheVigorCostOfMyCard();
                     SlotBool6 = true;
                 }
@@ -117,7 +117,7 @@ public class VigorDeck : MonoBehaviour,IDeckable
                 if (i == 3 && !SlotBools[i])
                 {
                     
-                    VigorCardDisplaysScripts[i].card = randomCard;
+                    VigorCardDisplaysScripts[i].Card = randomCard;
                     VigorCardDisplaysScripts[i].UpdateUiCardInfo();
                     SlotBools[i] = true;
                 }
@@ -125,14 +125,14 @@ public class VigorDeck : MonoBehaviour,IDeckable
                 else if (i == 4 && !SlotBools[i])
                 {
                    
-                    VigorCardDisplaysScripts[i].card = randomCard;
+                    VigorCardDisplaysScripts[i].Card = randomCard;
                     VigorCardDisplaysScripts[i].UpdateUiCardInfo();
                     SlotBools[i] = true;
                 }
                 else if (i == 5 && !SlotBools[i])
                 {
                    
-                    VigorCardDisplaysScripts[i].card = randomCard;
+                    VigorCardDisplaysScripts[i].Card = randomCard;
                     VigorCardDisplaysScripts[i].UpdateUiCardInfo();
                     SlotBools[i] = true;
                 }

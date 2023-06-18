@@ -5,20 +5,20 @@ using UnityEngine.UI;
 
 public class VigorCardsDisplay : MonoBehaviour,IDisplayable
 {
-    public VigorCards card;
+    public VigorCards Card;
     [SerializeField]
-    private Text nametext;
+    private Text NameText;
     [SerializeField]
-    private Text descriptiontext;
+    private Text DescriptionText;
     [SerializeField]
-    private Image image;
+    private Image Image;
 
     
-    public Text vigortext;
+    public Text VigorText;
     [SerializeField]
-    private VigorDeck vigorscriptdeck;
+    private VigorDeck VigorScriptDeck;
     [SerializeField]
-    private int myslot;
+    private int MySlot;
     
     public int thevigorCostOfMyCard;
 
@@ -100,12 +100,12 @@ public class VigorCardsDisplay : MonoBehaviour,IDisplayable
     private void Start()
     {
 
-        nametext.text = card.name;
-        descriptiontext.text = card.description;
-        image.sprite = card.image;
+        NameText.text = Card.name;
+        DescriptionText.text = Card.description;
+        Image.sprite = Card.image;
 
-        vigortext.text = card.vigorcost.ToString();
-        thevigorCostOfMyCard = card.vigorcost;
+        VigorText.text = Card.vigorcost.ToString();
+        thevigorCostOfMyCard = Card.vigorcost;
 
     }
     public void SetEnemy(Enemy enemy)
@@ -114,20 +114,20 @@ public class VigorCardsDisplay : MonoBehaviour,IDisplayable
     }
     public void UpdateUiCardInfo()
     {
-        nametext.text = card.name;
-        descriptiontext.text = card.description;
-        image.sprite = card.image;
+        NameText.text = Card.name;
+        DescriptionText.text = Card.description;
+        Image.sprite = Card.image;
 
-        vigortext.text = card.vigorcost.ToString();
+        VigorText.text = Card.vigorcost.ToString();
     }
     public int TheVigorCostOfMyCard()
     {
-        thevigorCostOfMyCard = card.vigorcost;
+        thevigorCostOfMyCard = Card.vigorcost;
         return (thevigorCostOfMyCard);
     }
     public void ExecuteCardPassive()
     {
-        NameOfVigorCardAndExecutePassive = card.name;
+        NameOfVigorCardAndExecutePassive = Card.name;
 
         switch (NameOfVigorCardAndExecutePassive)
         {

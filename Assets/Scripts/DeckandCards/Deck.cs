@@ -21,7 +21,7 @@ public class Deck : MonoBehaviour,IDeckable
     /*public CardDisplay Slot1;
     public CardDisplay Slot2;
     public CardDisplay Slot3;*/
-    [SerializeField]
+    
     public CardDisplay[] CarddisplaysScriptsInTheSlots;
 
     /*public bool SlotBool1 = false;
@@ -89,20 +89,20 @@ public class Deck : MonoBehaviour,IDeckable
                 Card randomCard = TrueDeckInCombat[Random.Range(0, TrueDeckInCombat.Count)];
                 if (i == 0 && !SlotBools[i])
                 {
-                    CarddisplaysScriptsInTheSlots[i].card = randomCard;
+                    CarddisplaysScriptsInTheSlots[i].Card = randomCard;
                     CarddisplaysScriptsInTheSlots[i].TheVigorCostOfMyCard();
                     SlotBools[i] = true;
                 }
 
                 else if (i == 2 && !SlotBools[i])
                 {
-                    CarddisplaysScriptsInTheSlots[i].card = randomCard;
+                    CarddisplaysScriptsInTheSlots[i].Card = randomCard;
                     CarddisplaysScriptsInTheSlots[i].TheVigorCostOfMyCard();
                     SlotBools[i] = true;
                 }
                 else if (i == 3 && !SlotBools[i])
                 {
-                    CarddisplaysScriptsInTheSlots[i].card = randomCard;
+                    CarddisplaysScriptsInTheSlots[i].Card = randomCard;
                     CarddisplaysScriptsInTheSlots[i].TheVigorCostOfMyCard();
                     SlotBools[i] = true;
                 }
@@ -121,19 +121,19 @@ public class Deck : MonoBehaviour,IDeckable
                 Card randomCard = TrueDeckInCombat[Random.Range(0, TrueDeckInCombat.Count)];
                 if (i == 0 && !SlotBool1)
                 {
-                    Slot1.card = randomCard;
+                    Slot1.Card = randomCard;
                     Slot1.TheVigorCostOfMyCard();
                     SlotBool1 = true;
                 }
                 else if (i == 1 && !SlotBool2)
                 {
-                    Slot2.card = randomCard;
+                    Slot2.Card = randomCard;
                     Slot2.TheVigorCostOfMyCard();
                     SlotBool2 = true;
                 }
                 else if (i == 2 && !SlotBool3)
                 {
-                    Slot3.card = randomCard;
+                    Slot3.Card = randomCard;
                     Slot3.TheVigorCostOfMyCard();
                     SlotBool3 = true;
                 }
@@ -147,20 +147,20 @@ public class Deck : MonoBehaviour,IDeckable
                 if (i == 0 && !SlotBools[i])
                 {
                    
-                    CarddisplaysScriptsInTheSlots[i].card = randomCard;
+                    CarddisplaysScriptsInTheSlots[i].Card = randomCard;
                     CarddisplaysScriptsInTheSlots[i].UpdateUiCardInfo();
                     SlotBools[i] = true;
                 }
 
                 else if (i == 1 && !SlotBools[i])
                 {
-                    CarddisplaysScriptsInTheSlots[i].card = randomCard;
+                    CarddisplaysScriptsInTheSlots[i].Card = randomCard;
                     CarddisplaysScriptsInTheSlots[i].UpdateUiCardInfo();
                     SlotBools[i] = true;
                 }
                 else if (i == 2 && !SlotBools[i])
                 {
-                    CarddisplaysScriptsInTheSlots[i].card = randomCard;
+                    CarddisplaysScriptsInTheSlots[i].Card = randomCard;
                     CarddisplaysScriptsInTheSlots[i].UpdateUiCardInfo();
                     SlotBools[i] = true;
                 }

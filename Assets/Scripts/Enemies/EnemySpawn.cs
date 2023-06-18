@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    /*public Enemy enemyy;
+    /*public Enemy Enemy;
     public Combat combatscript;
     public CombatPosition combatpositionscript;
     public List<GameObject> enemyGObj;
