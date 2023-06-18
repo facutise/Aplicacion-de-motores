@@ -13,7 +13,7 @@ public class AnimacionCartas : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public Image MySprite;
     [SerializeField]
     private Combat combatScript;
-    public Button MyButton;
+    public Button myButton;
 
     void Start()
     {
@@ -23,11 +23,11 @@ public class AnimacionCartas : MonoBehaviour, IPointerEnterHandler, IPointerExit
     }
     private void Update()
     {
-        if (MyButton.interactable == false)
+        if (myButton.interactable == false)
         {
             MySprite.GetComponent<Image>().gameObject.SetActive(false);
         }
-        else if (MyButton.interactable == true)
+        else if (myButton.interactable == true)
         {
             MySprite.GetComponent<Image>().gameObject.SetActive(true);
         }
@@ -39,11 +39,11 @@ public class AnimacionCartas : MonoBehaviour, IPointerEnterHandler, IPointerExit
         
         MySprite.transform.position = transform.position;
 
-        if (MyButton.interactable == false)
+        if (myButton.interactable == false)
         {
             MySprite.GetComponent<Image>().gameObject.SetActive(false);
         }
-        else if(MyButton.interactable == true)
+        else if(myButton.interactable == true)
         {
             MySprite.GetComponent<Image>().gameObject.SetActive(true);
         }
