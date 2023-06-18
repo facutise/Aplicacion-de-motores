@@ -9,7 +9,7 @@ public abstract class Enemy : MonoBehaviour
     public Combat combat;
     CombatPosition _combatposition;
     public int health;
-    public string tipodeenemigo;
+    public string enemyType;
     public StadisticPlayer PlayerStadisticsScript;
 
     public Transform ataqueEnemy1SpawnPoint;
