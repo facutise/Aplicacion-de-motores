@@ -5,7 +5,6 @@ using Cinemachine;
 
 public class CombatPosition : MonoBehaviour
 {
-    private Enemy enemyy;
     [SerializeField]
     private Combat combatscript;
     [SerializeField]
