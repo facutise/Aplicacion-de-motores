@@ -33,7 +33,7 @@ public class CombatPosition : MonoBehaviour
     AudioSource MyAudioSource;
     public AudioClip CardSwipe;
     public AudioClip EnemyDiesAudio;
-    public float ContadorTransicion;
+    public float TransitionCounter;
 
     private void Awake()
     {
@@ -59,7 +59,7 @@ public class CombatPosition : MonoBehaviour
         MyAudioSource.Play();
     }
 
-    public void salircombate()
+    public void RunOutOfCombat()
     {
         enemiesreminder--;
 

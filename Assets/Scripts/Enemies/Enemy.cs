@@ -4,7 +4,8 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    public Player player;
+    [SefializeField]
+    private Player player;
     public Combat combat;
     CombatPosition _combatposition;
     public int health;
