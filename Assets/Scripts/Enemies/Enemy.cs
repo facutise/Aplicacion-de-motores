@@ -4,7 +4,6 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    [SefializeField]
     private Player player;
     public Combat combat;
     CombatPosition _combatposition;
@@ -62,7 +61,7 @@ public abstract class Enemy : MonoBehaviour
 
     void Enemyapears()
     {
-        Debug.Log("Aparecio un " + tipodeenemigo);
+        Debug.Log("Aparecio un " + enemyType);
     }
 
     private void Update()
@@ -91,7 +90,7 @@ public abstract class Enemy : MonoBehaviour
         {
             combat.EndOfCombat();
             PlayerStadisticsScript.vigor = 3;
-            _combatposition.salircombate();
+            _combatposition.RunOutOfCombat();
             Destroy(gameObject);
         }
     }

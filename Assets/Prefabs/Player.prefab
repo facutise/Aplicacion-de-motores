@@ -254,7 +254,6 @@ GameObject:
   - component: {fileID: 8077958657708868335}
   - component: {fileID: 8077958657708868332}
   - component: {fileID: 8077958657708868333}
-  - component: {fileID: 2164653984255317432}
   - component: {fileID: 5561988426673552123}
   - component: {fileID: 5299470838625391949}
   - component: {fileID: 5790167006782233436}
@@ -266,6 +265,8 @@ GameObject:
   - component: {fileID: 8940846620823324685}
   - component: {fileID: 8997924972283122296}
   - component: {fileID: 2034795175}
+  - component: {fileID: 6613428882280391050}
+  - component: {fileID: 7135986714534174874}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -308,7 +309,7 @@ MonoBehaviour:
   verticalMove: 0
   mainCamera: {fileID: 0}
   menumanagerscript: {fileID: 0}
-  player: {fileID: 2164653984255317432}
+  player: {fileID: 0}
   playerspeed: 5
   _maxhealth: 30
   vigorPoints: 40
@@ -344,24 +345,6 @@ CapsuleCollider:
   m_Height: 1.4
   m_Direction: 1
   m_Center: {x: -0.01, y: 0.87, z: 0}
---- !u!143 &2164653984255317432
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8077958657708868338}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 0.00001
-  m_Radius: 0.50423276
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.75, z: 0}
 --- !u!114 &5561988426673552123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,7 +438,7 @@ MonoBehaviour:
   EnemyHealthPointsScript: {fileID: 0}
   CardSwipe: {fileID: 8300000, guid: 120669a9b14f2154e94d7ebeb03fd389, type: 3}
   EnemyDiesAudio: {fileID: 8300000, guid: a99e3c4ff882fc7498ed6c65ea8e07ba, type: 3}
-  ContadorTransicion: 1
+  TransitionCounter: 0
 --- !u!114 &5790167006782233436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,47 +451,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a75fb82f03a3d5846b756eb4c4bfd576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageParticleSlot1: {fileID: 0}
-  damageParticleSlot2: {fileID: 0}
-  damageParticleSlot3: {fileID: 0}
-  damageparticleSlot4: {fileID: 0}
-  damageparticleSlot5: {fileID: 0}
-  damageparticleSlot6: {fileID: 0}
-  damageParticleSlot1Combate2: {fileID: 0}
-  damageParticleSlot2Combate2: {fileID: 0}
-  damageParticleSlot3Combate2: {fileID: 0}
-  damageparticleSlot4Combate2: {fileID: 0}
-  damageparticleSlot5Combate2: {fileID: 0}
-  damageparticleSlot6Combate2: {fileID: 0}
-  damageParticleSlot1_Combate3: {fileID: 0}
-  damageParticleSlot2_Combate3: {fileID: 0}
-  damageParticleSlot3_Combate3: {fileID: 0}
-  damageparticleSlot4_Combate3: {fileID: 0}
-  damageparticleSlot5_Combate3: {fileID: 0}
-  damageparticleSlot6_Combate3: {fileID: 0}
-  enemyy: {fileID: 0}
-  deckscript: {fileID: 7910656068851151482}
-  carddisplayscriptinSlot1: {fileID: 0}
-  carddisplayscriptinSlot2: {fileID: 0}
-  carddisplayscriptinSlot3: {fileID: 0}
-  carddisplayscriptinSlot4: {fileID: 0}
-  carddisplayscriptinSlot5: {fileID: 0}
-  carddisplayscriptinSlot6: {fileID: 0}
-  cardOrange1: {fileID: 0}
-  cardOrange2: {fileID: 0}
-  cardOrange3: {fileID: 0}
-  cardOrange4: {fileID: 0}
-  cardOrange5: {fileID: 0}
-  cardOrange6: {fileID: 0}
-  passButton: {fileID: 0}
-  button1: {fileID: 0}
-  button2: {fileID: 0}
-  button3: {fileID: 0}
-  button4: {fileID: 0}
-  button5: {fileID: 0}
-  button6: {fileID: 0}
-  VigorDeckScript: {fileID: 5712986794260492655}
-  PlayerStadisticsScript: {fileID: 5273619601675263601}
+  CardDisplayScriptsInTheSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  VigorCardDisplayScriptsInTheSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  OrangeCards:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ButtonsofSlot:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  CardsHadBeenUsed: 010101010101
   TheCanvasesForFade:
   - {fileID: 0}
   - {fileID: 0}
@@ -516,6 +484,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  PassButton: {fileID: 0}
+  VigorDeckScript: {fileID: 5712986794260492655}
+  PlayerStadisticsScript: {fileID: 5273619601675263601}
+  Enemy: {fileID: 0}
+  DeckScript: {fileID: 7910656068851151482}
 --- !u!114 &7910656068851151482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,13 +501,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77dde7aaf5a5160458b2bad6508c44bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deck: []
-  Slot1: {fileID: 0}
-  Slot2: {fileID: 0}
-  Slot3: {fileID: 0}
-  SlotBool1: 0
-  SlotBool2: 0
-  SlotBool3: 0
+  CarddisplaysScriptsInTheSlots: []
+  SlotBools: 
   DeckOfTheDeck:
   - {fileID: 11400000, guid: 8e20a41ed110f5d48a501ed02773741c, type: 2}
   - {fileID: 11400000, guid: 60ff571e932c28842930df7c5147f318, type: 2}
@@ -558,13 +526,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25c77a0e4092ed349ac62f62d597fa4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deck: []
-  Slot4: {fileID: 0}
-  Slot5: {fileID: 0}
-  Slot6: {fileID: 0}
-  SlotBool4: 0
-  SlotBool5: 0
-  SlotBool6: 0
+  VigorCardDisplaysScripts: []
+  SlotBools: 
   DeckOfTheVigorDeck:
   - {fileID: 11400000, guid: aecf45d6a9c991e4ab801d60a5ec531a, type: 2}
   - {fileID: 11400000, guid: e53f071c551e1f3499a8ff83fb64ebd8, type: 2}
@@ -621,6 +584,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  OptionsMenu: {fileID: 0}
 --- !u!114 &5273619601675263601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -845,6 +809,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6613428882280391050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8077958657708868338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd123c64265e1744ebc5bc31f26f6784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 200
+--- !u!114 &7135986714534174874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8077958657708868338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2384e491a70b414887734542523ffbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 5
+  onFloor: 1
 --- !u!1 &8077958658602386710
 GameObject:
   m_ObjectHideFlags: 0

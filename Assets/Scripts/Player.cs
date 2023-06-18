@@ -41,8 +41,6 @@ public class Player : MonoBehaviour
     //CombatPosition _combatposition;
     Charview view;
     public MenuManager menumanagerscript;
-
-    public CharacterController player;
     public float playerspeed;
     public int _maxhealth = 30; 
     public int vigorPoints = 40;
@@ -58,11 +56,7 @@ public class Player : MonoBehaviour
     }
     private void Start()
     {
-        
 
-        player = GetComponent<CharacterController>();
-
-        
     }
     private void Update()
     {
@@ -81,11 +75,9 @@ public class Player : MonoBehaviour
 
         movePLayer = playerInput.x * camRight + playerInput.z * camForward;
 
-        player.transform.LookAt(player.transform.position + movePLayer);
 
         setGravity();
 
-        player.Move(movePLayer * playerspeed * Time.deltaTime);
 
         if(movePLayer.magnitude > 0.3f)
         {
