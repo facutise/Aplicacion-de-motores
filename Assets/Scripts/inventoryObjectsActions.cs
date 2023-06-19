@@ -55,7 +55,7 @@ public class inventoryObjectsActions : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H) && healthPotions > 0 && combatpositionscript.CombatON == true)
+        if (Input.GetKeyDown(KeyCode.H) && healthPotions > 0 && combatpositionscript.combatON == true)
         {
             stadisticPlayerScript.health += 10;
             healthPotions -= 1;
@@ -66,7 +66,7 @@ public class inventoryObjectsActions : MonoBehaviour
 
     public void UsePotion()
     {
-        if (healthPotions > 0 && combatpositionscript.CombatON == true)
+        if (healthPotions > 0 && combatpositionscript.combatON == true)
         {
             stadisticPlayerScript.health += 10;
             healthPotions -= 1;

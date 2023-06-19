@@ -9,34 +9,34 @@ public class CombatPosition : MonoBehaviour
     [SerializeField] private List<GameObject> enemyGObj;
     [SerializeField] private Transform enemytransf;
     [SerializeField] private GameObject areaWhereTheEnemySpawns;
-    [SerializeField] private List<GameObject> AreasWhereTheEnemiesSpawns;
-    [SerializeField] private int CounterforPlacesWhereEnemiesSpawns;
+    [SerializeField] private List<GameObject> areasWhereTheEnemiesSpawns;
+    [SerializeField] private int counterforPlacesWhereEnemiesSpawns;
     public bool battlePosition = false;
-    public bool CombatON = false;
+    public bool combatON = false;
     public bool enemyInvoke = false;
     [SerializeField] private Rigidbody playerRB;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Player player;
     [SerializeField] private List<CinemachineVirtualCamera> cameras;
-    public CinemachineVirtualCamera ActiveCamera;
+    public CinemachineVirtualCamera activeCamera;
     private GameManager myGM;
     [SerializeField] private MyCamera camerascript;
     [SerializeField] private int enemiesreminder;
     [SerializeField] private Deck deckscript;
     [SerializeField] private VigorDeck vigordeckscript;
-    public VigorCardsDisplay ScriptVigorCardDisplaySlot4;
-    public VigorCardsDisplay ScriptVigorCardDisplaySlot5;
-    public VigorCardsDisplay ScriptVigorCardDisplaySlot6;
+    public VigorCardsDisplay scriptVigorCardDisplaySlot4;
+    public VigorCardsDisplay scriptVigorCardDisplaySlot5;
+    public VigorCardsDisplay scriptVigorCardDisplaySlot6;
     [SerializeField] private StadisticPlayer stadisticPlayerScript;
-    [SerializeField] private EnemyHeathPointsUI EnemyHealthPointsScript;
-    private AudioSource MyAudioSource;
-    [SerializeField] private AudioClip CardSwipe;
-    [SerializeField] private AudioClip EnemyDiesAudio;
-    [SerializeField] private float TransitionCounter;
+    [SerializeField] private EnemyHeathPointsUI enemyHealthPointsScript;
+    private AudioSource myAudioSource;
+    [SerializeField] private AudioClip cardSwipe;
+    [SerializeField] private AudioClip enemyDiesAudio;
+    [SerializeField] private float transitionCounter;
 
     private void Awake()
     {
-        MyAudioSource = GetComponent<AudioSource>();
+        myAudioSource = GetComponent<AudioSource>();
     }
 
     public void Start()
@@ -46,7 +46,7 @@ public class CombatPosition : MonoBehaviour
 
     public void Update()
     {
-        if (CombatON)
+        if (combatON)
         {
             Cursor.lockState = CursorLockMode.Confined;
         }
@@ -54,8 +54,8 @@ public class CombatPosition : MonoBehaviour
 
     public void PlayAudio(AudioClip AC)
     {
-        MyAudioSource.clip = AC;
-        MyAudioSource.Play();
+        myAudioSource.clip = AC;
+        myAudioSource.Play();
     }
 
     public void RunOutOfCombat()
@@ -66,22 +66,22 @@ public class CombatPosition : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             SwitchCamera(cameras[0]);
-            PlayAudio(EnemyDiesAudio);
+            PlayAudio(enemyDiesAudio);
             myGM.ActiveUI();
             battlePosition = false;
             player.enabled = true;
             playerRB.constraints = RigidbodyConstraints.None;
             playerRB.constraints = RigidbodyConstraints.FreezeRotation;
-            CombatON = false;
+            combatON = false;
             enemyInvoke = false;
             Debug.Log("Saliste del combate");
         }
     }
 
-    public void combatON()
+    public void CombatON()
     {
         battlePosition = true;
-        PlayAudio(CardSwipe);
+        PlayAudio(cardSwipe);
         camerascript.enabled = false;
         myGM.ActiveUI();
         player.enabled = false;
@@ -92,13 +92,13 @@ public class CombatPosition : MonoBehaviour
         Debug.Log("Entraste en combate");
         deckscript.DrawCards();
         vigordeckscript.DrawCards();
-        CombatON = true;
+        combatON = true;
     }
 
     public void SwitchCamera(CinemachineVirtualCamera camera)
     {
         camera.Priority = 10;
-        ActiveCamera = camera;
+        activeCamera = camera;
 
         foreach (CinemachineVirtualCamera c in cameras)
         {
@@ -126,10 +126,10 @@ public class CombatPosition : MonoBehaviour
 
             Destroy(areaWhereTheEnemySpawns.gameObject);
 
-            if (!CombatON)
+            if (!combatON)
             {
                 SwitchCamera(cameras[1]);
-                combatON();
+                CombatON();
             }
         }
         else if (other.gameObject.layer == 13)
@@ -147,10 +147,10 @@ public class CombatPosition : MonoBehaviour
 
             Destroy(areaWhereTheEnemySpawns.gameObject);
 
-            if (!CombatON)
+            if (!combatON)
             {
                 SwitchCamera(cameras[2]);
-                combatON();
+                CombatON();
             }
         }
         else if (other.gameObject.layer == 14)
@@ -168,10 +168,10 @@ public class CombatPosition : MonoBehaviour
 
             Destroy(areaWhereTheEnemySpawns.gameObject);
 
-            if (!CombatON)
+            if (!combatON)
             {
                 SwitchCamera(cameras[3]);
-                combatON();
+                CombatON();
             }
         }
         else if (other.gameObject.layer == 17)
@@ -189,27 +189,27 @@ public class CombatPosition : MonoBehaviour
 
             Destroy(areaWhereTheEnemySpawns.gameObject);
 
-            if (!CombatON)
+            if (!combatON)
             {
                 SwitchCamera(cameras[4]);
-                combatON();
+                CombatON();
             }
         }
     }
 
     void EnemyInvoke()
     {
-        Enemy actualenemy = Instantiate(enemyGObj[CounterforPlacesWhereEnemiesSpawns], AreasWhereTheEnemiesSpawns[CounterforPlacesWhereEnemiesSpawns].transform.position, AreasWhereTheEnemiesSpawns[CounterforPlacesWhereEnemiesSpawns].transform.rotation).GetComponent<Enemy>();
+        Enemy actualenemy = Instantiate(enemyGObj[counterforPlacesWhereEnemiesSpawns], areasWhereTheEnemiesSpawns[counterforPlacesWhereEnemiesSpawns].transform.position, areasWhereTheEnemiesSpawns[counterforPlacesWhereEnemiesSpawns].transform.rotation).GetComponent<Enemy>();
 
         actualenemy.Setcombat(this);
         actualenemy.SetPlayer(stadisticPlayerScript);
         combatscript.setenemy(actualenemy);
-        EnemyHealthPointsScript.SetEnemyInEnemyHealthPoints(actualenemy);
-        ScriptVigorCardDisplaySlot4.SetEnemy(actualenemy);
-        ScriptVigorCardDisplaySlot5.SetEnemy(actualenemy);
-        ScriptVigorCardDisplaySlot6.SetEnemy(actualenemy);
+        enemyHealthPointsScript.SetEnemyInEnemyHealthPoints(actualenemy);
+        scriptVigorCardDisplaySlot4.SetEnemy(actualenemy);
+        scriptVigorCardDisplaySlot5.SetEnemy(actualenemy);
+        scriptVigorCardDisplaySlot6.SetEnemy(actualenemy);
         enemyInvoke = true;
-        CounterforPlacesWhereEnemiesSpawns++;
+        counterforPlacesWhereEnemiesSpawns++;
     }
 }
 
