@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+//TP2-Marco Lavacchielli
 public class CombatPosition : MonoBehaviour
 {
     [SerializeField] private Combat combatscript;

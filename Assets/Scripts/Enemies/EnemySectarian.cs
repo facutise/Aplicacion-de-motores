@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TP2-Marco Lavacchielli
 public class EnemySectarian : Enemy
 {
     public override void Start()
