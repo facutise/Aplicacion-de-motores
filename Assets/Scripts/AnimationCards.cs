@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 //TP2 - Lucas Torres
 
-public class AnimacionCartas : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class AnimationCards : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private Vector3 initialScale;
 
