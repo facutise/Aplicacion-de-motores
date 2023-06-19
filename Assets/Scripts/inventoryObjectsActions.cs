@@ -23,9 +23,7 @@ public class inventoryObjectsActions : MonoBehaviour
     public AudioClip OpenCardBox;
 
     public int HealthPotions;
-    public StadisticPlayer StadisticPlayerScript;
-
-    
+    public StadisticPlayer stadisticPlayerScript;
 
     public GameObject doorHolder;
 
@@ -59,7 +57,7 @@ public class inventoryObjectsActions : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.H) && HealthPotions > 0 && combatpositionscript.CombatON == true)
         {
-            StadisticPlayerScript.health += 10;
+            stadisticPlayerScript.health += 10;
             HealthPotions -= 1;
             healthPotionParticles.Play();
             Debug.Log("Te has curado 10 puntos de salud con una mejora de salud");
@@ -70,7 +68,7 @@ public class inventoryObjectsActions : MonoBehaviour
     {
         if (HealthPotions > 0 && combatpositionscript.CombatON == true)
         {
-            StadisticPlayerScript.health += 10;
+            stadisticPlayerScript.health += 10;
             HealthPotions -= 1;
             healthPotionParticles.Play();
             Debug.Log("Te has curado 10 puntos de salud con una mejora de salud");
