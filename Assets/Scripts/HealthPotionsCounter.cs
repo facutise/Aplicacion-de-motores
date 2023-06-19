@@ -16,7 +16,7 @@ public class HealthPotionsCounter : MonoBehaviour
     public void Update()
     {
        
-        HealthPotsCounter.text = inventoryObjectsActionsScript.HealthPotions.ToString();
+        HealthPotsCounter.text = inventoryObjectsActionsScript.healthPotions.ToString();
 
     }
 }

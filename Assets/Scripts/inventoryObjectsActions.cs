@@ -22,7 +22,7 @@ public class inventoryObjectsActions : MonoBehaviour
     AudioSource MyAudioSource;
     public AudioClip OpenCardBox;
 
-    public int HealthPotions;
+    public int healthPotions;
     public StadisticPlayer stadisticPlayerScript;
 
     public GameObject doorHolder;
@@ -55,10 +55,10 @@ public class inventoryObjectsActions : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H) && HealthPotions > 0 && combatpositionscript.CombatON == true)
+        if (Input.GetKeyDown(KeyCode.H) && healthPotions > 0 && combatpositionscript.CombatON == true)
         {
             stadisticPlayerScript.health += 10;
-            HealthPotions -= 1;
+            healthPotions -= 1;
             healthPotionParticles.Play();
             Debug.Log("Te has curado 10 puntos de salud con una mejora de salud");
         }
@@ -66,10 +66,10 @@ public class inventoryObjectsActions : MonoBehaviour
 
     public void UsePotion()
     {
-        if (HealthPotions > 0 && combatpositionscript.CombatON == true)
+        if (healthPotions > 0 && combatpositionscript.CombatON == true)
         {
             stadisticPlayerScript.health += 10;
-            HealthPotions -= 1;
+            healthPotions -= 1;
             healthPotionParticles.Play();
             Debug.Log("Te has curado 10 puntos de salud con una mejora de salud");
         }
@@ -88,7 +88,7 @@ public class inventoryObjectsActions : MonoBehaviour
         }
         if (other.gameObject.layer == 16)
         {
-            HealthPotions += 1;
+            healthPotions += 1;
             Destroy(other.gameObject);
             healthPotionLight.enabled = false;
             healthPotionParticles.Stop();
