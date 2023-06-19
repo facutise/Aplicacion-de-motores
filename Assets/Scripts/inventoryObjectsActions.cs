@@ -28,7 +28,7 @@ public class inventoryObjectsActions : MonoBehaviour
     [SerializeField]
     private ParticleSystem HealthPotionParticles;
 
-    public GameObject DoorHolder;
+    public GameObject doorHolder;
 
     [SerializeField]
     private ParticleSystem healthPotionParticles;
@@ -136,7 +136,7 @@ public class inventoryObjectsActions : MonoBehaviour
             if (KeyForTheBlackDoor == 1)
             {
                 animationDoor.Play("AnimationDoor");
-                Destroy(DoorHolder);
+                Destroy(doorHolder);
             }
 
         }
