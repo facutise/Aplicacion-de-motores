@@ -25,8 +25,7 @@ public class inventoryObjectsActions : MonoBehaviour
     public int HealthPotions;
     public StadisticPlayer StadisticPlayerScript;
 
-    [SerializeField]
-    private ParticleSystem HealthPotionParticles;
+    
 
     public GameObject doorHolder;
 
@@ -62,7 +61,7 @@ public class inventoryObjectsActions : MonoBehaviour
         {
             StadisticPlayerScript.health += 10;
             HealthPotions -= 1;
-            HealthPotionParticles.Play();
+            healthPotionParticles.Play();
             Debug.Log("Te has curado 10 puntos de salud con una mejora de salud");
         }
     }
@@ -73,7 +72,7 @@ public class inventoryObjectsActions : MonoBehaviour
         {
             StadisticPlayerScript.health += 10;
             HealthPotions -= 1;
-            HealthPotionParticles.Play();
+            healthPotionParticles.Play();
             Debug.Log("Te has curado 10 puntos de salud con una mejora de salud");
         }
     }

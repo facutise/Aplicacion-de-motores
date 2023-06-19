@@ -427,10 +427,10 @@ MonoBehaviour:
   ActivatorsOfCards: 00000000000000000000000000000000000000
   CardsOnCountdown: 0
   OpenCardBox: {fileID: 8300000, guid: 70910e94ac9394d4f86ff5736ca1811f, type: 3}
-  HealthPotions: 0
+  healthPotions: 0
   StadisticPlayerScript: {fileID: 5273619601675263601}
   HealthPotionParticles: {fileID: 2920806326754537092}
-  DoorHolder: {fileID: 0}
+  doorHolder: {fileID: 0}
   healthPotionParticles: {fileID: 0}
   healthPotionMiniParticles: {fileID: 0}
   healthPotionLight: {fileID: 0}
