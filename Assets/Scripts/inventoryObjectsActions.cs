@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class inventoryObjectsActions : MonoBehaviour
 {
-    private int WhispersCount;
-    public int KeyForTheBlackDoor;
+    private int whispersCount;
+    public int keyForTheBlackDoor;
     [SerializeField]
     private  CombatPosition combatpositionscript;
 
@@ -98,39 +98,39 @@ public class inventoryObjectsActions : MonoBehaviour
 
         if (other.gameObject.layer == 6)
         {
-            WhispersCount += 1;
+            whispersCount += 1;
             Destroy(other.gameObject);
 
             PlayAudioInventory(openCardBox);
-            if (WhispersCount == 1)
+            if (whispersCount == 1)
             {
                 Debug.Log("Escucha atentamente Oswald, el combate está cerca. tienes dos mazos. uno de ellos me alimentará de tu vigor para darte" +
                     " gran parte de mi poder y pueden poner el combate a tu favor si lo usas con ingenio. Mientras más luches tu vigor aumentará" +
                     ", y por ende, más podré consumir de ti, así que trata de no morirte tan rápido");
             }
-            else if (WhispersCount == 2)
+            else if (whispersCount == 2)
             {
                 Debug.Log("Al presionar [i] entrarás en el inventario, presiona sobre una carta para equipartela. debes equiparte tanto" +
                     " cartas de vigor como cartas normales o no podrás derrotar a tus enemigos.");
             }
-            else if (WhispersCount == 3)
+            else if (whispersCount == 3)
             {
                 Debug.Log("El mazo que no consume tu vigor son sólo un suplemento, pero pueden ser muy oportunas. Te las di por pena...");
             }
-            else if (WhispersCount == 4)
+            else if (whispersCount == 4)
             {
                 Debug.Log("¿así usas mis cartas? eres decepcionante");
             }
         }
         if (other.gameObject.layer == 8)
         {
-            KeyForTheBlackDoor = 1;
+            keyForTheBlackDoor = 1;
             Destroy(other.gameObject);
         }
         if (other.gameObject.layer == 7)
         {
             //puerta
-            if (KeyForTheBlackDoor == 1)
+            if (keyForTheBlackDoor == 1)
             {
                 animationDoor.Play("AnimationDoor");
                 Destroy(doorHolder);
