@@ -426,7 +426,7 @@ MonoBehaviour:
   - {fileID: 0}
   ActivatorsOfCards: 00000000000000000000000000000000000000
   CardsOnCountdown: 0
-  OpenCardBox: {fileID: 8300000, guid: 70910e94ac9394d4f86ff5736ca1811f, type: 3}
+  openCardBox: {fileID: 8300000, guid: 70910e94ac9394d4f86ff5736ca1811f, type: 3}
   healthPotions: 0
   stadisticPlayerScript: {fileID: 5273619601675263601}
   doorHolder: {fileID: 0}

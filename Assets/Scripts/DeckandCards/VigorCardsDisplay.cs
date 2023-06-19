@@ -90,7 +90,7 @@ public class VigorCardsDisplay : MonoBehaviour,IDisplayable
     private ParticleSystem uncontrolledPrideParticles3;
     // private void Awake()
     //{
-    //MyAudioSource = GetComponent<AudioSource>();
+    //myAudioSource = GetComponent<AudioSource>();
     //}
     public void PlayAudio(AudioClip AC)
     {

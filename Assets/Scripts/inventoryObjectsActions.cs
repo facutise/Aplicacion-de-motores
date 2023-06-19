@@ -19,8 +19,8 @@ public class inventoryObjectsActions : MonoBehaviour
     public bool[] ActivatorsOfCards;
     public int CardsOnCountdown;
 
-    AudioSource MyAudioSource;
-    public AudioClip OpenCardBox;
+    AudioSource myAudioSource;
+    public AudioClip openCardBox;
 
     public int healthPotions;
     public StadisticPlayer stadisticPlayerScript;
@@ -44,13 +44,13 @@ public class inventoryObjectsActions : MonoBehaviour
 
     private void Awake()
     {
-        MyAudioSource = GetComponent<AudioSource>();
+        myAudioSource = GetComponent<AudioSource>();
     }
 
     public void PlayAudioInventory(AudioClip AC)
     {
-        MyAudioSource.clip = AC;
-        MyAudioSource.Play();
+        myAudioSource.clip = AC;
+        myAudioSource.Play();
     }
 
     void Update()
@@ -101,7 +101,7 @@ public class inventoryObjectsActions : MonoBehaviour
             WhispersCount += 1;
             Destroy(other.gameObject);
 
-            PlayAudioInventory(OpenCardBox);
+            PlayAudioInventory(openCardBox);
             if (WhispersCount == 1)
             {
                 Debug.Log("Escucha atentamente Oswald, el combate está cerca. tienes dos mazos. uno de ellos me alimentará de tu vigor para darte" +
