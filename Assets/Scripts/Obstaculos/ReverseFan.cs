@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TP2 - Santiago Andres Sanchez Barrio
+
 public class ReverseFan : MonoBehaviour
 {
     [SerializeField] private float absortionStrength = 10f;

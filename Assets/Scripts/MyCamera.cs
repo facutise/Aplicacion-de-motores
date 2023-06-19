@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TP2 - Lucas Torres
+
 public class MyCamera : MonoBehaviour
 {
     public Vector3 offset;

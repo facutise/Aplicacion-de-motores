@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TP2 - Santiago Andres Sanchez Barrio
+
 public class FragilePlatform : MonoBehaviour
 {
     private float timeBetweenStates = 5f;

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//TP2 - Lucas Torres
+
 public class inventoryObjectsActions : MonoBehaviour
 {
     private int whispersCount;

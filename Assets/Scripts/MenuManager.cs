@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//TP2 - Santiago Andres Sanchez Barrio
+
 public class MenuManager : MonoBehaviour
 {
     public GameObject MainMenu;

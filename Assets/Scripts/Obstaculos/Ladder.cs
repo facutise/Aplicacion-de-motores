@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TP2 - Santiago Andres Sanchez Barrio
+
 public class Ladder : MonoBehaviour
 {
     [SerializeField] private float ladderSpeed = 3.0f; // La velocidad a la que sube o baja el jugador por la escalera

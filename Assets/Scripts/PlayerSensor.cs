@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using Cinemachine;
 
+//TP2 - Santiago Andres Sanchez Barrio
+
 public class PlayerSensor : MonoBehaviour
 {
     [SerializeField] UnityEvent EV_OnPlayerEnter;
