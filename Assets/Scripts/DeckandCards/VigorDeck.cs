@@ -2,21 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//TP2-"Facundo Sebastian Tisera"
 
 public class VigorDeck : MonoBehaviour,IDeckable
 {
-    /*public VigorCards[] _deck;
-    
-    public VigorCardsDisplay Slot4;
-    public VigorCardsDisplay Slot5;
-    public VigorCardsDisplay Slot6;*/
+   
     [SerializeField]
     public VigorCardsDisplay[] VigorCardDisplaysScripts;
 
-    /*public bool SlotBool4 = false;
-    public bool SlotBool5 = false;
-    public bool SlotBool6 = false;*/
     [SerializeField]
     public bool[] SlotBools;
 
@@ -25,19 +18,6 @@ public class VigorDeck : MonoBehaviour,IDeckable
     [SerializeField]
     private List<VigorCards> TrueVigorDeckInCombat = new List<VigorCards>();
 
-
-   /* private void Awake()
-    {
-        //_deck = Resources.FindObjectsOfTypeAll<VigorCards>();
-
-        //DeckOfTheDeck.CopyTo(_deck, 0);
-        //DeckOfTheVigorDeck[2] = _deck[2];
-        //_deck.CopyTo(DeckOfTheVigorDeck, browser);
-        //DeckOfTheVigorDeck[browser] = _deck[browser];
-        //cardsondeck = EquipOrUnequipTheCardBool.Count
-
-        
-    }*/
     public void CreateListOfMyCardBuildForCombat()
     {
         foreach (VigorCards objeto in DeckOfTheVigorDeck)
@@ -51,8 +31,7 @@ public class VigorDeck : MonoBehaviour,IDeckable
 
     public void BuildMyDeck(VigorCards browser, int ThePlaceInArray)
     {
-        //DeckOfTheVigorDeck[ThePlaceInArray] = browser;
-        //DeckOfTheVigorDeck[ThePlaceInArray] = null;
+        
         if (EquipOrUnequipTheCardBool[ThePlaceInArray]==false)
         {
             DeckOfTheVigorDeck[ThePlaceInArray] = browser;
@@ -80,34 +59,7 @@ public class VigorDeck : MonoBehaviour,IDeckable
 
     public void DrawCards()
     {
-        /*if (TrueVigorDeckInCombat.Count >= 1)
-        {
-            for (int i = 0; i <= 3; i++)
-            {
-                VigorCards randomCard = TrueVigorDeckInCombat[Random.Range(0, TrueVigorDeckInCombat.Count)];
-                if (i == 0 && SlotBool4 == false)
-                {
-                    Slot4.Card = randomCard;
-                    Slot4.TheVigorCostOfMyCard();
-                    SlotBool4 = true;
-                }
-                else if (i == 1 && SlotBool5 == false)
-                {
-                    Slot5.Card = randomCard;
-                    Slot5.TheVigorCostOfMyCard();
-                    SlotBool5 = true;
-                }
-                else if (i == 2 && SlotBool6 == false)
-                {
-                    Slot6.Card = randomCard;
-                    Slot6.TheVigorCostOfMyCard();
-                    SlotBool6 = true;
-                }
-
-            }
-
-        }
-        */
+        
 
         if (TrueVigorDeckInCombat.Count >= 1)
         {

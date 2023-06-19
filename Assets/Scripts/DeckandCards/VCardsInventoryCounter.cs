@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using TMPro;
-
+//TP2-"Facundo Sebastian Tisera"
 public class VCardsInventoryCounter : MonoBehaviour
 {
     public VigorDeck VigorDeckScript;

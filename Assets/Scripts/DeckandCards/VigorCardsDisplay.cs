@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//TP2-"Facundo Sebastian Tisera"
 public class VigorCardsDisplay : MonoBehaviour,IDisplayable
 {
     public VigorCards Card;
@@ -25,7 +25,7 @@ public class VigorCardsDisplay : MonoBehaviour,IDisplayable
     
     private string NameOfVigorCardAndExecutePassive;
 
-    //public Player player;
+   
     [SerializeField]
     private StadisticPlayer stadisticplayerScipt;
     
@@ -88,10 +88,7 @@ public class VigorCardsDisplay : MonoBehaviour,IDisplayable
     private ParticleSystem uncontrolledPrideParticles;
     private ParticleSystem uncontrolledPrideParticles2;
     private ParticleSystem uncontrolledPrideParticles3;
-    // private void Awake()
-    //{
-    //myAudioSource = GetComponent<AudioSource>();
-    //}
+   
     public void PlayAudio(AudioClip AC)
     {
         MyAudioSource.clip = AC;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+//TP2-"Facundo Sebastian Tisera"
 public class InventoryDisplayer : MonoBehaviour
 {
     public Card card;
