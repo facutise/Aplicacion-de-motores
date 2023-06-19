@@ -11,7 +11,6 @@ public class PlayerInventory : MonoBehaviour
     private bool isInventoryActive = false;
     private bool isMenuActive = false;
     private bool isControlsActive = false;
-    private Vector3 initialScale;
     public Deck DeckScript;
     public VigorDeck VigorDeckScript;
     public MyCamera camerascript;

@@ -416,8 +416,8 @@ public class Combat : MonoBehaviour
             yield return new WaitForEndOfFrame();
             TheCanvasesForFade[myplace].alpha = alpha;
         }
-        PlayerStadisticsScript.vigor -= carddisplayscriptinSlot4.TheVigorCostOfMyCard();
-        Debug.Log("restan " + PlayerStadisticsScript.vigor + " puntos de vigor");
+        playerStadisticsScript.vigor -= carddisplayscriptinSlot4.TheVigorCostOfMyCard();
+        Debug.Log("restan " + playerStadisticsScript.vigor + " puntos de vigor");
         carddisplayscriptinSlot4.ExecuteCardPassive();
         activaryDesactivarCartaAlUsarlaSlot4();
 
@@ -439,8 +439,8 @@ public class Combat : MonoBehaviour
             yield return new WaitForEndOfFrame();
             TheCanvasesForFade[myplace].alpha = alpha;
         }
-        PlayerStadisticsScript.vigor -= carddisplayscriptinSlot5.TheVigorCostOfMyCard();
-        Debug.Log("restan " + PlayerStadisticsScript.vigor + " puntos de vigor");
+        playerStadisticsScript.vigor -= carddisplayscriptinSlot5.TheVigorCostOfMyCard();
+        Debug.Log("restan " + playerStadisticsScript.vigor + " puntos de vigor");
         carddisplayscriptinSlot5.ExecuteCardPassive();
 
         activaryDesactivarCartaAlUsarlaSlot5();
@@ -462,8 +462,8 @@ public class Combat : MonoBehaviour
             yield return new WaitForEndOfFrame();
             TheCanvasesForFade[myplace].alpha = alpha;
         }
-        PlayerStadisticsScript.vigor -= carddisplayscriptinSlot6.TheVigorCostOfMyCard();
-        Debug.Log("restan " + PlayerStadisticsScript.vigor + " puntos de vigor");
+        playerStadisticsScript.vigor -= carddisplayscriptinSlot6.TheVigorCostOfMyCard();
+        Debug.Log("restan " + playerStadisticsScript.vigor + " puntos de vigor");
         carddisplayscriptinSlot6.ExecuteCardPassive();
 
         activaryDesactivarCartaAlUsarlaSlot6();
@@ -502,7 +502,7 @@ public class Combat : MonoBehaviour
     }
     public void clickonslotfour()
     {
-        if (PlayerStadisticsScript.vigor >= carddisplayscriptinSlot4.TheVigorCostOfMyCard())
+        if (playerStadisticsScript.vigor >= carddisplayscriptinSlot4.TheVigorCostOfMyCard())
         {
             StartCoroutine(FadeAnimSlot4(3));
 
@@ -510,7 +510,7 @@ public class Combat : MonoBehaviour
     }
     public void clickonslotfive()
     {
-        if (PlayerStadisticsScript.vigor >= carddisplayscriptinSlot5.TheVigorCostOfMyCard())
+        if (playerStadisticsScript.vigor >= carddisplayscriptinSlot5.TheVigorCostOfMyCard())
         {
             StartCoroutine(FadeAnimSlot5(4));
 
@@ -518,7 +518,7 @@ public class Combat : MonoBehaviour
     }
     public void clickonslotsix()
     {
-        if (PlayerStadisticsScript.vigor >= carddisplayscriptinSlot6.TheVigorCostOfMyCard())
+        if (playerStadisticsScript.vigor >= carddisplayscriptinSlot6.TheVigorCostOfMyCard())
         {
             StartCoroutine(FadeAnimSlot6(5));
 

@@ -67,7 +67,7 @@ public class CombatPosition : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             SwitchCamera(cameras[0]);
             PlayAudio(EnemyDiesAudio);
-            myGM.activeUI();
+            myGM.ActiveUI();
             battlePosition = false;
             player.enabled = true;
             playerRB.constraints = RigidbodyConstraints.None;
@@ -83,7 +83,7 @@ public class CombatPosition : MonoBehaviour
         battlePosition = true;
         PlayAudio(CardSwipe);
         camerascript.enabled = false;
-        myGM.activeUI();
+        myGM.ActiveUI();
         player.enabled = false;
         vigordeckscript.CreateListOfMyCardBuildForCombat();
         deckscript.CreateListOfMyCardBuildForCombat();

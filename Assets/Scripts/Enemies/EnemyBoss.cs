@@ -57,19 +57,19 @@ public class EnemyBoss : Enemy
     }
     public void BasicDamage()
     {
-        PlayerStadisticsScript.health -= 5;
+        playerStadisticsScript.health -= 5;
         Debug.Log("El enemigo inflingio 5 de daño al jugador con un ataque basico");
         PlayBasicAttackParticles();
     }
     public void HeavyDamage()
     {
-        PlayerStadisticsScript.health -= 7;
+        playerStadisticsScript.health -= 7;
         Debug.Log("El enemigo inflingio 7 de daño al jugador con un golpe pesado");
         PlayHeavyAttackParticles();
     }
     public void SuperHeavyDamage()
     {
-        PlayerStadisticsScript.health -= 10;
+        playerStadisticsScript.health -= 10;
         Debug.Log("El enemigo inflingio 10 de daño al jugador con un golpe super pesado");
         PlayHeavyAttackParticles();
     }

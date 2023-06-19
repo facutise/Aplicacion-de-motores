@@ -8,7 +8,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private CombatPosition _combatposition;
     public int health;
     [SerializeField] private string enemyType;
-    public StadisticPlayer PlayerStadisticsScript;
+    public StadisticPlayer playerStadisticsScript;
     [SerializeField] private Transform ataqueEnemy1SpawnPoint;
     [SerializeField] private Transform ataqueEnemigo2SpawnPoint;
     [SerializeField] private Transform ataqueEnemy1SpawnPoint_Combate2;
@@ -79,7 +79,7 @@ public abstract class Enemy : MonoBehaviour
 
     public void SetPlayer(StadisticPlayer playerreference)
     {
-        PlayerStadisticsScript = playerreference;
+        playerStadisticsScript = playerreference;
     }
 
     public virtual void EnemyDies()
@@ -87,7 +87,7 @@ public abstract class Enemy : MonoBehaviour
         if (health <= 0)
         {
             combat.EndOfCombat();
-            PlayerStadisticsScript.vigor = 3;
+            playerStadisticsScript.vigor = 3;
             _combatposition.RunOutOfCombat();
             Destroy(gameObject);
         }

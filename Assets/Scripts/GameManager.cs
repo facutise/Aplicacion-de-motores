@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [SerializeField] private Player player;
     [SerializeField] private Image combatUI;
-    [SerializeField] private Image Inventory;
+    [SerializeField] private Image inventory;
     public bool cardsEquiped = false;
     public bool inventoryactive = false;
     [SerializeField] private List<Card> deck = new List<Card>();
@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool[] availableCardSlots;
     [SerializeField] private Text deckSizeText;
     public bool gameispaused;
-    [SerializeField] private Image PauseMenu;
-    [SerializeField] private GameObject Menu;
+    [SerializeField] private Image pauseMenu;
+    [SerializeField] private GameObject menu;
     [SerializeField] private GameObject controls;
     [SerializeField] private MyCamera camerascript;
     [SerializeField] private Rigidbody playerRB;
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void activeUI()
+    public void ActiveUI()
     {
         cardsEquiped = !cardsEquiped;
         combatUI.gameObject.SetActive(cardsEquiped);
@@ -75,25 +75,25 @@ public class GameManager : MonoBehaviour
     public void Activeinventory()
     {
         PauseGame();
-        Inventory.gameObject.SetActive(true);
+        inventory.gameObject.SetActive(true);
     }
 
     public void DesactivateInventory()
     {
         PlayGame();
-        Inventory.gameObject.SetActive(false);
+        inventory.gameObject.SetActive(false);
     }
 
     public void Menuactivate()
     {
         PauseGame();
-        Menu.gameObject.SetActive(true);
+        menu.gameObject.SetActive(true);
     }
 
     public void Menudesactivate()
     {
         PlayGame();
-        Menu.gameObject.SetActive(false);
+        menu.gameObject.SetActive(false);
     }
 
     public void PauseGame()

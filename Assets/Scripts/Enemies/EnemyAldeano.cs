@@ -52,13 +52,13 @@ public class EnemyAldeano : Enemy
     }
     public void BasicDamage()
     {
-        PlayerStadisticsScript.health -= 2;
+        playerStadisticsScript.health -= 2;
         Debug.Log("El enemigo inflingio 2 de daño al jugador con un ataque basico");
         PlayBasicAttackParticles();
     }
     public void HeavyDamage()
     {
-        PlayerStadisticsScript.health -= 4;
+        playerStadisticsScript.health -= 4;
         Debug.Log("El enemigo inflingio 4 de daño al jugador con un golpe pesado");
         PlayHeavyAttackParticles();
     }
