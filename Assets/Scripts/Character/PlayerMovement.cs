@@ -6,8 +6,20 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody myRig;
-    private float yVelocity;
-    [SerializeField] private float speed = 200f;
+    private float _yVelocity;
+    [SerializeField] private float _speed = 200f;
+
+    public float Speed
+    {
+        get { return _speed; }
+        set { _speed = value; }
+    }
+
+    public float YVelocity
+    {
+        get { return _yVelocity; }
+        set { _yVelocity = value; }
+    }
 
     private PlayerJumpFuncional jumpy;
     Charview view;
@@ -37,13 +49,13 @@ public class PlayerMovement : MonoBehaviour
         if (jumpy.onFloor)
         {
             // Apply movement velocity only on the x and z axes
-            Vector3 horizontalMove = moveDirection * speed * Time.deltaTime;
+            Vector3 horizontalMove = moveDirection * Speed * Time.deltaTime;
             myRig.velocity = new Vector3(horizontalMove.x, myRig.velocity.y, horizontalMove.z);
         }
         else // If the player is in the air
         {
             // Apply movement velocity in the movement direction
-            Vector3 move = moveDirection * speed * Time.deltaTime;
+            Vector3 move = moveDirection * Speed * Time.deltaTime;
             myRig.velocity = new Vector3(move.x, myRig.velocity.y, move.z);
         }
     }
