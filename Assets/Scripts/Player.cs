@@ -31,8 +31,8 @@ public class Player : MonoBehaviour
      }
     */
 
-    public float horizonalMove;
-    public float verticalMove;
+    //public float horizonalMove;
+    //public float verticalMove;
     private Vector3 playerInput;
     public Camera mainCamera;
     private Vector3 camForward;
@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
     public float playerspeed;
     public int _maxhealth = 30; 
     public int vigorPoints = 40;
-    public float gravity = 9.8f;
+    //public float gravity = 9.8f;
 
     public float _currenthealth; 
 
@@ -65,18 +65,18 @@ public class Player : MonoBehaviour
             menumanagerscript.Restartscene();
         }
 
-        horizonalMove = Input.GetAxis("Horizontal");
+        /*horizonalMove = Input.GetAxis("Horizontal");
         verticalMove = Input.GetAxis("Vertical");
         //PlayerDies();
         playerInput = new Vector3(horizonalMove, 0, verticalMove);
-        playerInput = Vector3.ClampMagnitude(playerInput, 1);
+        playerInput = Vector3.ClampMagnitude(playerInput, 1);*/
 
         camDirection();
 
         movePLayer = playerInput.x * camRight + playerInput.z * camForward;
 
 
-        setGravity();
+        //setGravity();
 
 
         if(movePLayer.magnitude > 0.3f)
@@ -102,11 +102,11 @@ public class Player : MonoBehaviour
         camForward = camForward.normalized;
         camRight = camRight.normalized;
     }
-    void setGravity()
+    /*void setGravity()
     {
         movePLayer.y = -gravity * Time.deltaTime;
 
-    }
+    }*/
     /*public void PlayerDies()
     {
         if (PlayerHealth <= 0)

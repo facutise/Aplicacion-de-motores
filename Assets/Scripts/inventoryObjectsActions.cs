@@ -44,6 +44,16 @@ public class inventoryObjectsActions : MonoBehaviour
     [SerializeField]
     private Animator animationDoor;
 
+    private enum Layers
+    {
+        Whispers = 6,
+        DoorsLocked = 7,
+        Keys = 8,
+        PatrolEnemy = 12,
+        CardBox = 15,
+        HealthPotions = 16
+    }
+
     private void Awake()
     {
         myAudioSource = GetComponent<AudioSource>();
@@ -79,7 +89,7 @@ public class inventoryObjectsActions : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 15)
+        if (other.gameObject.layer == (int)Layers.CardBox)
         {
             ActivatorsOfCards[CardsOnCountdown] = true;
             cardsOnInventory[CardsOnCountdown].gameObject.SetActive(ActivatorsOfCards[CardsOnCountdown]);
@@ -88,7 +98,7 @@ public class inventoryObjectsActions : MonoBehaviour
 
             CardsOnCountdown += 1;
         }
-        if (other.gameObject.layer == 16)
+        if (other.gameObject.layer == (int)Layers.HealthPotions)
         {
             healthPotions += 1;
             Destroy(other.gameObject);
@@ -98,7 +108,7 @@ public class inventoryObjectsActions : MonoBehaviour
             Debug.Log("Obtuviste una pocion de curacion, para usarla puedes presionar H o tocar el icono desde el inventario, pero recuerda que solamente podras curarte estando en combate");
         }
 
-        if (other.gameObject.layer == 6)
+        if (other.gameObject.layer == (int)Layers.Whispers)
         {
             whispersCount += 1;
             Destroy(other.gameObject);
@@ -124,12 +134,12 @@ public class inventoryObjectsActions : MonoBehaviour
                 Debug.Log("¿así usas mis cartas? eres decepcionante");
             }
         }
-        if (other.gameObject.layer == 8)
+        if (other.gameObject.layer == (int)Layers.Keys)
         {
             keyForTheBlackDoor = 1;
             Destroy(other.gameObject);
         }
-        if (other.gameObject.layer == 7)
+        if (other.gameObject.layer == (int)Layers.DoorsLocked)
         {
             //puerta
             if (keyForTheBlackDoor == 1)
@@ -139,7 +149,7 @@ public class inventoryObjectsActions : MonoBehaviour
             }
 
         }
-        if (other.gameObject.layer == 12)
+        if (other.gameObject.layer == (int)Layers.PatrolEnemy)
         {
             menumanagerscript.Restartscene();
         }
@@ -147,11 +157,11 @@ public class inventoryObjectsActions : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.layer == 15)
+        if (other.gameObject.layer == (int)Layers.CardBox)
         {
             lightCardbox.enabled = false;
         }
-        if (other.gameObject.layer == 6)
+        if (other.gameObject.layer == (int)Layers.Whispers)
         {
             demonWhispersLight.enabled = false;
         }
