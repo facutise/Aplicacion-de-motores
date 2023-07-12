@@ -63,13 +63,12 @@ public class inventoryObjectsActions : MonoBehaviour
     }
     private void Start()
     {
-        myDelegateparticle += UsePotion;
-        myDelegateparticle += Update;
+        myDelegateparticle += ParticleEffects;
+    }
 
-        if (myDelegateparticle != null)
-        {
-            myDelegateparticle();
-        }
+    private void OnDestroy()
+    {
+        myDelegateparticle -= ParticleEffects;
     }
     public void PlayAudioInventory(AudioClip AC)
     {
@@ -81,20 +80,32 @@ public class inventoryObjectsActions : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.H) && healthPotions > 0 && combatpositionscript.combatON == true)
         {
+            if (myDelegateparticle != null)
+            {
+                myDelegateparticle.Invoke();
+            }
             stadisticPlayerScript.health += 10;
             healthPotions -= 1;
-            healthPlayerParticles.Play();
+            //healthPlayerParticles.Play();
             Debug.Log("Te has curado 10 puntos de salud con una mejora de salud");
         }
     }
 
+    private void ParticleEffects()
+    {
+        healthPlayerParticles.Play();
+    }
     public void UsePotion()
     {
         if (healthPotions > 0 && combatpositionscript.combatON == true)
         {
+            if (myDelegateparticle != null)
+            {
+                myDelegateparticle.Invoke();
+            }
             stadisticPlayerScript.health += 10;
             healthPotions -= 1;
-            healthPlayerParticles.Play();
+            //healthPlayerParticles.Play();
             Debug.Log("Te has curado 10 puntos de salud con una mejora de salud");
         }
     }
@@ -112,6 +123,7 @@ public class inventoryObjectsActions : MonoBehaviour
         }
         if (other.gameObject.layer == (int)Layers.HealthPotions)
         {
+            
             healthPotions += 1;
             Destroy(other.gameObject);
             healthPotionLight.enabled = false;
