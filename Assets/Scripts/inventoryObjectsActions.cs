@@ -10,7 +10,7 @@ public class inventoryObjectsActions : MonoBehaviour
     private int whispersCount;
     public int keyForTheBlackDoor;
     [SerializeField]
-    private  CombatPosition combatpositionscript;
+    private CombatPosition combatpositionscript;
 
     [SerializeField]
     private Camera mainCamera;
@@ -33,7 +33,8 @@ public class inventoryObjectsActions : MonoBehaviour
     private ParticleSystem healthPotionParticles;
     [SerializeField]
     private ParticleSystem healthPotionMiniParticles;
-
+    [SerializeField]
+    private ParticleSystem healthPlayerParticles;
     [SerializeField]
     private Light healthPotionLight;
     [SerializeField]
@@ -44,6 +45,8 @@ public class inventoryObjectsActions : MonoBehaviour
     [SerializeField]
     private Animator animationDoor;
 
+    delegate void delegateParticle();
+    delegateParticle myDelegateparticle;
     private enum Layers
     {
         Whispers = 6,
@@ -58,7 +61,16 @@ public class inventoryObjectsActions : MonoBehaviour
     {
         myAudioSource = GetComponent<AudioSource>();
     }
+    private void Start()
+    {
+        myDelegateparticle += UsePotion;
+        myDelegateparticle += Update;
 
+        if (myDelegateparticle != null)
+        {
+            myDelegateparticle();
+        }
+    }
     public void PlayAudioInventory(AudioClip AC)
     {
         myAudioSource.clip = AC;
@@ -71,7 +83,7 @@ public class inventoryObjectsActions : MonoBehaviour
         {
             stadisticPlayerScript.health += 10;
             healthPotions -= 1;
-            healthPotionParticles.Play();
+            healthPlayerParticles.Play();
             Debug.Log("Te has curado 10 puntos de salud con una mejora de salud");
         }
     }
@@ -82,7 +94,7 @@ public class inventoryObjectsActions : MonoBehaviour
         {
             stadisticPlayerScript.health += 10;
             healthPotions -= 1;
-            healthPotionParticles.Play();
+            healthPlayerParticles.Play();
             Debug.Log("Te has curado 10 puntos de salud con una mejora de salud");
         }
     }

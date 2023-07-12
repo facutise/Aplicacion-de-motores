@@ -305,14 +305,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77cb29c30c68d77478505583e1e35024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizonalMove: 0
-  verticalMove: 0
   mainCamera: {fileID: 0}
   menumanagerscript: {fileID: 0}
   playerspeed: 5
   _maxhealth: 30
   vigorPoints: 40
-  gravity: 9.8
   _currenthealth: 0
 --- !u!54 &8077958657708868332
 Rigidbody:
@@ -364,14 +361,10 @@ MonoBehaviour:
   - {fileID: 4319138868206258675, guid: 44efad12093d5244397e73627ba7b8ce, type: 3}
   enemytransf: {fileID: 8249360497324799471, guid: 57b2f6fbb200dbb45a64c72a6c80e0d4, type: 3}
   areaWhereTheEnemySpawns: {fileID: 0}
-  AreasWhereTheEnemiesSpawns:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  CounterforPlacesWhereEnemiesSpawns: 0
+  areasWhereTheEnemiesSpawns: []
+  counterforPlacesWhereEnemiesSpawns: 0
   battlePosition: 0
-  CombatON: 0
+  combatON: 0
   enemyInvoke: 0
   playerRB: {fileID: 8077958657708868332}
   mainCamera: {fileID: 0}
@@ -382,19 +375,19 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  ActiveCamera: {fileID: 0}
+  activeCamera: {fileID: 0}
   camerascript: {fileID: 0}
   enemiesreminder: 0
   deckscript: {fileID: 7910656068851151482}
   vigordeckscript: {fileID: 5712986794260492655}
-  ScriptVigorCardDisplaySlot4: {fileID: 0}
-  ScriptVigorCardDisplaySlot5: {fileID: 0}
-  ScriptVigorCardDisplaySlot6: {fileID: 0}
+  scriptVigorCardDisplaySlot4: {fileID: 0}
+  scriptVigorCardDisplaySlot5: {fileID: 0}
+  scriptVigorCardDisplaySlot6: {fileID: 0}
   stadisticPlayerScript: {fileID: 5273619601675263601}
-  EnemyHealthPointsScript: {fileID: 0}
-  CardSwipe: {fileID: 8300000, guid: 120669a9b14f2154e94d7ebeb03fd389, type: 3}
-  EnemyDiesAudio: {fileID: 8300000, guid: a99e3c4ff882fc7498ed6c65ea8e07ba, type: 3}
-  TransitionCounter: 0
+  enemyHealthPointsScript: {fileID: 0}
+  cardSwipe: {fileID: 0}
+  enemyDiesAudio: {fileID: 0}
+  transitionCounter: 0
 --- !u!114 &5561988426673552123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0648f8edd8a174c9e08c594805310f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KeyForTheBlackDoor: 0
+  keyForTheBlackDoor: 0
   combatpositionscript: {fileID: 5299470838625391949}
   mainCamera: {fileID: 0}
   menumanagerscript: {fileID: 0}
@@ -432,6 +425,7 @@ MonoBehaviour:
   doorHolder: {fileID: 0}
   healthPotionParticles: {fileID: 0}
   healthPotionMiniParticles: {fileID: 0}
+  healthPlayerParticles: {fileID: 2920806326754537092}
   healthPotionLight: {fileID: 0}
   lightCardbox: {fileID: 0}
   demonWhispersLight: {fileID: 0}
@@ -818,7 +812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd123c64265e1744ebc5bc31f26f6784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 200
+  _speed: 200
 --- !u!114 &7135986714534174874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -831,7 +825,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2384e491a70b414887734542523ffbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 5
   onFloor: 1
 --- !u!1 &8077958658602386710
 GameObject:
@@ -1173,6 +1166,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9056aa5c906a7344fb3a12fc81716f5b, type: 3}
+--- !u!198 &2920806326754537092 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8966588174350495182, guid: 9056aa5c906a7344fb3a12fc81716f5b, type: 3}
+  m_PrefabInstance: {fileID: 6117983486533681994}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3225808626061506925 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8656813811568917031, guid: 9056aa5c906a7344fb3a12fc81716f5b, type: 3}
