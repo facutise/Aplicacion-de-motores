@@ -6,36 +6,39 @@ using UnityEngine;
 
 public class PlayerJumpFuncional : MonoBehaviour
 {
-    Rigidbody myRig;
-    //private PlayerJumpFuncional jumpy;
-    [SerializeField] private float jumpForce = 5;
+    private Rigidbody myRig;
+    private float _jumpForce = 5f;
     public bool onFloor = true;
-    Charview view;
+    private Charview view;
 
-    void Awake()
+    public float JumpForce
     {
-        myRig = GetComponent<Rigidbody>();
-        //jumpy = GetComponent<PlayerJumpFuncional>();
+        get { return _jumpForce; }
+        set { _jumpForce = value; }
     }
 
-    void Update()
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && onFloor == true)
+        myRig = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && onFloor)
         {
             AnimRealJump();
             onFloor = false;
         }
     }
 
-    void AnimRealJump()
+    private void AnimRealJump()
     {
-        Vector3 jumpDirection = Vector3.up * jumpForce;
-
+        Vector3 jumpDirection = Vector3.up * JumpForce;
         myRig.velocity += jumpDirection;
         onFloor = false;
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Floor")
         {
