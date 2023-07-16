@@ -38,7 +38,7 @@ public class PlayerInventory : MonoBehaviour
     {
         for (Counter = 0; Counter <= 7; Counter++)
         {
-            ArrayOfInventoryDisplayer[Counter].ActualizationData();
+            ArrayOfInventoryDisplayer[Counter].InitializeCardData();
         }
     }
     private void Update()

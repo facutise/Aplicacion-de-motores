@@ -15,28 +15,43 @@ public class InventoryDisplayer : MonoBehaviour
     public Deck DeckScript;
     public bool VigorCardEquipedEffectBool;
     public Image EquipedEffectVigor;
-    
+
+    private Dictionary<string, string> cardData; // Diccionario para almacenar los datos
 
     private void Awake()
     {
-        ActualizationData();
+        InitializeCardData();
     }
+
     private void Start()
     {
-
-        ActualizationData();
+        InitializeCardData();
     }
+
     private void Update()
     {
-        ActualizationData();
+        InitializeCardData();
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            PrintCardData();
+        }
     }
-    public void ActualizationData()
-    {
-        nametext.text = card.name;
-        descriptiontext.text = card.description;
-        image.sprite = card.image;
 
-        attacktext.text = card.attack.ToString();
+    public void InitializeCardData()
+    {
+        cardData = new Dictionary<string, string>(); // Reinicia el diccionario
+
+        cardData["Name"] = card.name;
+        cardData["Description"] = card.description;
+        cardData["Attack"] = card.attack.ToString();
+    }
+
+    public void PrintCardData()
+    {
+        foreach (var entry in cardData)
+        {
+            Debug.Log(entry.Key + ": " + entry.Value);
+        }
     }
 
     public void CardEffectFunction()
@@ -49,15 +64,7 @@ public class InventoryDisplayer : MonoBehaviour
     {
         DeckScript.BuildMyDeck(card, MyPlaceOnTheArray);
         CardEffectFunction();
-
     }
 
-
-
-
-
-
-
-
-
+  
 }
