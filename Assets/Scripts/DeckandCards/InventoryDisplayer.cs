@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-//TP2-"Facundo Sebastian Tisera"
 public class InventoryDisplayer : MonoBehaviour
 {
     public Card card;
@@ -16,7 +16,10 @@ public class InventoryDisplayer : MonoBehaviour
     public bool VigorCardEquipedEffectBool;
     public Image EquipedEffectVigor;
 
-    private Dictionary<string, string> cardData; // Diccionario para almacenar los datos
+    public Canvas cardInfoCanvas; // Referencia al Canvas que muestra la información de la tarjeta
+    public TMP_Text tmpText; // Componente TextMeshProUGUI para mostrar los datos de la tarjeta
+
+    private Dictionary<string, string> cardData;
 
     private void Awake()
     {
@@ -28,19 +31,9 @@ public class InventoryDisplayer : MonoBehaviour
         InitializeCardData();
     }
 
-    private void Update()
-    {
-        InitializeCardData();
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            PrintCardData();
-        }
-    }
-
     public void InitializeCardData()
     {
-        cardData = new Dictionary<string, string>(); // Reinicia el diccionario
-
+        cardData = new Dictionary<string, string>();
         cardData["Name"] = card.name;
         cardData["Description"] = card.description;
         cardData["Attack"] = card.attack.ToString();
@@ -66,5 +59,37 @@ public class InventoryDisplayer : MonoBehaviour
         CardEffectFunction();
     }
 
-  
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            DisplayCardInfo();
+        }
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            CloseCardInfo();
+        }
+    }
+
+    public void DisplayCardInfo()
+    {
+        cardInfoCanvas.gameObject.SetActive(true); // Activa el Canvas para mostrar la información
+        tmpText.text = GetFormattedCardData(); // Establece el texto en el componente TMP_Text con los datos de la tarjeta
+    }
+
+    public void CloseCardInfo()
+    {
+        cardInfoCanvas.gameObject.SetActive(false); // Desactiva el Canvas que muestra la información
+    }
+
+    private string GetFormattedCardData()
+    {
+        string formattedData = "";
+        foreach (var entry in cardData)
+        {
+            formattedData += entry.Key + ": " + entry.Value + "\n";
+        }
+        return formattedData;
+    }
 }
