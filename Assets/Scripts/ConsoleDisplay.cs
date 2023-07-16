@@ -44,7 +44,7 @@ public class ConsoleDisplay : MonoBehaviour
 
     void HandleLog(string logString, string stackTrace, LogType type)
     {
-        var messageInfo = new MessageInfo()
+        MessageInfo messageInfo = new MessageInfo()
         {
             message = logString,
             startTime = Time.time,
@@ -76,6 +76,7 @@ public class ConsoleDisplay : MonoBehaviour
             logMessages.Remove(messageInfo);
             UpdateConsoleText();
             messageInfo.isDestroyed = true;
+            logMessages.Add(messageInfo);
         }
 
         // Ocultar la imagen de fondo si no hay mensajes en la lista
