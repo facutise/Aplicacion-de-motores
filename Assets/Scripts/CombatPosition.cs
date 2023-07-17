@@ -69,6 +69,11 @@ public class CombatPosition : MonoBehaviour
             SwitchCamera(cameras[0]);
             PlayAudio(enemyDiesAudio);
             myGM.ActiveUI();
+
+            combatscript.EmptyHandAtEndOfCombat();
+            deckscript.EmptyListOfMyCardsBuildForCombat();
+            vigordeckscript.EmptyListOfMyVigorCardsBuildForCombat();
+
             battlePosition = false;
             player.enabled = true;
             playerRB.constraints = RigidbodyConstraints.None;
@@ -91,8 +96,9 @@ public class CombatPosition : MonoBehaviour
         mainCamera.transform.LookAt(enemytransf);
         playerRB.constraints = RigidbodyConstraints.FreezeAll;
         Debug.Log("Entraste en combate");
-        deckscript.DrawCards();
-        vigordeckscript.DrawCards();
+        //deckscript.DrawCards();//COMENTAR AL DESCOMENTAR LO DE ABAJO
+        //vigordeckscript.DrawCards();//COMENTAR AL DESCOMENTAR LO DE ABAJO
+        combatscript.DrawCardsStartCombat();
         combatON = true;
     }
 

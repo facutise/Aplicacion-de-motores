@@ -49,6 +49,15 @@ public class Deck : MonoBehaviour,IDeckable
                 TrueDeckInCombat.Add(objeto);
             }
         }
+        TrueDeckInCombat.RemoveAll(item => item == null);//COMENTADO
+    }
+
+    public void EmptyListOfMyCardsBuildForCombat()
+    {
+        for (int i = 0; i < TrueDeckInCombat.Count; i++)
+        {
+            TrueDeckInCombat[i] = null;
+        }
     }
 
     public int PermissionToLeaveTheInventory(Card[] deckOfTheDeck)

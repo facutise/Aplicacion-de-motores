@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 //TP2-"Facundo Sebastian Tisera"
 
-public class VigorDeck : MonoBehaviour,IDeckable
+public class VigorDeck : MonoBehaviour, IDeckable
 {
-   
+
     [SerializeField]
     public VigorCardsDisplay[] VigorCardDisplaysScripts;
 
@@ -27,17 +27,26 @@ public class VigorDeck : MonoBehaviour,IDeckable
                 TrueVigorDeckInCombat.Add(objeto);
             }
         }
+        TrueVigorDeckInCombat.RemoveAll(item => item == null);//COMENTADO
+    }
+
+    public void EmptyListOfMyVigorCardsBuildForCombat()
+    {
+        for (int i = 0; i < TrueVigorDeckInCombat.Count; i++)
+        {
+            TrueVigorDeckInCombat[i] = null;
+        }
     }
 
     public void BuildMyDeck(VigorCards browser, int ThePlaceInArray)
     {
-        
-        if (EquipOrUnequipTheCardBool[ThePlaceInArray]==false)
+
+        if (EquipOrUnequipTheCardBool[ThePlaceInArray] == false)
         {
             DeckOfTheVigorDeck[ThePlaceInArray] = browser;
             EquipOrUnequipTheCardBool[ThePlaceInArray] = true;
         }
-        else if(EquipOrUnequipTheCardBool[ThePlaceInArray] == true)
+        else if (EquipOrUnequipTheCardBool[ThePlaceInArray] == true)
         {
             DeckOfTheVigorDeck[ThePlaceInArray] = null;
             EquipOrUnequipTheCardBool[ThePlaceInArray] = false;
@@ -59,7 +68,7 @@ public class VigorDeck : MonoBehaviour,IDeckable
 
     public void DrawCards()
     {
-        
+
 
         if (TrueVigorDeckInCombat.Count >= 1)
         {
@@ -68,7 +77,7 @@ public class VigorDeck : MonoBehaviour,IDeckable
                 VigorCards randomCard = TrueVigorDeckInCombat[Random.Range(0, TrueVigorDeckInCombat.Count)];
                 if (i == 3 && !SlotBools[i])
                 {
-                    
+
                     VigorCardDisplaysScripts[i].Card = randomCard;
                     VigorCardDisplaysScripts[i].UpdateUiCardInfo();
                     SlotBools[i] = true;
@@ -76,14 +85,14 @@ public class VigorDeck : MonoBehaviour,IDeckable
 
                 else if (i == 4 && !SlotBools[i])
                 {
-                   
+
                     VigorCardDisplaysScripts[i].Card = randomCard;
                     VigorCardDisplaysScripts[i].UpdateUiCardInfo();
                     SlotBools[i] = true;
                 }
                 else if (i == 5 && !SlotBools[i])
                 {
-                   
+
                     VigorCardDisplaysScripts[i].Card = randomCard;
                     VigorCardDisplaysScripts[i].UpdateUiCardInfo();
                     SlotBools[i] = true;
@@ -94,5 +103,5 @@ public class VigorDeck : MonoBehaviour,IDeckable
 
 
     }
-   
+
 }

@@ -130,6 +130,34 @@ public class Combat : MonoBehaviour
         }
     }
 
+    public void DrawCardsStartCombat()
+    {
+        DeckScript.DrawCards();
+        VigorDeckScript.DrawCards();
+        for (int i = 0; i < 6; i++)
+        {
+            if (CardsHadBeenUsed[i] == false)
+            {
+                ActivateOrDeactivateCardInTheSlot(i);
+            }
+            ButtonsofSlot[i].interactable = true;
+            TheCanvasesForFade[i].alpha = 1;
+        }
+    }
+    public void EmptyHandAtEndOfCombat()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            if (CardsHadBeenUsed[i] == true)
+            {
+                ActivateOrDeactivateCardInTheSlot(i);
+            }
+            ButtonsofSlot[i].interactable = false;
+            TheCanvasesForFade[i].alpha = 1;
+        }
+
+    }
+
     public void UltimateClickOnSlot(int MySlot)  //PRUEBA RENDIMIENTO
     {
         StartCoroutine(CardFunctionAndFade(MySlot));
