@@ -87,7 +87,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 3, z: -8}
   lerpValue: 10
-  sensibilidad: 4
+  sensibility: 4
   canMoveCamera: 1
 --- !u!114 &4443729915978803418
 MonoBehaviour:
