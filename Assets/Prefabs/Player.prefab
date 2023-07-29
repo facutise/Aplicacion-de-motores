@@ -401,10 +401,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyForTheBlackDoor: 0
-  combatpositionscript: {fileID: 5299470838625391949}
+  combatPositionScript: {fileID: 5299470838625391949}
   mainCamera: {fileID: 0}
-  menumanagerscript: {fileID: 0}
-  doormask:
+  menuManagerScript: {fileID: 0}
+  doorMask:
     serializedVersion: 2
     m_Bits: 128
   cardsOnInventory:
@@ -417,8 +417,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  ActivatorsOfCards: 00000000000000000000000000000000000000
-  CardsOnCountdown: 0
+  activatorsOfCards: 00000000000000000000000000000000000000
+  cardsOnCountdown: 0
   openCardBox: {fileID: 8300000, guid: 70910e94ac9394d4f86ff5736ca1811f, type: 3}
   healthPotions: 0
   stadisticPlayerScript: {fileID: 5273619601675263601}

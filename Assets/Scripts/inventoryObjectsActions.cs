@@ -10,16 +10,16 @@ public class inventoryObjectsActions : MonoBehaviour
     private int whispersCount;
     public int keyForTheBlackDoor;
     [SerializeField]
-    private CombatPosition combatpositionscript;
+    private CombatPosition combatPositionScript;
 
     [SerializeField]
     private Camera mainCamera;
-    public MenuManager menumanagerscript;
-    [SerializeField] LayerMask doormask;
+    public MenuManager menuManagerScript;
+    [SerializeField] LayerMask doorMask;
 
     public GameObject[] cardsOnInventory;
-    public bool[] ActivatorsOfCards;
-    public int CardsOnCountdown;
+    public bool[] activatorsOfCards;
+    public int cardsOnCountdown;
 
     AudioSource myAudioSource;
     public AudioClip openCardBox;
@@ -78,7 +78,7 @@ public class inventoryObjectsActions : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H) && healthPotions > 0 && combatpositionscript.combatON == true)
+        if (Input.GetKeyDown(KeyCode.H) && healthPotions > 0 && combatPositionScript.combatON == true)
         {
             if (myDelegateparticle != null)
             {
@@ -97,7 +97,7 @@ public class inventoryObjectsActions : MonoBehaviour
     }
     public void UsePotion()
     {
-        if (healthPotions > 0 && combatpositionscript.combatON == true)
+        if (healthPotions > 0 && combatPositionScript.combatON == true)
         {
             if (myDelegateparticle != null)
             {
@@ -114,12 +114,12 @@ public class inventoryObjectsActions : MonoBehaviour
     {
         if (other.gameObject.layer == (int)Layers.CardBox)
         {
-            ActivatorsOfCards[CardsOnCountdown] = true;
-            cardsOnInventory[CardsOnCountdown].gameObject.SetActive(ActivatorsOfCards[CardsOnCountdown]);
+            activatorsOfCards[cardsOnCountdown] = true;
+            cardsOnInventory[cardsOnCountdown].gameObject.SetActive(activatorsOfCards[cardsOnCountdown]);
             Debug.Log("Has obtenido una nueva carta [i] para ver el inventario");
             Destroy(other.gameObject);
 
-            CardsOnCountdown += 1;
+            cardsOnCountdown += 1;
         }
         if (other.gameObject.layer == (int)Layers.HealthPotions)
         {
@@ -175,7 +175,7 @@ public class inventoryObjectsActions : MonoBehaviour
         }
         if (other.gameObject.layer == (int)Layers.PatrolEnemy)
         {
-            menumanagerscript.Restartscene();
+            menuManagerScript.Restartscene();
         }
     }
 
