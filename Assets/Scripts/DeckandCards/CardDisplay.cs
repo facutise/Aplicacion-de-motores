@@ -17,27 +17,27 @@ public interface IDisplayable
 public class CardDisplay : MonoBehaviour, IDisplayable
 {
     [SerializeField]
-    private ParticleSystem[] DamageParticlesInTheCombats;
+    protected ParticleSystem[] DamageParticlesInTheCombats;
 
-    private ParticleSystem sacredFontParticles;
-    private ParticleSystem sacredFontParticles2;
-    private ParticleSystem sacredFontParticles3;
+    protected ParticleSystem sacredFontParticles;
+    protected ParticleSystem sacredFontParticles2;
+    protected ParticleSystem sacredFontParticles3;
 
-    private ParticleSystem bigbangParticles;
-    private ParticleSystem bigBangParticles2;
-    private ParticleSystem bigBangparticles3;
+    protected ParticleSystem bigbangParticles;
+    protected ParticleSystem bigBangParticles2;
+    protected ParticleSystem bigBangparticles3;
 
-    private ParticleSystem fireExplosionParticles;
-    private ParticleSystem fireExplosionParticles2;
-    private ParticleSystem fireExplosionParticles3;
+    protected ParticleSystem fireExplosionParticles;
+    protected ParticleSystem fireExplosionParticles2;
+    protected ParticleSystem fireExplosionParticles3;
 
-    private ParticleSystem destructionParticles;
-    private ParticleSystem destructionParticles2;
-    private ParticleSystem destructionParticles3;
+    protected ParticleSystem destructionParticles;
+    protected ParticleSystem destructionParticles2;
+    protected ParticleSystem destructionParticles3;
 
-    private ParticleSystem cristalPierceParticles;
-    private ParticleSystem cristalPierceParticles2;
-    private ParticleSystem cristalPierceParticles3;
+    protected ParticleSystem cristalPierceParticles;
+    protected ParticleSystem cristalPierceParticles2;
+    protected ParticleSystem cristalPierceParticles3;
 
 
     public Card Card;
@@ -62,15 +62,15 @@ public class CardDisplay : MonoBehaviour, IDisplayable
 
     public StadisticPlayer StatsPlayerScript;
     [SerializeField]
-    private AudioSource MyAudioSource;
+    protected AudioSource MyAudioSource;
     [SerializeField]
-    private AudioClip BigBangAudio;
+    protected AudioClip BigBangAudio;
     [SerializeField]
-    private AudioClip fireExplosionAudio;
+    protected AudioClip fireExplosionAudio;
     [SerializeField]
-    private AudioClip DestructionAudio;
+    protected AudioClip DestructionAudio;
     [SerializeField]
-    private AudioClip NormalAudioCard;
+    protected AudioClip NormalAudioCard;
 
     private void Start()
     {
@@ -100,7 +100,7 @@ public class CardDisplay : MonoBehaviour, IDisplayable
         AttackText.text = Card.attack.ToString();
     }
 
-    public void ExecuteCardPassive()
+    public virtual void ExecuteCardPassive()
     {
         NameOfTheCardAndExecutePassive = Card.name;
 
@@ -145,7 +145,7 @@ public class CardDisplay : MonoBehaviour, IDisplayable
                 destructionParticles3.Play();
                 PlayAudio(DestructionAudio);
                 break;
-            case "cristal Pierce":
+            case "Cristal Pierce"://tenia la primera letra en mayuscula, ahora a probar si funciona
                 cristalPierceParticles = DamageParticlesInTheCombats[4];
                 cristalPierceParticles2 = DamageParticlesInTheCombats[10];
                 cristalPierceParticles3 = DamageParticlesInTheCombats[16];

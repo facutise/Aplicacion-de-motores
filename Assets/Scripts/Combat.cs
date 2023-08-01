@@ -11,7 +11,8 @@ dichos nombres permanecían en PascalCase. Cabe aclarar que al hacerlo otras vece
 lleva al mismo resultado, mil disculpas, espero que me haya explicado apropiadamente, saludos.*/
 public class Combat : MonoBehaviour
 {
-    
+   
+
     [SerializeField]
     private CardDisplay[] CardDisplayScriptsInTheSlots;
 

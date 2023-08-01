@@ -122,7 +122,7 @@ public class VigorCardsDisplay : MonoBehaviour,IDisplayable
         thevigorCostOfMyCard = Card.vigorcost;
         return (thevigorCostOfMyCard);
     }
-    public void ExecuteCardPassive()
+    public virtual void ExecuteCardPassive()
     {
         NameOfVigorCardAndExecutePassive = Card.name;
 
