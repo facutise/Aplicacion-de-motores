@@ -27,67 +27,67 @@ public class VigorCardsDisplay : MonoBehaviour,IDisplayable
 
    
     [SerializeField]
-    private StadisticPlayer stadisticplayerScipt;
+    protected StadisticPlayer stadisticplayerScipt;
     
-    private int SpiritGrowthStacks;
-    private int ProtectionTottemStacks;
+    protected int SpiritGrowthStacks;
+    protected int ProtectionTottemStacks;
     [SerializeField]
-    private Enemy enemyy;
+    protected Enemy enemyy;
     [SerializeField]
-    private AudioSource MyAudioSource;
+    protected AudioSource MyAudioSource;
     [SerializeField]
-    private AudioClip WarriorPendantAudio;
+    protected AudioClip WarriorPendantAudio;
     [SerializeField]
-    private AudioClip DeadEyeAudio;
+    protected AudioClip DeadEyeAudio;
     [SerializeField]
-    private AudioClip CaosAudio;
+    protected AudioClip CaosAudio;
 
     [SerializeField]
-    private ParticleSystem[] DamageParticlesInTheCombats;
+    protected ParticleSystem[] DamageParticlesInTheCombats;
 
-    private ParticleSystem warriorPendantParticles;
-    private ParticleSystem warriorPendantParticles2;
-    private ParticleSystem warriorPendantParticles3;
+    protected ParticleSystem warriorPendantParticles;
+    protected ParticleSystem warriorPendantParticles2;
+    protected ParticleSystem warriorPendantParticles3;
 
-    private ParticleSystem senpukkuParticles;
-    private ParticleSystem senpukkuParticles2;
-    private ParticleSystem senpukkuParticles3;
+    protected ParticleSystem senpukkuParticles;
+    protected ParticleSystem senpukkuParticles2;
+    protected ParticleSystem senpukkuParticles3;
 
-    private ParticleSystem sacrificeParticles;
-    private ParticleSystem sacrificeParticles2;
-    private ParticleSystem sacrificeParticles3;
+    protected ParticleSystem sacrificeParticles;
+    protected ParticleSystem sacrificeParticles2;
+    protected ParticleSystem sacrificeParticles3;
 
-    private ParticleSystem spiritGrowthParticles;
-    private ParticleSystem spiritGrowthParticles2;
-    private ParticleSystem spiritGrowthParticles3;
+    protected ParticleSystem spiritGrowthParticles;
+    protected ParticleSystem spiritGrowthParticles2;
+    protected ParticleSystem spiritGrowthParticles3;
 
-    private ParticleSystem unbreakeableParticles;
-    private ParticleSystem unbreakeableParticles2;
-    private ParticleSystem unbreakeableParticles3;
+    protected ParticleSystem unbreakeableParticles;
+    protected ParticleSystem unbreakeableParticles2;
+    protected ParticleSystem unbreakeableParticles3;
 
-    private ParticleSystem protetionTottemParticles;
-    private ParticleSystem protetionTottemParticles2;
-    private ParticleSystem protetionTottemParticles3;
+    protected ParticleSystem protetionTottemParticles;
+    protected ParticleSystem protetionTottemParticles2;
+    protected ParticleSystem protetionTottemParticles3;
 
-    private ParticleSystem caosParticles;
-    private ParticleSystem caosParticles2;
-    private ParticleSystem caosParticles3;
+    protected ParticleSystem caosParticles;
+    protected ParticleSystem caosParticles2;
+    protected ParticleSystem caosParticles3;
 
-    private ParticleSystem deadEyeParticles;
-    private ParticleSystem deadEyeParticles2;
-    private ParticleSystem deadEyeParticles3;
+    protected ParticleSystem deadEyeParticles;
+    protected ParticleSystem deadEyeParticles2;
+    protected ParticleSystem deadEyeParticles3;
 
-    private ParticleSystem prominanceBurnParticles;
-    private ParticleSystem prominanceBurnParticles2;
-    private ParticleSystem prominanceBurnParticles3;
+    protected ParticleSystem prominanceBurnParticles;
+    protected ParticleSystem prominanceBurnParticles2;
+    protected ParticleSystem prominanceBurnParticles3;
 
-    private ParticleSystem absolutionParticles;
-    private ParticleSystem absolutionParticles2;
-    private ParticleSystem absolutionParticles3;
+    protected ParticleSystem absolutionParticles;
+    protected ParticleSystem absolutionParticles2;
+    protected ParticleSystem absolutionParticles3;
 
-    private ParticleSystem uncontrolledPrideParticles;
-    private ParticleSystem uncontrolledPrideParticles2;
-    private ParticleSystem uncontrolledPrideParticles3;
+    protected ParticleSystem uncontrolledPrideParticles;
+    protected ParticleSystem uncontrolledPrideParticles2;
+    protected ParticleSystem uncontrolledPrideParticles3;
    
     public void PlayAudio(AudioClip AC)
     {
@@ -174,10 +174,10 @@ public class VigorCardsDisplay : MonoBehaviour,IDisplayable
                 spiritGrowthParticles.Play();
                 spiritGrowthParticles2.Play();
                 spiritGrowthParticles3.Play();
-                SpiritGrowthStacks += 1;
+                stadisticplayerScipt.spiritGrowthStacks += 1;
                 enemyy.health -= 1;
                 ProtectionTottemPa();
-                if (SpiritGrowthStacks >= 3)
+                if (stadisticplayerScipt.spiritGrowthStacks >= 3)
                 {
                     enemyy.health -= 3;
                     Debug.Log("has inflingido 8 de daño con Spirit Growth");
@@ -204,8 +204,8 @@ public class VigorCardsDisplay : MonoBehaviour,IDisplayable
                 stadisticplayerScipt.health += 1;
                 ProtectionTottemPa();
                 Debug.Log("te has curado 1 puntos de salud");
-                ProtectionTottemStacks += 1;
-                if (ProtectionTottemStacks == 5)
+                stadisticplayerScipt.protectionTottemStacks += 1;
+                if (stadisticplayerScipt.protectionTottemStacks == 5)
                 {
                     Debug.Log("el tottem de proteccción ya está activado");
                 }
@@ -281,7 +281,7 @@ public class VigorCardsDisplay : MonoBehaviour,IDisplayable
     }
     public void ProtectionTottemPa()
     {
-        if (ProtectionTottemStacks >= 5)
+        if (stadisticplayerScipt.protectionTottemStacks >= 5)
         {
             stadisticplayerScipt.health += 1;
         }

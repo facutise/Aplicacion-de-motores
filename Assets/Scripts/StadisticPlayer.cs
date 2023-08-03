@@ -11,6 +11,11 @@ public class StadisticPlayer : MonoBehaviour
     public int vigor = 1;
     public int defense;
     public GameManager _myGM;
+    public int spiritGrowthStacks;//NUEVO PONER EN EL UML
+    public int protectionTottemStacks;// NUEVO PONER EN EL UML 
+
+    public Dictionary<string, CardDisplay> cardDisplayPassives = new Dictionary<string, CardDisplay>();
+    public CardDisplay[] cardDisplaysPassives;
 
     public void Update()
     {
