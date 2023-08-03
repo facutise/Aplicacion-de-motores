@@ -2,16 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Destruction : CardDisplay
+public class Destruction : CardsPassives
 {
-    public override void ExecuteCardPassive()
+    public override void MySkill()
     {
-        destructionParticles = DamageParticlesInTheCombats[3];
-        destructionParticles2 = DamageParticlesInTheCombats[9];
-        destructionParticles3 = DamageParticlesInTheCombats[15];
-        destructionParticles.Play();
-        destructionParticles2.Play();
-        destructionParticles3.Play();
-        PlayAudio(DestructionAudio);
+        stadisticPlayerScript.damageParticlesInTheCombats[3].Play();
+        stadisticPlayerScript.damageParticlesInTheCombats[9].Play();
+        stadisticPlayerScript.damageParticlesInTheCombats[15].Play();
+        stadisticPlayerScript.PlayAudio(stadisticPlayerScript.destructionAudio);
+       
     }
 }

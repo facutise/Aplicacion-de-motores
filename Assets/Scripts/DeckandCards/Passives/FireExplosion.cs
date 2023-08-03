@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireExplosion : CardDisplay
+public class FireExplosion : CardsPassives
 {
-    public override void ExecuteCardPassive()
+    public override void MySkill()
     {
-        fireExplosionParticles = DamageParticlesInTheCombats[2];
-        fireExplosionParticles2 = DamageParticlesInTheCombats[8];
-        fireExplosionParticles3 = DamageParticlesInTheCombats[14];
-        fireExplosionParticles.Play();
-        fireExplosionParticles2.Play();
-        fireExplosionParticles3.Play();
-        PlayAudio(fireExplosionAudio);
+        stadisticPlayerScript.damageParticlesInTheCombats[2].Play();
+        stadisticPlayerScript.damageParticlesInTheCombats[8].Play();
+        stadisticPlayerScript.damageParticlesInTheCombats[14].Play();
+        stadisticPlayerScript.PlayAudio(stadisticPlayerScript.fireExplosionAudio);
     }
 }

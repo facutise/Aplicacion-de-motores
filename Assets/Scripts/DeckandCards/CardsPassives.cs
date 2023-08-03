@@ -2,27 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class CardsPassives : MonoBehaviour
+public class CardsPassives : MonoBehaviour
 {
-    //private ParticleSystem sacredFontParticles;
-    public StadisticPlayer stadisticPlayerScript;
-    public CardDisplay cardDisplayScript;
-    public virtual void Start()
-    {
+    //EL PLAN ES QUE ESTE SEA EL PADRE, TIRAR TODOS LOS HIJOS EN PLAYER, CREAR UN ARRAY DE LOS HIJOS DE CARDPASSIVES EN stadisticplayer Y QUE LOS CARD DISPLAY
+    // ACCEDAN A ELLOS A TRAVES DEL ARRAY EN UNA FUNCIÓN QUE RECIBA COMO PARAMETRO UN NUEVO INT QUE VOY A CREAR EN CARD Y DEPENDIENDO DE CUAL, ES EL SCRIPT HIJO QUE SE EJECUTA
+    // EJEMPLO DE CARDDISPLAY: public void ExecutePassive(int intdelcard)
+    // {
+    //    stadisticplayerscript.cardpassivesArray[intdelcard].MySkill;
+    // }
 
-        GameObject PlayerObject = GameObject.Find("Player");
-    }
-
-
-    public void SetPlayer(StadisticPlayer playerreference)
-    {
-        stadisticPlayerScript = playerreference;
-    }
-    public void SetCardDisplay(CardDisplay cardDisplayReference)
-    {
-        cardDisplayScript = cardDisplayReference;
-    }
-    public void MySkill()
+    //LAS variables van en stadisticplayer y las llamamos desde los hijos
+    [SerializeField]
+    protected StadisticPlayer stadisticPlayerScript;
+    
+    
+   
+    public virtual void MySkill()
     {
         //cardDisplayScript.sacredFontParticles.Play(); //FUNCIONA
         //cardDisplayScript.DamageParticlesInTheCombats[0].Play(); // FUNCIONA

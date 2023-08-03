@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BigBang : CardDisplay
+public class BigBang : CardsPassives
 {
-    public override void ExecuteCardPassive()
+    public override void MySkill()
     {
-        bigbangParticles = DamageParticlesInTheCombats[1];
-        bigBangParticles2 = DamageParticlesInTheCombats[7];
-        bigBangparticles3 = DamageParticlesInTheCombats[13];
-        bigbangParticles.Play();
-        bigBangParticles2.Play();
-        bigBangparticles3.Play();
-        PlayAudio(BigBangAudio);
+        stadisticPlayerScript.damageParticlesInTheCombats[1].Play();
+        stadisticPlayerScript.damageParticlesInTheCombats[7].Play();
+        stadisticPlayerScript.damageParticlesInTheCombats[13].Play();
+        stadisticPlayerScript.PlayAudio(stadisticPlayerScript.bigBangAudio);
+
+        
 
     }
 }

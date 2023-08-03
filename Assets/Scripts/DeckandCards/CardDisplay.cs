@@ -72,6 +72,9 @@ public class CardDisplay : MonoBehaviour, IDisplayable
     [SerializeField]
     protected AudioClip NormalAudioCard;
 
+    [SerializeField]
+    private CardsPassives[] arrayOfCardPassives;//ELIMINAR
+
     private void Start()
     {
         NameText.text = Card.name;
@@ -98,6 +101,12 @@ public class CardDisplay : MonoBehaviour, IDisplayable
         DescriptionText.text = Card.description;
         Image.sprite = Card.image;
         AttackText.text = Card.attack.ToString();
+    }
+
+    public void TestForSystemOfSkills(int TheSkillInt)//FUNCIONA: ESTO ES PARTE DEL NUEVO SISTEMA pero poner el array en stadisticplayer
+    {
+      
+        arrayOfCardPassives[TheSkillInt].MySkill();
     }
 
     public virtual void ExecuteCardPassive()

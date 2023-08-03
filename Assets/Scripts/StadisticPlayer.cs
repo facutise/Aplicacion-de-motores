@@ -15,8 +15,57 @@ public class StadisticPlayer : MonoBehaviour
     public int protectionTottemStacks;// NUEVO PONER EN EL UML 
 
     public Dictionary<string, CardDisplay> cardDisplayPassives = new Dictionary<string, CardDisplay>();
-    public CardDisplay[] cardDisplaysPassives;
 
+
+    [SerializeField]
+    public ParticleSystem[] damageParticlesInTheCombats;
+    [SerializeField]
+    public AudioSource myAudioSource;
+
+    public AudioClip bigBangAudio;
+
+    public AudioClip fireExplosionAudio;
+
+    public AudioClip destructionAudio;
+
+    public AudioClip normalAudioCard;
+    //Termina variables de cartas normales
+    [SerializeField]
+    public Enemy enemyy;
+
+    public AudioSource myVigorAudioSource;
+
+    public AudioClip warriorPendantAudio;
+
+    public AudioClip deadEyeAudio;
+
+    public AudioClip caosAudio;
+    //terminan variables de carddisplay;
+    [SerializeField]
+    public CardsPassives[] arrayOfCardPassives;
+
+    public void PlayAudio(AudioClip AC)
+    {
+        myAudioSource.clip = AC;
+        myAudioSource.Play();
+    }
+    public void VigorPlayAudio(AudioClip AC)
+    {
+        myVigorAudioSource.clip = AC;
+        myVigorAudioSource.Play();
+    }
+    public void SetEnemy(Enemy enemy)//crear una refe a este script en combatposition y setear esta funcion HECHO
+    {
+        enemyy = enemy;
+    }
+    public void ProtectionTottemPassive()
+    {
+        if (protectionTottemStacks >= 5)
+        {
+            health += 1;
+        }
+
+    }
     public void Update()
     {
         if (health > 30)

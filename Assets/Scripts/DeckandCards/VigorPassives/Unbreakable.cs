@@ -2,11 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unbreakable : VigorCardsDisplay
+public class Unbreakable : CardsPassives
 {
-    public override void ExecuteCardPassive()
+    public override void MySkill()
     {
-        unbreakeableParticles = DamageParticlesInTheCombats[1];
+        stadisticPlayerScript.damageParticlesInTheCombats[1].Play();
+        stadisticPlayerScript.damageParticlesInTheCombats[7].Play();
+        stadisticPlayerScript.damageParticlesInTheCombats[13].Play();
+        stadisticPlayerScript.vigor += 5;
+        stadisticPlayerScript.ProtectionTottemPassive();
+        Debug.Log("te has aumentado 5 puntos de vigor");
+
+        /*unbreakeableParticles = DamageParticlesInTheCombats[1];
         unbreakeableParticles2 = DamageParticlesInTheCombats[7];
         unbreakeableParticles3 = DamageParticlesInTheCombats[13];
         unbreakeableParticles.Play();
@@ -14,6 +21,6 @@ public class Unbreakable : VigorCardsDisplay
         unbreakeableParticles3.Play();
         stadisticplayerScipt.vigor += 5;
         ProtectionTottemPa();
-        Debug.Log("te has aumentado 5 puntos de vigor");
+        Debug.Log("te has aumentado 5 puntos de vigor");*/
     }
 }
