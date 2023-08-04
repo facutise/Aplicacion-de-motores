@@ -10,6 +10,12 @@ public class Destruction : CardsPassives
         stadisticPlayerScript.damageParticlesInTheCombats[9].Play();
         stadisticPlayerScript.damageParticlesInTheCombats[15].Play();
         stadisticPlayerScript.PlayAudio(stadisticPlayerScript.destructionAudio);
-       
+        destructionParticles = stadisticPlayerScript.damageParticlesInTheCombats[3];
+        destructionParticles2 = stadisticPlayerScript.damageParticlesInTheCombats[9];
+        destructionParticles3 = stadisticPlayerScript.damageParticlesInTheCombats[15];
+        destructionParticles.Play();
+        destructionParticles2.Play();
+        destructionParticles3.Play();
+
     }
 }

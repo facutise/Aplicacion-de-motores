@@ -10,5 +10,13 @@ public class FireExplosion : CardsPassives
         stadisticPlayerScript.damageParticlesInTheCombats[8].Play();
         stadisticPlayerScript.damageParticlesInTheCombats[14].Play();
         stadisticPlayerScript.PlayAudio(stadisticPlayerScript.fireExplosionAudio);
+
+        fireExplosionParticles = stadisticPlayerScript.damageParticlesInTheCombats[2];
+        fireExplosionParticles2 = stadisticPlayerScript.damageParticlesInTheCombats[8];
+        fireExplosionParticles3 = stadisticPlayerScript.damageParticlesInTheCombats[14];
+        fireExplosionParticles.Play();
+        fireExplosionParticles2.Play();
+        fireExplosionParticles3.Play();
+
     }
 }

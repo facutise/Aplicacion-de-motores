@@ -43,6 +43,11 @@ public class StadisticPlayer : MonoBehaviour
     //terminan variables de carddisplay;
     [SerializeField]
     public CardsPassives[] arrayOfCardPassives;
+    public SacredFont sacredFontScript;
+    public FireExplosion fireExplosionscript;
+    public Destruction destructionscript;
+    public CristalPierce cristalpiercescript;
+    public BigBang bigBangscript;
 
     public void PlayAudio(AudioClip AC)
     {
