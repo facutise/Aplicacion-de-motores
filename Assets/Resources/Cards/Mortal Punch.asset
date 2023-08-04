@@ -17,3 +17,4 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: adad02917d97c3048aa04274c31fd349, type: 3}
   vigorcost: 0
   attack: 4
+  myPassiveInt: 17

@@ -17,6 +17,6 @@ public class BigBang : CardsPassives
         bigBangParticles2.Play();
         bigBangparticles3.Play();
 
-
+        Debug.Log("se ha usado big bang");
     }
 }

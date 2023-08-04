@@ -17,3 +17,4 @@ MonoBehaviour:
     enemy
   image: {fileID: 21300000, guid: a9f20f37e32d8c2468ae4e79d7e4692f, type: 3}
   vigorcost: 4
+  myPassiveInt: 10

@@ -9,4 +9,5 @@ public class VigorCards : ScriptableObject
     public string description;
     public Sprite image;
     public int vigorcost;
+    public int myPassiveInt;
 }

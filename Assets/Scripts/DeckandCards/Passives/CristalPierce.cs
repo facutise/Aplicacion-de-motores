@@ -16,6 +16,6 @@ public class CristalPierce : CardsPassives
         cristalPierceParticles.Play();
         cristalPierceParticles2.Play();
         cristalPierceParticles3.Play();
-
+        Debug.Log("se ha usado cristal pierce");
     }
 }

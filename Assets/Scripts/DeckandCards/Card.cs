@@ -10,4 +10,5 @@ public class Card : ScriptableObject
     public Sprite image;
     public int vigorcost;
     public int attack;
+    public int myPassiveInt;
 }

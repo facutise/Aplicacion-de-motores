@@ -113,72 +113,14 @@ public class CardDisplay : MonoBehaviour, IDisplayable
 
     public virtual void ExecuteCardPassive()
     {
-        NameOfTheCardAndExecutePassive = Card.name;
-        thePLaceOfTheSkillInTheArray = Card.attack;
+        //NameOfTheCardAndExecutePassive = Card.name;
+        //thePLaceOfTheSkillInTheArray = Card.attack;// FUE PRUEBA, ELIMINAR. YA QUE FUNCIONA CREAR UN NUEVO INT(acorde al array) EN LOS SCRIPTABLE OBJCTS PARA INCORPORARLO ACA
+        //Debug.Log("execute passive llamada corretamente");
+        //StatsPlayerScript.arrayOfCardPassives[0].MySkill();//prueba a ver si era el switch 
+        //ERA EL SWITCH!
+        thePLaceOfTheSkillInTheArray = Card.myPassiveInt;
+        StatsPlayerScript.arrayOfCardPassives[thePLaceOfTheSkillInTheArray].MySkill();
 
-        switch (NameOfTheCardAndExecutePassive)
-        {
-            case "Sacred Font":
 
-                StatsPlayerScript.arrayOfCardPassives[0].MySkill();
-                StatsPlayerScript.sacredFontScript.MySkill();
-                /*sacredfontparticles = damageparticlesinthecombats[0];
-                sacredfontparticles2 = damageparticlesinthecombats[6];
-                sacredfontparticles3 = damageparticlesinthecombats[12];
-                sacredfontparticles.play();
-                sacredfontparticles2.play();
-                sacredfontparticles3.play();
-                statsplayerscript.health += 5;
-                playaudio(normalaudiocard);
-                debug.log("te has curado 5 puntos de salud");*/
-                break;
-
-            case "Big Bang":
-                StatsPlayerScript.arrayOfCardPassives[4].MySkill();
-                StatsPlayerScript.bigBangscript.MySkill();
-                //bigbangParticles = DamageParticlesInTheCombats[1];
-                //bigBangParticles2 = DamageParticlesInTheCombats[7];
-                //bigBangparticles3 = DamageParticlesInTheCombats[13];
-                //bigbangParticles.Play();
-                //bigBangParticles2.Play();
-                //bigBangparticles3.Play();
-                //PlayAudio(BigBangAudio);
-                break;
-            case "Fire Explosion":
-
-                StatsPlayerScript.arrayOfCardPassives[1].MySkill();
-                StatsPlayerScript.fireExplosionscript.MySkill();
-                //fireExplosionParticles = DamageParticlesInTheCombats[2];
-                //fireExplosionParticles2 = DamageParticlesInTheCombats[8];
-                //fireExplosionParticles3 = DamageParticlesInTheCombats[14];
-                //fireExplosionParticles.Play();
-                //fireExplosionParticles2.Play();
-                //fireExplosionParticles3.Play();
-                //PlayAudio(fireExplosionAudio);
-                break;
-            case "Destruction":
-                StatsPlayerScript.arrayOfCardPassives[2].MySkill();
-                StatsPlayerScript.destructionscript.MySkill();
-                //destructionParticles = DamageParticlesInTheCombats[3];
-                //destructionParticles2 = DamageParticlesInTheCombats[9];
-                //destructionParticles3 = DamageParticlesInTheCombats[15];
-                //destructionParticles.Play();
-                //destructionParticles2.Play();
-                //destructionParticles3.Play();
-                //PlayAudio(DestructionAudio);
-                break;
-            case "Cristal Pierce"://tenia la primera letra en mayuscula, ahora a probar si funciona
-
-                StatsPlayerScript.arrayOfCardPassives[3].MySkill();
-                StatsPlayerScript.cristalpiercescript.MySkill();
-                //cristalPierceParticles = DamageParticlesInTheCombats[4];
-                //cristalPierceParticles2 = DamageParticlesInTheCombats[10];
-                //cristalPierceParticles3 = DamageParticlesInTheCombats[16];
-                //cristalPierceParticles.Play();
-                //cristalPierceParticles2.Play();
-                //cristalPierceParticles3.Play();
-                //PlayAudio(NormalAudioCard);
-                break;
-        }
     }
 }

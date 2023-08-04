@@ -17,5 +17,7 @@ public class Destruction : CardsPassives
         destructionParticles2.Play();
         destructionParticles3.Play();
 
+        Debug.Log("se ha usado destruction");
+
     }
 }
