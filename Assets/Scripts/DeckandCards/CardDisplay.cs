@@ -1,21 +1,18 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-//TP2-"Facundo Sebastian Tisera"
+using System.Collections.Generic;
 
 public interface IDisplayable
 {
-    public void PlayAudio(AudioClip AC);
-    public void UpdateUiCardInfo();
-    public void ExecuteCardPassive();
-
+    void PlayAudio(AudioClip AC);
+    void UpdateUiCardInfo();
+    void ExecuteCardPassive();
 }
-
 
 public class CardDisplay : MonoBehaviour, IDisplayable
 {
+    private static Dictionary<string, Card> cardDictionary = new Dictionary<string, Card>();
+
     [SerializeField]
     protected ParticleSystem[] DamageParticlesInTheCombats;
 
@@ -39,7 +36,6 @@ public class CardDisplay : MonoBehaviour, IDisplayable
     protected ParticleSystem cristalPierceParticles2;
     protected ParticleSystem cristalPierceParticles3;
 
-
     public Card Card;
     [SerializeField]
     private Text NameText;
@@ -60,8 +56,6 @@ public class CardDisplay : MonoBehaviour, IDisplayable
     [SerializeField]
     private string NameOfTheCardAndExecutePassive;
 
-    //public Player player;
-
     public StadisticPlayer StatsPlayerScript;
     [SerializeField]
     protected AudioSource MyAudioSource;
@@ -75,7 +69,16 @@ public class CardDisplay : MonoBehaviour, IDisplayable
     protected AudioClip NormalAudioCard;
 
     [SerializeField]
-    private CardsPassives[] arrayOfCardPassives;//ELIMINAR
+    private CardsPassives[] arrayOfCardPassives;
+
+    private void Awake()
+    {
+        // Agregamos las cartas al diccionario cuando se crea cada objeto CardDisplay
+        if (Card != null && !cardDictionary.ContainsKey(Card.name))
+        {
+            cardDictionary.Add(Card.name, Card);
+        }
+    }
 
     private void Start()
     {
@@ -83,6 +86,19 @@ public class CardDisplay : MonoBehaviour, IDisplayable
         DescriptionText.text = Card.description;
         Image.sprite = Card.image;
         AttackText.text = Card.attack.ToString();
+    }
+
+    public static Card GetCardByName(string name)
+    {
+        if (cardDictionary.ContainsKey(name))
+        {
+            return cardDictionary[name];
+        }
+        else
+        {
+            Debug.LogWarning($"No se encontró la carta con el nombre: {name}");
+            return null;
+        }
     }
 
     public void PlayAudio(AudioClip AC)
@@ -94,7 +110,7 @@ public class CardDisplay : MonoBehaviour, IDisplayable
     public int Thecarddmg()
     {
         AttackDamage = Card.attack;
-        return AttackDamage;
+        return AttackDamage;    
     }
 
     public void UpdateUiCardInfo()
@@ -105,22 +121,14 @@ public class CardDisplay : MonoBehaviour, IDisplayable
         AttackText.text = Card.attack.ToString();
     }
 
-    public void TestForSystemOfSkills(int TheSkillInt)//FUNCIONA: ESTO ES PARTE DEL NUEVO SISTEMA pero poner el array en stadisticplayer
+    public void TestForSystemOfSkills(int TheSkillInt)
     {
-      
-        arrayOfCardPassives[TheSkillInt].MySkill();// ESTA SERIA LA FUNCIÓN IDEAL JUNTO A UN DICCIONARIO EN STADISTICPLAYER QUE CONTENGA LOS SCRIPTS
+        arrayOfCardPassives[TheSkillInt].MySkill();
     }
 
     public virtual void ExecuteCardPassive()
     {
-        //NameOfTheCardAndExecutePassive = Card.name;
-        //thePLaceOfTheSkillInTheArray = Card.attack;// FUE PRUEBA, ELIMINAR. YA QUE FUNCIONA CREAR UN NUEVO INT(acorde al array) EN LOS SCRIPTABLE OBJCTS PARA INCORPORARLO ACA
-        //Debug.Log("execute passive llamada corretamente");
-        //StatsPlayerScript.arrayOfCardPassives[0].MySkill();//prueba a ver si era el switch 
-        //ERA EL SWITCH!
         thePLaceOfTheSkillInTheArray = Card.myPassiveInt;
         StatsPlayerScript.arrayOfCardPassives[thePLaceOfTheSkillInTheArray].MySkill();
-
-
     }
 }
