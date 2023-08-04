@@ -4,6 +4,7 @@ public class CardInfoPrinter : MonoBehaviour
 {
     private void Update()
     {
+        //CARTAS NORMALES
         if (Input.GetKeyDown(KeyCode.J))
         {
             PrintCardInfo();

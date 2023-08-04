@@ -71,6 +71,7 @@ public class CardDisplay : MonoBehaviour, IDisplayable
     [SerializeField]
     private CardsPassives[] arrayOfCardPassives;
 
+    //ACA
     private void Awake()
     {
         // Agregamos las cartas al diccionario cuando se crea cada objeto CardDisplay
@@ -88,6 +89,7 @@ public class CardDisplay : MonoBehaviour, IDisplayable
         AttackText.text = Card.attack.ToString();
     }
 
+    //ACA
     public static Card GetCardByName(string name)
     {
         if (cardDictionary.ContainsKey(name))
