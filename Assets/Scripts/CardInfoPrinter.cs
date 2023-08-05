@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//TP2 - Santiago Andres Sanchez Barrio
 public class CardInfoPrinter : MonoBehaviour
 {
     private void Update()
