@@ -46,7 +46,7 @@ public class inventoryObjectsActions : MonoBehaviour
     private Animator animationDoor;
 
     delegate void delegateParticle();
-    delegateParticle myDelegateparticle;
+    delegateParticle myDelegateParticle;
     private enum Layers
     {
         Whispers = 6,
@@ -63,12 +63,12 @@ public class inventoryObjectsActions : MonoBehaviour
     }
     private void Start()
     {
-        myDelegateparticle += ParticleEffects;
+        myDelegateParticle += ParticleEffects;
     }
 
     private void OnDestroy()
     {
-        myDelegateparticle -= ParticleEffects;
+        myDelegateParticle -= ParticleEffects;
     }
     public void PlayAudioInventory(AudioClip AC)
     {
@@ -80,9 +80,9 @@ public class inventoryObjectsActions : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.H) && healthPotions > 0 && combatPositionScript.combatON == true)
         {
-            if (myDelegateparticle != null)
+            if (myDelegateParticle != null)
             {
-                myDelegateparticle.Invoke();
+                myDelegateParticle.Invoke();
             }
             stadisticPlayerScript.health += 10;
             healthPotions -= 1;
@@ -99,9 +99,9 @@ public class inventoryObjectsActions : MonoBehaviour
     {
         if (healthPotions > 0 && combatPositionScript.combatON == true)
         {
-            if (myDelegateparticle != null)
+            if (myDelegateParticle != null)
             {
-                myDelegateparticle.Invoke();
+                myDelegateParticle.Invoke();
             }
             stadisticPlayerScript.health += 10;
             healthPotions -= 1;
