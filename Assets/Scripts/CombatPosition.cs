@@ -19,7 +19,7 @@ public class CombatPosition : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Player player;
     [SerializeField] private List<CinemachineVirtualCamera> cameras;
-    public CinemachineVirtualCamera activeCamera;
+    public CinemachineVirtualCamera activecamera;
     private GameManager myGM;
     [SerializeField] private MyCamera camerascript;
     [SerializeField] private int enemiesreminder;
@@ -105,7 +105,7 @@ public class CombatPosition : MonoBehaviour
     public void SwitchCamera(CinemachineVirtualCamera camera)
     {
         camera.Priority = 10;
-        activeCamera = camera;
+        activecamera = camera;
 
         foreach (CinemachineVirtualCamera c in cameras)
         {
