@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public bool inventoryactive = false;
     [SerializeField] private List<Card> deck = new List<Card>();
     [SerializeField] private Transform[] cardslots;
-    [SerializeField] private bool[] availableCardSlots;
+    [SerializeField] private bool[] availablecardslots;
     [SerializeField] private Text decksizetext;
     public bool gameispaused;
     [SerializeField] private Image pausemenu;
@@ -29,11 +29,11 @@ public class GameManager : MonoBehaviour
         {
             Card randomCard = deck[Random.Range(0, deck.Count)];
 
-            for (int i = 0; i < availableCardSlots.Length; i++)
+            for (int i = 0; i < availablecardslots.Length; i++)
             {
-                if (availableCardSlots[i] == true)
+                if (availablecardslots[i] == true)
                 {
-                    availableCardSlots[i] = false;
+                    availablecardslots[i] = false;
                     deck.Remove(randomCard);
                     return;
                 }
