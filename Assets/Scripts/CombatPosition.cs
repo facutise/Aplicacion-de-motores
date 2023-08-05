@@ -29,15 +29,15 @@ public class CombatPosition : MonoBehaviour
     public VigorCardsDisplay scriptvigorcarddisplayslot5;
     public VigorCardsDisplay scriptvigorcarddisplayslot6;
     [SerializeField] private StadisticPlayer stadisticplayerscript;
-    [SerializeField] private EnemyHeathPointsUI enemyHealthPointsScript;
-    private AudioSource myAudioSource;
+    [SerializeField] private EnemyHeathPointsUI enemyhealthpointsscript;
+    private AudioSource myaudiosource;
     [SerializeField] private AudioClip cardSwipe;
     [SerializeField] private AudioClip enemyDiesAudio;
     [SerializeField] private float transitionCounter;
 
     private void Awake()
     {
-        myAudioSource = GetComponent<AudioSource>();
+        myaudiosource = GetComponent<AudioSource>();
     }
 
     public void Start()
@@ -55,8 +55,8 @@ public class CombatPosition : MonoBehaviour
 
     public void PlayAudio(AudioClip AC)
     {
-        myAudioSource.clip = AC;
-        myAudioSource.Play();
+        myaudiosource.clip = AC;
+        myaudiosource.Play();
     }
 
     public void RunOutOfCombat()
@@ -213,7 +213,7 @@ public class CombatPosition : MonoBehaviour
         stadisticplayerscript.SetEnemy(actualenemy);//PARTE DEL NUEVO SISTEMA DE PASIVAS
         combatscript.setenemy(actualenemy);
        
-        enemyHealthPointsScript.SetEnemyInEnemyHealthPoints(actualenemy);
+        enemyhealthpointsscript.SetEnemyInEnemyHealthPoints(actualenemy);
         //scriptvigorcarddisplayslot4.SetEnemy(actualenemy);
         //scriptvigorcarddisplayslot5.SetEnemy(actualenemy);
         //scriptvigorcarddisplayslot6.SetEnemy(actualenemy);
