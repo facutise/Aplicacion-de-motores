@@ -12,9 +12,9 @@ public class CombatPosition : MonoBehaviour
     [SerializeField] private GameObject areawheretheenemyspawns;
     [SerializeField] private List<GameObject> areaswheretheenemiesspawns;
     [SerializeField] private int counterforplaceswhereenemiesspawns;
-    public bool battlePosition = false;
+    public bool battleposition = false;
     public bool combatON = false;
-    public bool enemyInvoke = false;
+    public bool enemyinvoke = false;
     [SerializeField] private Rigidbody playerRB;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Player player;
@@ -74,19 +74,19 @@ public class CombatPosition : MonoBehaviour
             deckscript.EmptyListOfMyCardsBuildForCombat();
             vigordeckscript.EmptyListOfMyVigorCardsBuildForCombat();
 
-            battlePosition = false;
+            battleposition = false;
             player.enabled = true;
             playerRB.constraints = RigidbodyConstraints.None;
             playerRB.constraints = RigidbodyConstraints.FreezeRotation;
             combatON = false;
-            enemyInvoke = false;
+            enemyinvoke = false;
             Debug.Log("Saliste del combate");
         }
     }
 
     public void CombatON()
     {
-        battlePosition = true;
+        battleposition = true;
         PlayAudio(cardswipe);
         camerascript.enabled = false;
         myGM.ActiveUI();
@@ -126,7 +126,7 @@ public class CombatPosition : MonoBehaviour
             Vector3 direccion = new Vector3(15, 1, 15);
             transform.LookAt(direccion);
 
-            if (!enemyInvoke)
+            if (!enemyinvoke)
             {
                 EnemyInvoke();
             }
@@ -147,7 +147,7 @@ public class CombatPosition : MonoBehaviour
             Vector3 direccion = new Vector3(0, 1, 5);
             transform.LookAt(direccion);
 
-            if (!enemyInvoke)
+            if (!enemyinvoke)
             {
                 EnemyInvoke();
             }
@@ -168,7 +168,7 @@ public class CombatPosition : MonoBehaviour
             Vector3 direccion = new Vector3(-120, 1, 80);
             transform.LookAt(direccion);
 
-            if (!enemyInvoke)
+            if (!enemyinvoke)
             {
                 EnemyInvoke();
             }
@@ -189,7 +189,7 @@ public class CombatPosition : MonoBehaviour
             Vector3 direccion = new Vector3(-147, 1, 67);
             transform.LookAt(direccion);
 
-            if (!enemyInvoke)
+            if (!enemyinvoke)
             {
                 EnemyInvoke();
             }
@@ -217,7 +217,7 @@ public class CombatPosition : MonoBehaviour
         //scriptvigorcarddisplayslot4.SetEnemy(actualenemy);
         //scriptvigorcarddisplayslot5.SetEnemy(actualenemy);
         //scriptvigorcarddisplayslot6.SetEnemy(actualenemy);
-        enemyInvoke = true;
+        enemyinvoke = true;
         counterforplaceswhereenemiesspawns++;
     }
 }

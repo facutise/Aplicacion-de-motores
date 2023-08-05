@@ -50,7 +50,7 @@ public class PlayerInventory : MonoBehaviour
 
         EffectAudioPlayer();
 
-        if (CombatPositionScript.battlePosition == true)
+        if (CombatPositionScript.battleposition == true)
         {
             InventoryBlockerImage.gameObject.SetActive(true);
         }
