@@ -45,8 +45,8 @@ public class inventoryObjectsActions : MonoBehaviour
     [SerializeField]
     private Animator animationDoor;
 
-    delegate void delegateParticle();
-    delegateParticle myDelegateParticle;
+    delegate void DelegateParticle();
+    DelegateParticle myDelegateParticle;
     private enum Layers
     {
         Whispers = 6,
