@@ -379,15 +379,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  activeCamera: {fileID: 0}
+  activecamera: {fileID: 0}
   camerascript: {fileID: 0}
   enemiesreminder: 0
   deckscript: {fileID: 7910656068851151482}
   vigordeckscript: {fileID: 5712986794260492655}
-  scriptVigorCardDisplaySlot4: {fileID: 0}
-  scriptVigorCardDisplaySlot5: {fileID: 0}
-  scriptVigorCardDisplaySlot6: {fileID: 0}
-  stadisticPlayerScript: {fileID: 5273619601675263601}
+  scriptvigorcarddisplayslot4: {fileID: 0}
+  scriptvigorcarddisplayslot5: {fileID: 0}
+  scriptvigorcarddisplayslot6: {fileID: 0}
+  stadisticplayerscript: {fileID: 5273619601675263601}
   enemyHealthPointsScript: {fileID: 0}
   cardSwipe: {fileID: 8300000, guid: 120669a9b14f2154e94d7ebeb03fd389, type: 3}
   enemyDiesAudio: {fileID: 8300000, guid: a99e3c4ff882fc7498ed6c65ea8e07ba, type: 3}

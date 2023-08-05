@@ -28,7 +28,7 @@ public class CombatPosition : MonoBehaviour
     public VigorCardsDisplay scriptvigorcarddisplayslot4;
     public VigorCardsDisplay scriptvigorcarddisplayslot5;
     public VigorCardsDisplay scriptvigorcarddisplayslot6;
-    [SerializeField] private StadisticPlayer stadisticPlayerScript;
+    [SerializeField] private StadisticPlayer stadisticplayerscript;
     [SerializeField] private EnemyHeathPointsUI enemyHealthPointsScript;
     private AudioSource myAudioSource;
     [SerializeField] private AudioClip cardSwipe;
@@ -209,8 +209,8 @@ public class CombatPosition : MonoBehaviour
         Enemy actualenemy = Instantiate(enemyGObj[counterforplaceswhereenemiesspawns], areaswheretheenemiesspawns[counterforplaceswhereenemiesspawns].transform.position, areaswheretheenemiesspawns[counterforplaceswhereenemiesspawns].transform.rotation).GetComponent<Enemy>();
 
         actualenemy.Setcombat(this);
-        actualenemy.SetPlayer(stadisticPlayerScript);
-        stadisticPlayerScript.SetEnemy(actualenemy);//PARTE DEL NUEVO SISTEMA DE PASIVAS
+        actualenemy.SetPlayer(stadisticplayerscript);
+        stadisticplayerscript.SetEnemy(actualenemy);//PARTE DEL NUEVO SISTEMA DE PASIVAS
         combatscript.setenemy(actualenemy);
        
         enemyHealthPointsScript.SetEnemyInEnemyHealthPoints(actualenemy);
