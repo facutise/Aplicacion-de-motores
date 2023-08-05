@@ -8,23 +8,23 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private Combat combat;
     [SerializeField] private CombatPosition _combatposition;
     public int health;
-    [SerializeField] private string enemyType;
-    public StadisticPlayer playerStadisticsScript;
-    [SerializeField] private Transform ataqueEnemy1SpawnPoint;
-    [SerializeField] private Transform ataqueEnemigo2SpawnPoint;
-    [SerializeField] private Transform ataqueEnemy1SpawnPoint_Combate2;
-    [SerializeField] private Transform ataqueEnemigo2SpawnPoint_Combate2;
-    [SerializeField] private Transform ataqueEnemy1SpawnPoint_Combate3;
-    [SerializeField] private Transform ataqueEnemigo2SpawnPoint_Combate3;
+    [SerializeField] private string enemytype;
+    public StadisticPlayer playerstadisticsscript;
+    [SerializeField] private Transform ataqueenemy1spawnpoint;
+    [SerializeField] private Transform ataqueenemigo2spawnpoint;
+    [SerializeField] private Transform ataqueenemy1spawnpoint_combate2;
+    [SerializeField] private Transform ataqueenemigo2spawnpoint_combate2;
+    [SerializeField] private Transform ataqueenemy1spawnpoint_combate3;
+    [SerializeField] private Transform ataqueenemigo2spawnpoint_combate3;
 
-    private ParticleSystem ataqueEnemy1;
-    private ParticleSystem ataqueEnemigo2;
+    private ParticleSystem ataqueenemy1;
+    private ParticleSystem ataqueenemigo2;
     private ParticleSystem debris;
-    private ParticleSystem ataqueEnemy1_combate2;
-    private ParticleSystem ataqueEnemigo2_combate2;
+    private ParticleSystem ataqueenemy1_combate2;
+    private ParticleSystem ataqueenemigo2_combate2;
     private ParticleSystem debris_combate2;
-    private ParticleSystem ataqueEnemy1_combate3;
-    private ParticleSystem ataqueEnemigo2_combate3;
+    private ParticleSystem ataqueenemy1_combate3;
+    private ParticleSystem ataqueenemigo2_combate3;
     private ParticleSystem debris_combate3;
 
     public virtual void Start()
@@ -37,30 +37,30 @@ public abstract class Enemy : MonoBehaviour
             combat = PlayerObject.GetComponent<Combat>();
         }
 
-        ataqueEnemy1 = GameObject.Find("AtaqueEnemy1").GetComponent<ParticleSystem>();
-        ataqueEnemigo2 = GameObject.Find("AtaqueEnemigo2").GetComponent<ParticleSystem>();
+        ataqueenemy1 = GameObject.Find("AtaqueEnemy1").GetComponent<ParticleSystem>();
+        ataqueenemigo2 = GameObject.Find("AtaqueEnemigo2").GetComponent<ParticleSystem>();
         debris = GameObject.Find("Debris").GetComponent<ParticleSystem>();
-        ataqueEnemy1_combate2 = GameObject.Find("AtaqueEnemy1_Combat2").GetComponent<ParticleSystem>();
-        ataqueEnemigo2_combate2 = GameObject.Find("AtaqueEnemigo2_Combat2").GetComponent<ParticleSystem>();
+        ataqueenemy1_combate2 = GameObject.Find("AtaqueEnemy1_Combat2").GetComponent<ParticleSystem>();
+        ataqueenemigo2_combate2 = GameObject.Find("AtaqueEnemigo2_Combat2").GetComponent<ParticleSystem>();
         debris_combate2 = GameObject.Find("Debris_Combat2").GetComponent<ParticleSystem>();
-        ataqueEnemy1_combate3 = GameObject.Find("AtaqueEnemy1_Combat3").GetComponent<ParticleSystem>();
-        ataqueEnemigo2_combate3 = GameObject.Find("AtaqueEnemigo2_Combat3").GetComponent<ParticleSystem>();
+        ataqueenemy1_combate3 = GameObject.Find("AtaqueEnemy1_Combat3").GetComponent<ParticleSystem>();
+        ataqueenemigo2_combate3 = GameObject.Find("AtaqueEnemigo2_Combat3").GetComponent<ParticleSystem>();
         debris_combate3 = GameObject.Find("Debris_Combat3").GetComponent<ParticleSystem>();
 
-        ataqueEnemy1.Stop();
-        ataqueEnemigo2.Stop();
+        ataqueenemy1.Stop();
+        ataqueenemigo2.Stop();
         debris.Stop();
-        ataqueEnemy1_combate2.Stop();
-        ataqueEnemigo2_combate2.Stop();
+        ataqueenemy1_combate2.Stop();
+        ataqueenemigo2_combate2.Stop();
         debris_combate2.Stop();
-        ataqueEnemy1_combate3.Stop();
-        ataqueEnemigo2_combate3.Stop();
+        ataqueenemy1_combate3.Stop();
+        ataqueenemigo2_combate3.Stop();
         debris_combate3.Stop();
     }
 
     void Enemyapears()
     {
-        Debug.Log("Aparecio un " + enemyType);
+        Debug.Log("Aparecio un " + enemytype);
     }
 
     private void Update()
@@ -80,7 +80,7 @@ public abstract class Enemy : MonoBehaviour
 
     public void SetPlayer(StadisticPlayer playerreference)
     {
-        playerStadisticsScript = playerreference;
+        playerstadisticsscript = playerreference;
     }
 
     public virtual void EnemyDies()
@@ -88,7 +88,7 @@ public abstract class Enemy : MonoBehaviour
         if (health <= 0)
         {
             combat.EndOfCombat();
-            playerStadisticsScript.vigor = 3;
+            playerstadisticsscript.vigor = 3;
             _combatposition.RunOutOfCombat();
             Destroy(gameObject);
         }
@@ -96,16 +96,16 @@ public abstract class Enemy : MonoBehaviour
 
     public void PlayBasicAttackParticles()
     {
-        ataqueEnemy1.Play();
-        ataqueEnemy1_combate2.Play();
-        ataqueEnemy1_combate3.Play();
+        ataqueenemy1.Play();
+        ataqueenemy1_combate2.Play();
+        ataqueenemy1_combate3.Play();
     }
 
     public void PlayHeavyAttackParticles()
     {
-        ataqueEnemigo2.Play();
-        ataqueEnemigo2_combate2.Play();
-        ataqueEnemigo2_combate3.Play();
+        ataqueenemigo2.Play();
+        ataqueenemigo2_combate2.Play();
+        ataqueenemigo2_combate3.Play();
 
         debris.Play();
         debris_combate2.Play();
