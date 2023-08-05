@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f42e8829653e1c4dbfaf5c502342e4a, type: 3}
   m_Name: Warrior Pendant
   m_EditorClassIdentifier: 
-  name: Warrior Pendant
+  name: <color=blue>Warrior Pendant</color>
   description: ' Restores 8 points of <i><color=green>health</color></i>'
   image: {fileID: 21300000, guid: 3a0f9ef120bd6f943b3d6bd97fe5a69e, type: 3}
   vigorcost: 3
