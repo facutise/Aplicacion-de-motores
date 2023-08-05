@@ -21,7 +21,7 @@ public class inventoryObjectsActions : MonoBehaviour
     public bool[] activatorsOfCards;
     public int cardsOnCountdown;
 
-    AudioSource myAudioSource;
+    private AudioSource myAudioSource;
     public AudioClip openCardBox;
 
     public int healthPotions;
