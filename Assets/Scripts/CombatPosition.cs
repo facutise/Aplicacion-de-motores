@@ -214,9 +214,9 @@ public class CombatPosition : MonoBehaviour
         combatscript.setenemy(actualenemy);
        
         enemyHealthPointsScript.SetEnemyInEnemyHealthPoints(actualenemy);
-        scriptVigorCardDisplaySlot4.SetEnemy(actualenemy);
-        scriptVigorCardDisplaySlot5.SetEnemy(actualenemy);
-        scriptVigorCardDisplaySlot6.SetEnemy(actualenemy);
+        //scriptVigorCardDisplaySlot4.SetEnemy(actualenemy);
+        //scriptVigorCardDisplaySlot5.SetEnemy(actualenemy);
+        //scriptVigorCardDisplaySlot6.SetEnemy(actualenemy);
         enemyInvoke = true;
         counterforPlacesWhereEnemiesSpawns++;
     }

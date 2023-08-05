@@ -173,7 +173,7 @@ public class Combat : MonoBehaviour
 
             while (AlphaFloat >= 0)
             {
-                AlphaFloat -= 0.1f;
+                AlphaFloat -= 0.2f;
                 yield return new WaitForEndOfFrame();
                 TheCanvasesForFade[TheSlotClicked].alpha = AlphaFloat;
             }
@@ -197,7 +197,7 @@ public class Combat : MonoBehaviour
 
             while (AlphaFloat >= 0)
             {
-                AlphaFloat -= 0.1f;
+                AlphaFloat -= 0.2f;
                 yield return new WaitForEndOfFrame();
                 TheCanvasesForFade[TheSlotClicked].alpha = AlphaFloat;
             }

@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-
+//TP2-"Facundo Sebastian Tisera"
 public interface IDisplayable
 {
-    void PlayAudio(AudioClip AC);
+    
     void UpdateUiCardInfo();
     void ExecuteCardPassive();
 }
@@ -12,29 +12,6 @@ public interface IDisplayable
 public class CardDisplay : MonoBehaviour, IDisplayable
 {
     private static Dictionary<string, Card> cardDictionary = new Dictionary<string, Card>();
-
-    [SerializeField]
-    protected ParticleSystem[] DamageParticlesInTheCombats;
-
-    protected ParticleSystem sacredFontParticles;
-    protected ParticleSystem sacredFontParticles2;
-    protected ParticleSystem sacredFontParticles3;
-
-    protected ParticleSystem bigbangParticles;
-    protected ParticleSystem bigBangParticles2;
-    protected ParticleSystem bigBangparticles3;
-
-    protected ParticleSystem fireExplosionParticles;
-    protected ParticleSystem fireExplosionParticles2;
-    protected ParticleSystem fireExplosionParticles3;
-
-    protected ParticleSystem destructionParticles;
-    protected ParticleSystem destructionParticles2;
-    protected ParticleSystem destructionParticles3;
-
-    protected ParticleSystem cristalPierceParticles;
-    protected ParticleSystem cristalPierceParticles2;
-    protected ParticleSystem cristalPierceParticles3;
 
     public Card Card;
     [SerializeField]
@@ -53,25 +30,9 @@ public class CardDisplay : MonoBehaviour, IDisplayable
     public int thePLaceOfTheSkillInTheArray;
 
     public int AttackDamage;
-    [SerializeField]
-    private string NameOfTheCardAndExecutePassive;
-
+   
     public StadisticPlayer StatsPlayerScript;
-    [SerializeField]
-    protected AudioSource MyAudioSource;
-    [SerializeField]
-    protected AudioClip BigBangAudio;
-    [SerializeField]
-    protected AudioClip fireExplosionAudio;
-    [SerializeField]
-    protected AudioClip DestructionAudio;
-    [SerializeField]
-    protected AudioClip NormalAudioCard;
 
-    [SerializeField]
-    private CardsPassives[] arrayOfCardPassives;
-
-    //ACA
     private void Awake()
     {
         // Agregamos las cartas al diccionario cuando se crea cada objeto CardDisplay
@@ -89,7 +50,6 @@ public class CardDisplay : MonoBehaviour, IDisplayable
         AttackText.text = Card.attack.ToString();
     }
 
-    //ACA
     public static Card GetCardByName(string name)
     {
         if (cardDictionary.ContainsKey(name))
@@ -103,11 +63,7 @@ public class CardDisplay : MonoBehaviour, IDisplayable
         }
     }
 
-    public void PlayAudio(AudioClip AC)
-    {
-        MyAudioSource.clip = AC;
-        MyAudioSource.Play();
-    }
+   
 
     public int Thecarddmg()
     {
@@ -123,10 +79,7 @@ public class CardDisplay : MonoBehaviour, IDisplayable
         AttackText.text = Card.attack.ToString();
     }
 
-    public void TestForSystemOfSkills(int TheSkillInt)
-    {
-        arrayOfCardPassives[TheSkillInt].MySkill();
-    }
+    
 
     public virtual void ExecuteCardPassive()
     {

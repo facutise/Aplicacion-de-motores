@@ -14,9 +14,6 @@ public class StadisticPlayer : MonoBehaviour
     public int spiritGrowthStacks;//NUEVO PONER EN EL UML
     public int protectionTottemStacks;// NUEVO PONER EN EL UML 
 
-    public Dictionary<string, CardDisplay> cardDisplayPassives = new Dictionary<string, CardDisplay>();
-
-
     [SerializeField]
     public ParticleSystem[] damageParticlesInTheCombats;
     [SerializeField]
@@ -30,7 +27,7 @@ public class StadisticPlayer : MonoBehaviour
 
     public AudioClip normalAudioCard;
     //Termina variables de cartas normales
-    [SerializeField]
+  
     public Enemy enemyy;
 
     public AudioSource myVigorAudioSource;
@@ -43,11 +40,7 @@ public class StadisticPlayer : MonoBehaviour
     //terminan variables de carddisplay;
     [SerializeField]
     public CardsPassives[] arrayOfCardPassives;
-    public SacredFont sacredFontScript;
-    public FireExplosion fireExplosionscript;
-    public Destruction destructionscript;
-    public CristalPierce cristalpiercescript;
-    public BigBang bigBangscript;
+   
 
     public void PlayAudio(AudioClip AC)
     {

@@ -12,85 +12,18 @@ public class VigorCardsDisplay : MonoBehaviour, IDisplayable
     private Text DescriptionText;
     [SerializeField]
     private Image Image;
-
-
-    public Text VigorText;
     [SerializeField]
-    private VigorDeck VigorScriptDeck;
+    private Text VigorText;
+
     [SerializeField]
     private int MySlot;
 
     public int thevigorCostOfMyCard;
 
-
-    private string NameOfVigorCardAndExecutePassive;
-
     public int thePLaceOfTheSkillInTheArray;
-
 
     [SerializeField]
     protected StadisticPlayer stadisticplayerScipt;
-
-    protected int SpiritGrowthStacks;
-    protected int ProtectionTottemStacks;
-    [SerializeField]
-    protected Enemy enemyy;
-    [SerializeField]
-    protected AudioSource MyAudioSource;
-    [SerializeField]
-    protected AudioClip WarriorPendantAudio;
-    [SerializeField]
-    protected AudioClip DeadEyeAudio;
-    [SerializeField]
-    protected AudioClip CaosAudio;
-
-    [SerializeField]
-    protected ParticleSystem[] DamageParticlesInTheCombats;
-
-    protected ParticleSystem warriorPendantParticles;
-    protected ParticleSystem warriorPendantParticles2;
-    protected ParticleSystem warriorPendantParticles3;
-
-    protected ParticleSystem senpukkuParticles;
-    protected ParticleSystem senpukkuParticles2;
-    protected ParticleSystem senpukkuParticles3;
-
-    protected ParticleSystem sacrificeParticles;
-    protected ParticleSystem sacrificeParticles2;
-    protected ParticleSystem sacrificeParticles3;
-
-    protected ParticleSystem spiritGrowthParticles;
-    protected ParticleSystem spiritGrowthParticles2;
-    protected ParticleSystem spiritGrowthParticles3;
-
-    protected ParticleSystem unbreakeableParticles;
-    protected ParticleSystem unbreakeableParticles2;
-    protected ParticleSystem unbreakeableParticles3;
-
-    protected ParticleSystem protetionTottemParticles;
-    protected ParticleSystem protetionTottemParticles2;
-    protected ParticleSystem protetionTottemParticles3;
-
-    protected ParticleSystem caosParticles;
-    protected ParticleSystem caosParticles2;
-    protected ParticleSystem caosParticles3;
-
-    protected ParticleSystem deadEyeParticles;
-    protected ParticleSystem deadEyeParticles2;
-    protected ParticleSystem deadEyeParticles3;
-
-    protected ParticleSystem prominanceBurnParticles;
-    protected ParticleSystem prominanceBurnParticles2;
-    protected ParticleSystem prominanceBurnParticles3;
-
-    protected ParticleSystem absolutionParticles;
-    protected ParticleSystem absolutionParticles2;
-    protected ParticleSystem absolutionParticles3;
-
-    protected ParticleSystem uncontrolledPrideParticles;
-    protected ParticleSystem uncontrolledPrideParticles2;
-    protected ParticleSystem uncontrolledPrideParticles3;
-
 
     private static Dictionary<string, VigorCards> VigorcardDictionary = new Dictionary<string, VigorCards>();
 
@@ -116,11 +49,7 @@ public class VigorCardsDisplay : MonoBehaviour, IDisplayable
         }
     }
 
-    public void PlayAudio(AudioClip AC)
-    {
-        MyAudioSource.clip = AC;
-        MyAudioSource.Play();
-    }
+   
     private void Start()
     {
 
@@ -132,10 +61,7 @@ public class VigorCardsDisplay : MonoBehaviour, IDisplayable
         thevigorCostOfMyCard = Card.vigorcost;
 
     }
-    public void SetEnemy(Enemy enemy)
-    {
-        enemyy = enemy;
-    }
+   
     public void UpdateUiCardInfo()
     {
         NameText.text = Card.name;
