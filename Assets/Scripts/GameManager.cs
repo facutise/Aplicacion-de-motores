@@ -8,9 +8,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     [SerializeField] private Player player;
-    [SerializeField] private Image combatUI;
+    [SerializeField] private Image combatui;
     [SerializeField] private Image inventory;
-    public bool cardsEquiped = false;
+    public bool cardsequiped = false;
     public bool inventoryactive = false;
     [SerializeField] private List<Card> deck = new List<Card>();
     [SerializeField] private Transform[] cardslots;
@@ -69,8 +69,8 @@ public class GameManager : MonoBehaviour
 
     public void ActiveUI()
     {
-        cardsEquiped = !cardsEquiped;
-        combatUI.gameObject.SetActive(cardsEquiped);
+        cardsequiped = !cardsequiped;
+        combatui.gameObject.SetActive(cardsequiped);
     }
 
     public void Activeinventory()
