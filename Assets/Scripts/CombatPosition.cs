@@ -9,9 +9,9 @@ public class CombatPosition : MonoBehaviour
     [SerializeField] private Combat combatscript;
     [SerializeField] private List<GameObject> enemyGObj;
     [SerializeField] private Transform enemytransf;
-    [SerializeField] private GameObject areaWhereTheEnemySpawns;
-    [SerializeField] private List<GameObject> areasWhereTheEnemiesSpawns;
-    [SerializeField] private int counterforPlacesWhereEnemiesSpawns;
+    [SerializeField] private GameObject areawheretheenemyspawns;
+    [SerializeField] private List<GameObject> areaswheretheenemiesspawns;
+    [SerializeField] private int counterforplaceswhereenemiesspawns;
     public bool battlePosition = false;
     public bool combatON = false;
     public bool enemyInvoke = false;
@@ -131,7 +131,7 @@ public class CombatPosition : MonoBehaviour
                 EnemyInvoke();
             }
 
-            Destroy(areaWhereTheEnemySpawns.gameObject);
+            Destroy(areawheretheenemyspawns.gameObject);
 
             if (!combatON)
             {
@@ -152,7 +152,7 @@ public class CombatPosition : MonoBehaviour
                 EnemyInvoke();
             }
 
-            Destroy(areaWhereTheEnemySpawns.gameObject);
+            Destroy(areawheretheenemyspawns.gameObject);
 
             if (!combatON)
             {
@@ -173,7 +173,7 @@ public class CombatPosition : MonoBehaviour
                 EnemyInvoke();
             }
 
-            Destroy(areaWhereTheEnemySpawns.gameObject);
+            Destroy(areawheretheenemyspawns.gameObject);
 
             if (!combatON)
             {
@@ -194,7 +194,7 @@ public class CombatPosition : MonoBehaviour
                 EnemyInvoke();
             }
 
-            Destroy(areaWhereTheEnemySpawns.gameObject);
+            Destroy(areawheretheenemyspawns.gameObject);
 
             if (!combatON)
             {
@@ -206,7 +206,7 @@ public class CombatPosition : MonoBehaviour
 
     void EnemyInvoke()
     {
-        Enemy actualenemy = Instantiate(enemyGObj[counterforPlacesWhereEnemiesSpawns], areasWhereTheEnemiesSpawns[counterforPlacesWhereEnemiesSpawns].transform.position, areasWhereTheEnemiesSpawns[counterforPlacesWhereEnemiesSpawns].transform.rotation).GetComponent<Enemy>();
+        Enemy actualenemy = Instantiate(enemyGObj[counterforplaceswhereenemiesspawns], areaswheretheenemiesspawns[counterforplaceswhereenemiesspawns].transform.position, areaswheretheenemiesspawns[counterforplaceswhereenemiesspawns].transform.rotation).GetComponent<Enemy>();
 
         actualenemy.Setcombat(this);
         actualenemy.SetPlayer(stadisticPlayerScript);
@@ -218,7 +218,7 @@ public class CombatPosition : MonoBehaviour
         //scriptVigorCardDisplaySlot5.SetEnemy(actualenemy);
         //scriptVigorCardDisplaySlot6.SetEnemy(actualenemy);
         enemyInvoke = true;
-        counterforPlacesWhereEnemiesSpawns++;
+        counterforplaceswhereenemiesspawns++;
     }
 }
 
