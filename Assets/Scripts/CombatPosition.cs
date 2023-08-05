@@ -31,9 +31,9 @@ public class CombatPosition : MonoBehaviour
     [SerializeField] private StadisticPlayer stadisticplayerscript;
     [SerializeField] private EnemyHeathPointsUI enemyhealthpointsscript;
     private AudioSource myaudiosource;
-    [SerializeField] private AudioClip cardSwipe;
-    [SerializeField] private AudioClip enemyDiesAudio;
-    [SerializeField] private float transitionCounter;
+    [SerializeField] private AudioClip cardswipe;
+    [SerializeField] private AudioClip enemydiesaudio;
+    [SerializeField] private float transitioncounter;
 
     private void Awake()
     {
@@ -67,7 +67,7 @@ public class CombatPosition : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             SwitchCamera(cameras[0]);
-            PlayAudio(enemyDiesAudio);
+            PlayAudio(enemydiesaudio);
             myGM.ActiveUI();
 
             combatscript.EmptyHandAtEndOfCombat();
@@ -87,7 +87,7 @@ public class CombatPosition : MonoBehaviour
     public void CombatON()
     {
         battlePosition = true;
-        PlayAudio(cardSwipe);
+        PlayAudio(cardswipe);
         camerascript.enabled = false;
         myGM.ActiveUI();
         player.enabled = false;

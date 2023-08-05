@@ -15,9 +15,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Card> deck = new List<Card>();
     [SerializeField] private Transform[] cardslots;
     [SerializeField] private bool[] availableCardSlots;
-    [SerializeField] private Text deckSizeText;
+    [SerializeField] private Text decksizetext;
     public bool gameispaused;
-    [SerializeField] private Image pauseMenu;
+    [SerializeField] private Image pausemenu;
     [SerializeField] private GameObject menu;
     [SerializeField] private GameObject controls;
     [SerializeField] private MyCamera camerascript;
