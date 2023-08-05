@@ -7,7 +7,7 @@ public class EnemySpawn : MonoBehaviour
     /*public Enemy Enemy;
     public Combat combatscript;
     public CombatPosition combatpositionscript;
-    public List<GameObject> enemyGObj;
+    public List<GameObject> enemygobj;
     public Transform enemytransf;
     public GameObject areawheretheenemyspawns;
     public Player player;
@@ -18,7 +18,7 @@ public class EnemySpawn : MonoBehaviour
         {
             Destroy(other.gameObject);
             enemiesreminder = 1;
-            Enemy actualenemy = Instantiate(enemyGObj[Random.Range(0, enemyGObj.Count)], areawheretheenemyspawns.transform.position, areawheretheenemyspawns.transform.rotation).GetComponent<Enemy>();
+            Enemy actualenemy = Instantiate(enemygobj[Random.Range(0, enemygobj.Count)], areawheretheenemyspawns.transform.position, areawheretheenemyspawns.transform.rotation).GetComponent<Enemy>();
             actualenemy.Setcombat(combatpositionscript);
             actualenemy.SetPlayer(player);
             combatscript.SetEnemy(actualenemy);

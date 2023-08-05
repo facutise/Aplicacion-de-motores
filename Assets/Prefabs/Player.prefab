@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatscript: {fileID: 5790167006782233436}
-  enemyGObj:
+  enemygobj:
   - {fileID: 1883684176553347868, guid: d398157aa9b1e4f44aff92b21add58d9, type: 3}
   - {fileID: 6107105603314195914, guid: bf53cac988929f74ea49db6e9fff9c92, type: 3}
   - {fileID: 3232888709861344664, guid: db88ad0712515b245824c40d7c152d01, type: 3}
@@ -388,10 +388,10 @@ MonoBehaviour:
   scriptvigorcarddisplayslot5: {fileID: 0}
   scriptvigorcarddisplayslot6: {fileID: 0}
   stadisticplayerscript: {fileID: 5273619601675263601}
-  enemyHealthPointsScript: {fileID: 0}
-  cardSwipe: {fileID: 8300000, guid: 120669a9b14f2154e94d7ebeb03fd389, type: 3}
-  enemyDiesAudio: {fileID: 8300000, guid: a99e3c4ff882fc7498ed6c65ea8e07ba, type: 3}
-  transitionCounter: 0
+  enemyhealthpointsscript: {fileID: 0}
+  cardswipe: {fileID: 0}
+  enemydiesaudio: {fileID: 0}
+  transitioncounter: 0
 --- !u!114 &5561988426673552123
 MonoBehaviour:
   m_ObjectHideFlags: 0

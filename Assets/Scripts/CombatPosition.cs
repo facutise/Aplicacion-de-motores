@@ -7,7 +7,7 @@ using Cinemachine;
 public class CombatPosition : MonoBehaviour
 {
     [SerializeField] private Combat combatscript;
-    [SerializeField] private List<GameObject> enemyGObj;
+    [SerializeField] private List<GameObject> enemygobj;
     [SerializeField] private Transform enemytransf;
     [SerializeField] private GameObject areawheretheenemyspawns;
     [SerializeField] private List<GameObject> areaswheretheenemiesspawns;
@@ -206,7 +206,7 @@ public class CombatPosition : MonoBehaviour
 
     void EnemyInvoke()
     {
-        Enemy actualenemy = Instantiate(enemyGObj[counterforplaceswhereenemiesspawns], areaswheretheenemiesspawns[counterforplaceswhereenemiesspawns].transform.position, areaswheretheenemiesspawns[counterforplaceswhereenemiesspawns].transform.rotation).GetComponent<Enemy>();
+        Enemy actualenemy = Instantiate(enemygobj[counterforplaceswhereenemiesspawns], areaswheretheenemiesspawns[counterforplaceswhereenemiesspawns].transform.position, areaswheretheenemiesspawns[counterforplaceswhereenemiesspawns].transform.rotation).GetComponent<Enemy>();
 
         actualenemy.Setcombat(this);
         actualenemy.SetPlayer(stadisticplayerscript);
