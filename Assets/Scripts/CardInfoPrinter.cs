@@ -10,10 +10,10 @@ public class CardInfoPrinter : MonoBehaviour
         {
             PrintCardInfo();
         }
-        /*if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             PrintVigorCardInfo();
-        }*/
+        }
     }
 
     private void PrintCardInfo()
@@ -29,14 +29,13 @@ public class CardInfoPrinter : MonoBehaviour
     }
     private void PrintVigorCardInfo()
     {
-       /* VigorCardsDisplay[] vigorCardsDisplays = FindObjectOfType<VigorCardsDisplay>();
+        VigorCardsDisplay[] vigorCardDisplays = FindObjectsOfType<VigorCardsDisplay>();
 
-        for (int i = 0; i < vigorCardsDisplays.Length; i++)
+        for (int i = 0; i < vigorCardDisplays.Length; i++)
         {
-            VigorCardsDisplay vigorCardsDisplayss = vigorCardsDisplays[i];
-            string vigorCardInfo = $"Vigor card{ i + 1}: Name: { vigorCardsDisplayss.Card.name}, Description: { vigorCardsDisplayss.Card.description}, Attack: { vigorCardsDisplayss.Card.vigorcost}";
-            Debug.Log(vigorCardInfo);
+            VigorCardsDisplay vigorCardDisplay = vigorCardDisplays[i];
+            string cardInfo = $"Card {i + 1}: Name: {vigorCardDisplay.Card.name}, Description: {vigorCardDisplay.Card.description}, Vigor Cost: {vigorCardDisplay.Card.vigorcost}";
+            Debug.Log(cardInfo);
         }
-       */
     }
 }
