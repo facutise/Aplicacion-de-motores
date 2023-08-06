@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 //TP2-"Facundo Sebastian Tisera"
 
 /*Hola buen día profe, le comento que he tratado de cambiar ls variables para que estén en pascalCase como con los demás integrantes

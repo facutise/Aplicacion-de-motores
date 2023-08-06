@@ -17,22 +17,22 @@ public class CardDisplay : MonoBehaviour, IDisplayable
 
     public Card Card;
     [SerializeField]
-    private Text NameText;
+    private Text nameText;
     [SerializeField]
-    private Text DescriptionText;
+    private Text descriptionText;
     [SerializeField]
     private Image Image;
 
-    public Text AttackText;
+    public Text attackText;
     [SerializeField]
-    private Deck ScriptDeck;
+    private Deck scriptDeck;
    
 
     public int thePLaceOfTheSkillInTheArray;
 
-    public int AttackDamage;
+    public int attackDamage;
    
-    public StadisticPlayer StatsPlayerScript;
+    public StadisticPlayer stadisticPlayerScript;
 
     private void Awake()
     {
@@ -45,10 +45,10 @@ public class CardDisplay : MonoBehaviour, IDisplayable
 
     private void Start()
     {
-        NameText.text = Card.name;
-        DescriptionText.text = Card.description;
+        nameText.text = Card.name;
+        descriptionText.text = Card.description;
         Image.sprite = Card.image;
-        AttackText.text = Card.attack.ToString();
+        attackText.text = Card.attack.ToString();
     }
 
     public static Card GetCardByName(string name)
@@ -68,16 +68,16 @@ public class CardDisplay : MonoBehaviour, IDisplayable
 
     public int Thecarddmg()
     {
-        AttackDamage = Card.attack;
-        return AttackDamage;    
+        attackDamage = Card.attack;
+        return attackDamage;    
     }
 
     public void UpdateUiCardInfo()
     {
-        NameText.text = Card.name;
-        DescriptionText.text = Card.description;
+        nameText.text = Card.name;
+        descriptionText.text = Card.description;
         Image.sprite = Card.image;
-        AttackText.text = Card.attack.ToString();
+        attackText.text = Card.attack.ToString();
     }
 
     
@@ -85,6 +85,6 @@ public class CardDisplay : MonoBehaviour, IDisplayable
     public virtual void ExecuteCardPassive()
     {
         thePLaceOfTheSkillInTheArray = Card.myPassiveInt;
-        StatsPlayerScript.arrayOfCardPassives[thePLaceOfTheSkillInTheArray].MySkill();
+        stadisticPlayerScript.arrayOfCardPassives[thePLaceOfTheSkillInTheArray].MySkill();
     }
 }

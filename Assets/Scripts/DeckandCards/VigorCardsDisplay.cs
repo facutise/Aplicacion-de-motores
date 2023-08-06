@@ -7,16 +7,14 @@ public class VigorCardsDisplay : MonoBehaviour, IDisplayable
 {
     public VigorCards Card;
     [SerializeField]
-    private Text NameText;
+    private Text nameText;
     [SerializeField]
-    private Text DescriptionText;
+    private Text descriptionText;
     [SerializeField]
     private Image Image;
     [SerializeField]
-    private Text VigorText;
+    private Text vigorText;
 
-    [SerializeField]
-    private int MySlot;
 
     public int thevigorCostOfMyCard;
 
@@ -53,22 +51,22 @@ public class VigorCardsDisplay : MonoBehaviour, IDisplayable
     private void Start()
     {
 
-        NameText.text = Card.name;
-        DescriptionText.text = Card.description;
+        nameText.text = Card.name;
+        descriptionText.text = Card.description;
         Image.sprite = Card.image;
 
-        VigorText.text = Card.vigorcost.ToString();
+        vigorText.text = Card.vigorcost.ToString();
         thevigorCostOfMyCard = Card.vigorcost;
 
     }
    
     public void UpdateUiCardInfo()
     {
-        NameText.text = Card.name;
-        DescriptionText.text = Card.description;
+        nameText.text = Card.name;
+        descriptionText.text = Card.description;
         Image.sprite = Card.image;
 
-        VigorText.text = Card.vigorcost.ToString();
+        vigorText.text = Card.vigorcost.ToString();
     }
     public int TheVigorCostOfMyCard()
     {
