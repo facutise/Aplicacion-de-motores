@@ -23,7 +23,7 @@ public class CombatPosition : MonoBehaviour
     private GameManager myGM;
     [SerializeField] private MyCamera cameraScript;
     [SerializeField] private int enemiesReminder;
-    [SerializeField] private Deck deckscript;
+    [SerializeField] private Deck deckScript;
     [SerializeField] private VigorDeck vigordeckscript;
     public VigorCardsDisplay scriptvigorcarddisplayslot4;
     public VigorCardsDisplay scriptvigorcarddisplayslot5;
@@ -71,7 +71,7 @@ public class CombatPosition : MonoBehaviour
             myGM.ActiveUI();
 
             combatScript.EmptyHandAtEndOfCombat();
-            deckscript.EmptyListOfMyCardsBuildForCombat();
+            deckScript.EmptyListOfMyCardsBuildForCombat();
             vigordeckscript.EmptyListOfMyVigorCardsBuildForCombat();
 
             battlePosition = false;
@@ -92,11 +92,11 @@ public class CombatPosition : MonoBehaviour
         myGM.ActiveUI();
         player.enabled = false;
         vigordeckscript.CreateListOfMyCardBuildForCombat();
-        deckscript.CreateListOfMyCardBuildForCombat();
+        deckScript.CreateListOfMyCardBuildForCombat();
         mainCamera.transform.LookAt(enemyTransf);
         playerRB.constraints = RigidbodyConstraints.FreezeAll;
         Debug.Log("Entraste en combate");
-        //deckscript.DrawCards();//COMENTAR AL DESCOMENTAR LO DE ABAJO
+        //deckScript.DrawCards();//COMENTAR AL DESCOMENTAR LO DE ABAJO
         //vigordeckscript.DrawCards();//COMENTAR AL DESCOMENTAR LO DE ABAJO
         combatScript.DrawCardsStartCombat();
         combatON = true;

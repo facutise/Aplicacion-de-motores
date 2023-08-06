@@ -367,9 +367,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   counterForPlacesWhereEnemiesSpawns: 0
-  battleposition: 0
+  battlePosition: 0
   combatON: 0
-  enemyinvoke: 0
+  enemyInvoke: 0
   playerRB: {fileID: 8077958657708868332}
   mainCamera: {fileID: 0}
   player: {fileID: 8077958657708868335}
@@ -379,10 +379,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  activecamera: {fileID: 0}
-  camerascript: {fileID: 0}
-  enemiesreminder: 0
-  deckscript: {fileID: 7910656068851151482}
+  activeCamera: {fileID: 0}
+  cameraScript: {fileID: 0}
+  enemiesReminder: 0
+  deckScript: {fileID: 7910656068851151482}
   vigordeckscript: {fileID: 5712986794260492655}
   scriptvigorcarddisplayslot4: {fileID: 0}
   scriptvigorcarddisplayslot5: {fileID: 0}
