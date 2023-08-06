@@ -388,10 +388,10 @@ MonoBehaviour:
   scriptVigorCardDisplaySlot5: {fileID: 0}
   scriptVigorCardDisplaySlot6: {fileID: 0}
   stadisticPlayerScript: {fileID: 5273619601675263601}
-  enemyhealthpointsscript: {fileID: 0}
-  cardswipe: {fileID: 0}
-  enemydiesaudio: {fileID: 0}
-  transitioncounter: 0
+  enemyHealthPointsScript: {fileID: 0}
+  cardSwipe: {fileID: 8300000, guid: 120669a9b14f2154e94d7ebeb03fd389, type: 3}
+  enemyDiesAudio: {fileID: 8300000, guid: a99e3c4ff882fc7498ed6c65ea8e07ba, type: 3}
+  transitionCounter: 1
 --- !u!114 &5561988426673552123
 MonoBehaviour:
   m_ObjectHideFlags: 0

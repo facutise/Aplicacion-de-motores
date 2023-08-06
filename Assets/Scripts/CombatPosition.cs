@@ -29,15 +29,15 @@ public class CombatPosition : MonoBehaviour
     public VigorCardsDisplay scriptVigorCardDisplaySlot5;
     public VigorCardsDisplay scriptVigorCardDisplaySlot6;
     [SerializeField] private StadisticPlayer stadisticPlayerScript;
-    [SerializeField] private EnemyHeathPointsUI enemyhealthpointsscript;
-    private AudioSource myaudiosource;
-    [SerializeField] private AudioClip cardswipe;
-    [SerializeField] private AudioClip enemydiesaudio;
-    [SerializeField] private float transitioncounter;
+    [SerializeField] private EnemyHeathPointsUI enemyHealthPointsScript;
+    private AudioSource myAudioSource;
+    [SerializeField] private AudioClip cardSwipe;
+    [SerializeField] private AudioClip enemyDiesAudio;
+    [SerializeField] private float transitionCounter;
 
     private void Awake()
     {
-        myaudiosource = GetComponent<AudioSource>();
+        myAudioSource = GetComponent<AudioSource>();
     }
 
     public void Start()
@@ -55,8 +55,8 @@ public class CombatPosition : MonoBehaviour
 
     public void PlayAudio(AudioClip AC)
     {
-        myaudiosource.clip = AC;
-        myaudiosource.Play();
+        myAudioSource.clip = AC;
+        myAudioSource.Play();
     }
 
     public void RunOutOfCombat()
@@ -67,7 +67,7 @@ public class CombatPosition : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             SwitchCamera(cameras[0]);
-            PlayAudio(enemydiesaudio);
+            PlayAudio(enemyDiesAudio);
             myGM.ActiveUI();
 
             combatScript.EmptyHandAtEndOfCombat();
@@ -87,7 +87,7 @@ public class CombatPosition : MonoBehaviour
     public void CombatON()
     {
         battlePosition = true;
-        PlayAudio(cardswipe);
+        PlayAudio(cardSwipe);
         cameraScript.enabled = false;
         myGM.ActiveUI();
         player.enabled = false;
@@ -213,7 +213,7 @@ public class CombatPosition : MonoBehaviour
         stadisticPlayerScript.SetEnemy(actualenemy);//PARTE DEL NUEVO SISTEMA DE PASIVAS
         combatScript.setenemy(actualenemy);
        
-        enemyhealthpointsscript.SetEnemyInEnemyHealthPoints(actualenemy);
+        enemyHealthPointsScript.SetEnemyInEnemyHealthPoints(actualenemy);
         //scriptVigorCardDisplaySlot4.SetEnemy(actualenemy);
         //scriptVigorCardDisplaySlot5.SetEnemy(actualenemy);
         //scriptVigorCardDisplaySlot6.SetEnemy(actualenemy);
