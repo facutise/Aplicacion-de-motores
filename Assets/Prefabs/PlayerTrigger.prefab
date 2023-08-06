@@ -126,15 +126,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  DoorContador: 3
-  DoorCamera: {fileID: 0}
+  doorContador: 0
+  doorCamera: {fileID: 0}
   player: {fileID: 0}
   playerColl: {fileID: 8796230871782648617}
   playerRB: {fileID: 0}
-  CamarasDoor:
+  camarasDoor:
   - {fileID: 0}
   - {fileID: 0}
-  ActiveCamera: {fileID: 0}
+  activeCamera: {fileID: 0}
   mycamera: {fileID: 0}
   keyLight: {fileID: 0}
   particleKey: {fileID: 0}
