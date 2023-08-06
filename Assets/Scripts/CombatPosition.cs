@@ -8,13 +8,13 @@ public class CombatPosition : MonoBehaviour
 {
     [SerializeField] private Combat combatScript;
     [SerializeField] private List<GameObject> enemyObj;
-    [SerializeField] private Transform enemytransf;
-    [SerializeField] private GameObject areawheretheenemyspawns;
-    [SerializeField] private List<GameObject> areaswheretheenemiesspawns;
-    [SerializeField] private int counterforplaceswhereenemiesspawns;
-    public bool battleposition = false;
+    [SerializeField] private Transform enemyTransf;
+    [SerializeField] private GameObject areaWhereTheEnemySpawns;
+    [SerializeField] private List<GameObject> areasWhereTheEnemiesSpawns;
+    [SerializeField] private int counterForPlacesWhereEnemiesSpawns;
+    public bool battlePosition = false;
     public bool combatON = false;
-    public bool enemyinvoke = false;
+    public bool enemyInvoke = false;
     [SerializeField] private Rigidbody playerRB;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Player player;
@@ -74,26 +74,26 @@ public class CombatPosition : MonoBehaviour
             deckscript.EmptyListOfMyCardsBuildForCombat();
             vigordeckscript.EmptyListOfMyVigorCardsBuildForCombat();
 
-            battleposition = false;
+            battlePosition = false;
             player.enabled = true;
             playerRB.constraints = RigidbodyConstraints.None;
             playerRB.constraints = RigidbodyConstraints.FreezeRotation;
             combatON = false;
-            enemyinvoke = false;
+            enemyInvoke = false;
             Debug.Log("Saliste del combate");
         }
     }
 
     public void CombatON()
     {
-        battleposition = true;
+        battlePosition = true;
         PlayAudio(cardswipe);
         camerascript.enabled = false;
         myGM.ActiveUI();
         player.enabled = false;
         vigordeckscript.CreateListOfMyCardBuildForCombat();
         deckscript.CreateListOfMyCardBuildForCombat();
-        mainCamera.transform.LookAt(enemytransf);
+        mainCamera.transform.LookAt(enemyTransf);
         playerRB.constraints = RigidbodyConstraints.FreezeAll;
         Debug.Log("Entraste en combate");
         //deckscript.DrawCards();//COMENTAR AL DESCOMENTAR LO DE ABAJO
@@ -126,12 +126,12 @@ public class CombatPosition : MonoBehaviour
             Vector3 direccion = new Vector3(15, 1, 15);
             transform.LookAt(direccion);
 
-            if (!enemyinvoke)
+            if (!enemyInvoke)
             {
                 EnemyInvoke();
             }
 
-            Destroy(areawheretheenemyspawns.gameObject);
+            Destroy(areaWhereTheEnemySpawns.gameObject);
 
             if (!combatON)
             {
@@ -147,12 +147,12 @@ public class CombatPosition : MonoBehaviour
             Vector3 direccion = new Vector3(0, 1, 5);
             transform.LookAt(direccion);
 
-            if (!enemyinvoke)
+            if (!enemyInvoke)
             {
                 EnemyInvoke();
             }
 
-            Destroy(areawheretheenemyspawns.gameObject);
+            Destroy(areaWhereTheEnemySpawns.gameObject);
 
             if (!combatON)
             {
@@ -168,12 +168,12 @@ public class CombatPosition : MonoBehaviour
             Vector3 direccion = new Vector3(-120, 1, 80);
             transform.LookAt(direccion);
 
-            if (!enemyinvoke)
+            if (!enemyInvoke)
             {
                 EnemyInvoke();
             }
 
-            Destroy(areawheretheenemyspawns.gameObject);
+            Destroy(areaWhereTheEnemySpawns.gameObject);
 
             if (!combatON)
             {
@@ -189,12 +189,12 @@ public class CombatPosition : MonoBehaviour
             Vector3 direccion = new Vector3(-147, 1, 67);
             transform.LookAt(direccion);
 
-            if (!enemyinvoke)
+            if (!enemyInvoke)
             {
                 EnemyInvoke();
             }
 
-            Destroy(areawheretheenemyspawns.gameObject);
+            Destroy(areaWhereTheEnemySpawns.gameObject);
 
             if (!combatON)
             {
@@ -206,7 +206,7 @@ public class CombatPosition : MonoBehaviour
 
     void EnemyInvoke()
     {
-        Enemy actualenemy = Instantiate(enemyObj[counterforplaceswhereenemiesspawns], areaswheretheenemiesspawns[counterforplaceswhereenemiesspawns].transform.position, areaswheretheenemiesspawns[counterforplaceswhereenemiesspawns].transform.rotation).GetComponent<Enemy>();
+        Enemy actualenemy = Instantiate(enemyObj[counterForPlacesWhereEnemiesSpawns], areasWhereTheEnemiesSpawns[counterForPlacesWhereEnemiesSpawns].transform.position, areasWhereTheEnemiesSpawns[counterForPlacesWhereEnemiesSpawns].transform.rotation).GetComponent<Enemy>();
 
         actualenemy.Setcombat(this);
         actualenemy.SetPlayer(stadisticplayerscript);
@@ -217,8 +217,8 @@ public class CombatPosition : MonoBehaviour
         //scriptvigorcarddisplayslot4.SetEnemy(actualenemy);
         //scriptvigorcarddisplayslot5.SetEnemy(actualenemy);
         //scriptvigorcarddisplayslot6.SetEnemy(actualenemy);
-        enemyinvoke = true;
-        counterforplaceswhereenemiesspawns++;
+        enemyInvoke = true;
+        counterForPlacesWhereEnemiesSpawns++;
     }
 }
 
