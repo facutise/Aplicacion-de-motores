@@ -17,7 +17,7 @@ public class CardsInventoryCounter : MonoBehaviour
     }
     public void VigorCardsOnDeckCounter()
     {
-        cardsonNormaldeck = DeckScript.EquipOrUnequipTheNormalCardBool.Count(b => b);
+        cardsonNormaldeck = DeckScript.equipOrUnequipTheNormalCardBool.Count(b => b);
     }
     private void Update()
     {

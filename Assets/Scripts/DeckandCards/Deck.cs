@@ -20,46 +20,48 @@ public class Deck : MonoBehaviour,IDeckable
     private CardDisplay[] carddisplaysScriptsInTheSlots;
 
     
-    public bool[] SlotBools;
+    public bool[] slotBools;
 
-    public Card[] DeckOfTheDeck;
+    [FormerlySerializedAs("DeckOfTheDeck")]
+    public Card[] deckOfTheDeck;
 
-    public bool[] EquipOrUnequipTheNormalCardBool;
+    [FormerlySerializedAs("EquipOrUnequipTheNormalCardBool")]
+    public bool[] equipOrUnequipTheNormalCardBool;
     [SerializeField]
-    private List<Card> TrueDeckInCombat = new List<Card>();
+    private List<Card> trueDeckInCombat = new List<Card>();
 
 
     public void BuildMyDeck(Card browser, int ThePlaceInArray)
     {
-        if (!EquipOrUnequipTheNormalCardBool[ThePlaceInArray])
+        if (!equipOrUnequipTheNormalCardBool[ThePlaceInArray])
         {
-            DeckOfTheDeck[ThePlaceInArray] = browser;
-            EquipOrUnequipTheNormalCardBool[ThePlaceInArray] = true;
+            deckOfTheDeck[ThePlaceInArray] = browser;
+            equipOrUnequipTheNormalCardBool[ThePlaceInArray] = true;
         }
         else
         {
-            DeckOfTheDeck[ThePlaceInArray] = null;
-            EquipOrUnequipTheNormalCardBool[ThePlaceInArray] = false;
+            deckOfTheDeck[ThePlaceInArray] = null;
+            equipOrUnequipTheNormalCardBool[ThePlaceInArray] = false;
         }
     }
 
     public void CreateListOfMyCardBuildForCombat()
     {
-        foreach (Card objeto in DeckOfTheDeck)
+        foreach (Card objeto in deckOfTheDeck)
         {
             if (objeto != null)
             {
-                TrueDeckInCombat.Add(objeto);
+                trueDeckInCombat.Add(objeto);
             }
         }
-        TrueDeckInCombat.RemoveAll(item => item == null);//COMENTADO
+        trueDeckInCombat.RemoveAll(item => item == null);//COMENTADO
     }
 
     public void EmptyListOfMyCardsBuildForCombat()
     {
-        for (int i = 0; i < TrueDeckInCombat.Count; i++)
+        for (int i = 0; i < trueDeckInCombat.Count; i++)
         {
-            TrueDeckInCombat[i] = null;
+            trueDeckInCombat[i] = null;
         }
     }
 
@@ -81,30 +83,30 @@ public class Deck : MonoBehaviour,IDeckable
     public void DrawCards()
     {
         
-        if (TrueDeckInCombat.Count >= 1)
+        if (trueDeckInCombat.Count >= 1)
         {
             for (int i = 0; i <= 2; i++)
             {
-                Card randomCard = TrueDeckInCombat[Random.Range(0, TrueDeckInCombat.Count)];
-                if (i == 0 && !SlotBools[i])
+                Card randomCard = trueDeckInCombat[Random.Range(0, trueDeckInCombat.Count)];
+                if (i == 0 && !slotBools[i])
                 {
                    
                     carddisplaysScriptsInTheSlots[i].Card = randomCard;
                     carddisplaysScriptsInTheSlots[i].UpdateUiCardInfo();
-                    SlotBools[i] = true;
+                    slotBools[i] = true;
                 }
 
-                else if (i == 1 && !SlotBools[i])
+                else if (i == 1 && !slotBools[i])
                 {
                     carddisplaysScriptsInTheSlots[i].Card = randomCard;
                     carddisplaysScriptsInTheSlots[i].UpdateUiCardInfo();
-                    SlotBools[i] = true;
+                    slotBools[i] = true;
                 }
-                else if (i == 2 && !SlotBools[i])
+                else if (i == 2 && !slotBools[i])
                 {
                     carddisplaysScriptsInTheSlots[i].Card = randomCard;
                     carddisplaysScriptsInTheSlots[i].UpdateUiCardInfo();
-                    SlotBools[i] = true;
+                    slotBools[i] = true;
                 }
 
             }

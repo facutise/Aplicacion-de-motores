@@ -183,7 +183,7 @@ public class Combat : MonoBehaviour
                 theCanvasesForFade[TheSlotClicked].alpha = AlphaFloat;
             }
 
-            deckScript.SlotBools[TheSlotClicked] = false;
+            deckScript.slotBools[TheSlotClicked] = false;
             int carddmgtrue = cardDisplayScriptsInTheSlots[TheSlotClicked].Thecarddmg();
             Enemy.health -= carddmgtrue;
             cardDisplayScriptsInTheSlots[TheSlotClicked].ExecuteCardPassive();
