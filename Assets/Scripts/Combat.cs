@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.Serialization;
 //TP2-"Facundo Sebastian Tisera"
 
 /*Hola buen día profe, le comento que he tratado de cambiar ls variables para que estén en pascalCase como con los demás integrantes
@@ -12,55 +12,59 @@ dichos nombres permanecían en PascalCase. Cabe aclarar que al hacerlo otras vece
 lleva al mismo resultado, mil disculpas, espero que me haya explicado apropiadamente, saludos.*/
 public class Combat : MonoBehaviour
 {
-   
 
+    [FormerlySerializedAs("CardDisplayScriptsInTheSlots")]
     [SerializeField]
-    private CardDisplay[] CardDisplayScriptsInTheSlots;
+    private CardDisplay[] cardDisplayScriptsInTheSlots;
 
 
-    
+    [FormerlySerializedAs("VigorCardDisplayScriptsInTheSlots")]
     [SerializeField]
-    private VigorCardsDisplay[] VigorCardDisplayScriptsInTheSlots;
+    private VigorCardsDisplay[] vigorCardDisplayScriptsInTheSlots;
 
 
-   
+    [FormerlySerializedAs("OrangeCards")]
     [SerializeField]
-    private Image[] OrangeCards;
+    private Image[] orangeCards;
 
 
-    
+    [FormerlySerializedAs("ButtonofSlot")]
     [SerializeField]
-    private Button[] ButtonsofSlot;
+    private Button[] buttonsofSlot;
 
-   
+    [FormerlySerializedAs("CardsHadBeenUsed")]
     [SerializeField]
-    private bool[] CardsHadBeenUsed;
+    private bool[] cardsHadBeenUsed;
 
-
-    public CanvasGroup[] TheCanvasesForFade;
-
+    [FormerlySerializedAs("TheCanvasesForFade")]
     [SerializeField]
-    private Button PassButton;
+    private CanvasGroup[] theCanvasesForFade;
 
-    private bool EnemyAttack = false;
+    [FormerlySerializedAs("PassButton")]
     [SerializeField]
-    private VigorDeck VigorDeckScript;
+    private Button passButton;
+
+    private bool enemyAttack = false;
+
+    [FormerlySerializedAs("VigorDeckScript")]
     [SerializeField]
-    private StadisticPlayer PlayerStadisticsScript;
+    private VigorDeck vigorDeckScript;
+    [SerializeField]
+    private StadisticPlayer playerStadisticsScript;
     [SerializeField]
     private Enemy Enemy;
-    private int PlayerCountDown;
+    private int playerCountDown;
     [SerializeField]
-    private Deck DeckScript;
+    private Deck deckScript;
    
-    public object WaitForSeconds3 { get; private set; }
+   
 
     public void ActivateOrDeactivateCardInTheSlot(int MyCardOrangeAndCardUsedInTheArray)                            //NUEVO METODO PARA REEMPLAZAR LO DE ABAJO
     {
-        CardsHadBeenUsed[MyCardOrangeAndCardUsedInTheArray] = !CardsHadBeenUsed[MyCardOrangeAndCardUsedInTheArray];
-        OrangeCards[MyCardOrangeAndCardUsedInTheArray].gameObject.SetActive(CardsHadBeenUsed[MyCardOrangeAndCardUsedInTheArray]);
+        cardsHadBeenUsed[MyCardOrangeAndCardUsedInTheArray] = !cardsHadBeenUsed[MyCardOrangeAndCardUsedInTheArray];
+        orangeCards[MyCardOrangeAndCardUsedInTheArray].gameObject.SetActive(cardsHadBeenUsed[MyCardOrangeAndCardUsedInTheArray]);
 
-        if (ButtonsofSlot[0].interactable == true)
+        if (buttonsofSlot[0].interactable == true)
         {
             
         }
@@ -73,59 +77,59 @@ public class Combat : MonoBehaviour
     }
     public void Enemydealsdamage()
     {
-        if (EnemyAttack == true)
+        if (enemyAttack == true)
         {
             for (int i = 0; i < 6; i++)                                                   //NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
             {
-                ButtonsofSlot[i].interactable = true;
+                buttonsofSlot[i].interactable = true;
             }
 
-            PlayerStadisticsScript.vigor += 1;
+            playerStadisticsScript.vigor += 1;
            
             Enemy.Enemyturn();
-            PlayerCountDown = 0;
-            DeckScript.DrawCards();
-            VigorDeckScript.DrawCards();
+            playerCountDown = 0;
+            deckScript.DrawCards();
+            vigorDeckScript.DrawCards();
 
             for (int i = 0; i < 6; i++)                                                          //NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
             {
-                if (CardsHadBeenUsed[i] == false)
+                if (cardsHadBeenUsed[i] == false)
                 {
                     ActivateOrDeactivateCardInTheSlot(i);
                 }
             }
 
            
-            EnemyAttack = false;
+            enemyAttack = false;
             Debug.Log("Final del turno");
             Debug.Log("Inicio el siguiente turno");
         }
     }
     public void EndOfCombat()
     {
-        if (EnemyAttack == true)
+        if (enemyAttack == true)
         {
-            PlayerStadisticsScript.vigor += 1;
+            playerStadisticsScript.vigor += 1;
 
             for (int i = 0; i < 6; i++)//NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
             {
-                ButtonsofSlot[i].interactable = true;
+                buttonsofSlot[i].interactable = true;
             }
 
             
            
-            PlayerCountDown = 0;
-            DeckScript.DrawCards();
-            VigorDeckScript.DrawCards();
+            playerCountDown = 0;
+            deckScript.DrawCards();
+            vigorDeckScript.DrawCards();
 
             for (int i = 0; i < 6; i++)//NUEVO FOR PARA REEMPLAZAR LO DE ABAJO
             {
-                if (CardsHadBeenUsed[i] == false)
+                if (cardsHadBeenUsed[i] == false)
                 {
                     ActivateOrDeactivateCardInTheSlot(i);
                 }
             }
-            EnemyAttack = false;
+            enemyAttack = false;
 
            
 
@@ -134,28 +138,28 @@ public class Combat : MonoBehaviour
 
     public void DrawCardsStartCombat()
     {
-        DeckScript.DrawCards();
-        VigorDeckScript.DrawCards();
+        deckScript.DrawCards();
+        vigorDeckScript.DrawCards();
         for (int i = 0; i < 6; i++)
         {
-            if (CardsHadBeenUsed[i] == false)
+            if (cardsHadBeenUsed[i] == false)
             {
                 ActivateOrDeactivateCardInTheSlot(i);
             }
-            ButtonsofSlot[i].interactable = true;
-            TheCanvasesForFade[i].alpha = 1;
+            buttonsofSlot[i].interactable = true;
+            theCanvasesForFade[i].alpha = 1;
         }
     }
     public void EmptyHandAtEndOfCombat()
     {
         for (int i = 0; i < 6; i++)
         {
-            if (CardsHadBeenUsed[i] == true)
+            if (cardsHadBeenUsed[i] == true)
             {
                 ActivateOrDeactivateCardInTheSlot(i);
             }
-            ButtonsofSlot[i].interactable = false;
-            TheCanvasesForFade[i].alpha = 1;
+            buttonsofSlot[i].interactable = false;
+            theCanvasesForFade[i].alpha = 1;
         }
 
     }
@@ -168,7 +172,7 @@ public class Combat : MonoBehaviour
     IEnumerator CardFunctionAndFade(int TheSlotClicked)                    //FUNCIÓN AÚN EN PRUEBA PARA REEMPLAZAR LOS FadeAnimSlot
     {
        
-        if (TheSlotClicked <= 2 && PlayerCountDown == 0)
+        if (TheSlotClicked <= 2 && playerCountDown == 0)
         {
             float AlphaFloat = 1;
 
@@ -176,23 +180,23 @@ public class Combat : MonoBehaviour
             {
                 AlphaFloat -= 0.2f;
                 yield return new WaitForEndOfFrame();
-                TheCanvasesForFade[TheSlotClicked].alpha = AlphaFloat;
+                theCanvasesForFade[TheSlotClicked].alpha = AlphaFloat;
             }
 
-            DeckScript.SlotBools[TheSlotClicked] = false;
-            int carddmgtrue = CardDisplayScriptsInTheSlots[TheSlotClicked].Thecarddmg();
+            deckScript.SlotBools[TheSlotClicked] = false;
+            int carddmgtrue = cardDisplayScriptsInTheSlots[TheSlotClicked].Thecarddmg();
             Enemy.health -= carddmgtrue;
-            CardDisplayScriptsInTheSlots[TheSlotClicked].ExecuteCardPassive();
+            cardDisplayScriptsInTheSlots[TheSlotClicked].ExecuteCardPassive();
             //particulas
-            EnemyAttack = true;
-            PlayerCountDown = 1;
-            DeckScript.DrawCards();
+            enemyAttack = true;
+            playerCountDown = 1;
+            deckScript.DrawCards();
             ActivateOrDeactivateCardInTheSlot(TheSlotClicked);
-            ButtonsofSlot[TheSlotClicked].interactable = false;
-            TheCanvasesForFade[TheSlotClicked].alpha = 1;
+            buttonsofSlot[TheSlotClicked].interactable = false;
+            theCanvasesForFade[TheSlotClicked].alpha = 1;
 
         }
-        else if (TheSlotClicked > 2 && PlayerStadisticsScript.vigor >= VigorCardDisplayScriptsInTheSlots[TheSlotClicked].TheVigorCostOfMyCard())
+        else if (TheSlotClicked > 2 && playerStadisticsScript.vigor >= vigorCardDisplayScriptsInTheSlots[TheSlotClicked].TheVigorCostOfMyCard())
         {
             float AlphaFloat = 1;
 
@@ -200,15 +204,15 @@ public class Combat : MonoBehaviour
             {
                 AlphaFloat -= 0.2f;
                 yield return new WaitForEndOfFrame();
-                TheCanvasesForFade[TheSlotClicked].alpha = AlphaFloat;
+                theCanvasesForFade[TheSlotClicked].alpha = AlphaFloat;
             }
-            PlayerStadisticsScript.vigor -= VigorCardDisplayScriptsInTheSlots[TheSlotClicked].TheVigorCostOfMyCard();
-            VigorCardDisplayScriptsInTheSlots[TheSlotClicked].ExecuteCardPassive();
+            playerStadisticsScript.vigor -= vigorCardDisplayScriptsInTheSlots[TheSlotClicked].TheVigorCostOfMyCard();
+            vigorCardDisplayScriptsInTheSlots[TheSlotClicked].ExecuteCardPassive();
             ActivateOrDeactivateCardInTheSlot(TheSlotClicked);
-            ButtonsofSlot[TheSlotClicked].interactable = false;
-            VigorDeckScript.SlotBools[TheSlotClicked] = false;
+            buttonsofSlot[TheSlotClicked].interactable = false;
+            vigorDeckScript.SlotBools[TheSlotClicked] = false;
             //damagePartciles
-            TheCanvasesForFade[TheSlotClicked].alpha = 1;
+            theCanvasesForFade[TheSlotClicked].alpha = 1;
 
         }
         yield return null;

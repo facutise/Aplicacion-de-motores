@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Serialization;
 //TP2-"Facundo Sebastian Tisera"
 public interface IDeckable
 {
@@ -14,9 +15,11 @@ public interface IDeckable
 
 public class Deck : MonoBehaviour,IDeckable
 {
-    
-    public CardDisplay[] CarddisplaysScriptsInTheSlots;
+    [FormerlySerializedAs("CarddisplaysScriptsInTheSlots")]
+    [SerializeField]
+    private CardDisplay[] carddisplaysScriptsInTheSlots;
 
+    
     public bool[] SlotBools;
 
     public Card[] DeckOfTheDeck;
@@ -86,21 +89,21 @@ public class Deck : MonoBehaviour,IDeckable
                 if (i == 0 && !SlotBools[i])
                 {
                    
-                    CarddisplaysScriptsInTheSlots[i].Card = randomCard;
-                    CarddisplaysScriptsInTheSlots[i].UpdateUiCardInfo();
+                    carddisplaysScriptsInTheSlots[i].Card = randomCard;
+                    carddisplaysScriptsInTheSlots[i].UpdateUiCardInfo();
                     SlotBools[i] = true;
                 }
 
                 else if (i == 1 && !SlotBools[i])
                 {
-                    CarddisplaysScriptsInTheSlots[i].Card = randomCard;
-                    CarddisplaysScriptsInTheSlots[i].UpdateUiCardInfo();
+                    carddisplaysScriptsInTheSlots[i].Card = randomCard;
+                    carddisplaysScriptsInTheSlots[i].UpdateUiCardInfo();
                     SlotBools[i] = true;
                 }
                 else if (i == 2 && !SlotBools[i])
                 {
-                    CarddisplaysScriptsInTheSlots[i].Card = randomCard;
-                    CarddisplaysScriptsInTheSlots[i].UpdateUiCardInfo();
+                    carddisplaysScriptsInTheSlots[i].Card = randomCard;
+                    carddisplaysScriptsInTheSlots[i].UpdateUiCardInfo();
                     SlotBools[i] = true;
                 }
 
