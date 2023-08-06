@@ -86,7 +86,7 @@ public class Combat : MonoBehaviour
 
             playerStadisticsScript.vigor += 1;
            
-            Enemy.Enemyturn();
+            Enemy.EnemyTurn();
             playerCountDown = 0;
             deckScript.DrawCards();
             vigorDeckScript.DrawCards();

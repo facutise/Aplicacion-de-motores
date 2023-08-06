@@ -68,7 +68,7 @@ public abstract class Enemy : MonoBehaviour
         EnemyDies();
     }
 
-    public virtual void Enemyturn()
+    public virtual void EnemyTurn()
     {
 
     }

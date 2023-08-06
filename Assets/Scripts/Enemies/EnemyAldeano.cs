@@ -9,7 +9,7 @@ public class EnemyAldeano : Enemy
     {
         base.Start();
     }
-    public override void Enemyturn()
+    public override void EnemyTurn()
     {
         if (health <= 10 && health > 8)
         {

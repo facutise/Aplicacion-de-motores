@@ -8,7 +8,7 @@ public class EnemyBoss : Enemy
     {
         base.Start();
     }
-    public override void Enemyturn()
+    public override void EnemyTurn()
     {
         if (health <= 50 && health > 30)
         {

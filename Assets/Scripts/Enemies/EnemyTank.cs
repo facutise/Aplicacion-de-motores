@@ -9,7 +9,7 @@ public class EnemyTank : Enemy
     {
         base.Start();
     }
-    public override void Enemyturn()
+    public override void EnemyTurn()
     {
         if (health <= 20 && health > 15)
         {
