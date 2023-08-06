@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody myRig;
     private float _yVelocity;
     [SerializeField] private float _speed = 200f;
+    private PlayerJumpFuncional jumpy;
+    private Charview view;
 
     public float Speed
     {
@@ -21,8 +23,6 @@ public class PlayerMovement : MonoBehaviour
         set { _yVelocity = value; }
     }
 
-    private PlayerJumpFuncional jumpy;
-    Charview view;
 
     private void Awake()
     {

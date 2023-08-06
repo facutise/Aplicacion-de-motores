@@ -11,13 +11,13 @@ public class PlayerSensor : MonoBehaviour
     [SerializeField] UnityEvent EV_OnPlayerEnter;
     [SerializeField] UnityEvent EV_OnPlayerExit;
 
-    public float DoorContador;
-    public CinemachineVirtualCamera DoorCamera;
+    public float doorContador;
+    public CinemachineVirtualCamera doorCamera;
     public Player player;
     public Collider playerColl;
     public Rigidbody playerRB;
-    public List<CinemachineVirtualCamera> CamarasDoor;
-    public CinemachineVirtualCamera ActiveCamera;
+    public List<CinemachineVirtualCamera> camarasDoor;
+    public CinemachineVirtualCamera activeCamera;
     public MyCamera mycamera;
 
     public Light keyLight;
@@ -29,7 +29,7 @@ public class PlayerSensor : MonoBehaviour
         print("Se encontró una llave.");
         if (IsPlayer(other))
         {
-            SwitchCameraDoor(CamarasDoor[1]);
+            SwitchCameraDoor(camarasDoor[1]);
             player.enabled = false;
             mycamera.canMoveCamera = false;
             playerRB.constraints = RigidbodyConstraints.FreezeAll;
@@ -46,9 +46,9 @@ public class PlayerSensor : MonoBehaviour
     public void SwitchCameraDoor(CinemachineVirtualCamera Door)
     {
         Door.Priority = 10;
-        ActiveCamera = Door;
+        activeCamera = Door;
 
-        foreach (CinemachineVirtualCamera c in CamarasDoor)
+        foreach (CinemachineVirtualCamera c in camarasDoor)
         {
             if (c != Door && c.Priority != 0)
             {
@@ -70,17 +70,17 @@ public class PlayerSensor : MonoBehaviour
 
     IEnumerator CameraTransation()
     {
-        yield return new WaitForSeconds(DoorContador);
+        yield return new WaitForSeconds(doorContador);
 
-        transition();
+        Transition();
         Invoke("Playerenabled", 2.5f);
 
         yield return null;
     }
 
-    void transition()
+    void Transition()
     {
-        SwitchCameraDoor(CamarasDoor[0]);
+        SwitchCameraDoor(camarasDoor[0]);
         EV_OnPlayerExit.Invoke();
 
     }

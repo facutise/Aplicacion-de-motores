@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public GameObject MainMenu;
-    public GameObject MenuTutorial;
-    public GameObject MenuCredits;
+    public GameObject mainMenu;
+    public GameObject menuTutorial;
+    public GameObject menuCredits;
 
     public void loadscene(string scenename)
     {

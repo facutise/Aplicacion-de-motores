@@ -14,7 +14,7 @@ public class MovingPlatform : MonoBehaviour
     private int currentWaypointIndex = 0;
     private float startTime;
     private float journeyLength;
-    bool isWaiting;
+    private bool isWaiting;
 
     void Start()
     {
