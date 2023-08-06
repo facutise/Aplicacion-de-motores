@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
     private Vector3 camForward;
     private Vector3 camRight;
     private Vector3 movePLayer;
-    //CombatPosition _combatposition;
+    //CombatPosition _combatPosition;
     Charview view;
     public MenuManager menumanagerscript;
     public float playerspeed;
@@ -111,7 +111,7 @@ public class Player : MonoBehaviour
     {
         if (PlayerHealth <= 0)
         {
-            _combatposition.salircombate();
+            _combatPosition.salircombate();
             Destroy(gameObject);
             PlayerHealth = 30;
         }
