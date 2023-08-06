@@ -24,11 +24,11 @@ public class CombatPosition : MonoBehaviour
     [SerializeField] private MyCamera cameraScript;
     [SerializeField] private int enemiesReminder;
     [SerializeField] private Deck deckScript;
-    [SerializeField] private VigorDeck vigordeckscript;
-    public VigorCardsDisplay scriptvigorcarddisplayslot4;
-    public VigorCardsDisplay scriptvigorcarddisplayslot5;
-    public VigorCardsDisplay scriptvigorcarddisplayslot6;
-    [SerializeField] private StadisticPlayer stadisticplayerscript;
+    [SerializeField] private VigorDeck vigorDeckScript;
+    public VigorCardsDisplay scriptVigorCardDisplaySlot4;
+    public VigorCardsDisplay scriptVigorCardDisplaySlot5;
+    public VigorCardsDisplay scriptVigorCardDisplaySlot6;
+    [SerializeField] private StadisticPlayer stadisticPlayerScript;
     [SerializeField] private EnemyHeathPointsUI enemyhealthpointsscript;
     private AudioSource myaudiosource;
     [SerializeField] private AudioClip cardswipe;
@@ -72,7 +72,7 @@ public class CombatPosition : MonoBehaviour
 
             combatScript.EmptyHandAtEndOfCombat();
             deckScript.EmptyListOfMyCardsBuildForCombat();
-            vigordeckscript.EmptyListOfMyVigorCardsBuildForCombat();
+            vigorDeckScript.EmptyListOfMyVigorCardsBuildForCombat();
 
             battlePosition = false;
             player.enabled = true;
@@ -91,13 +91,13 @@ public class CombatPosition : MonoBehaviour
         cameraScript.enabled = false;
         myGM.ActiveUI();
         player.enabled = false;
-        vigordeckscript.CreateListOfMyCardBuildForCombat();
+        vigorDeckScript.CreateListOfMyCardBuildForCombat();
         deckScript.CreateListOfMyCardBuildForCombat();
         mainCamera.transform.LookAt(enemyTransf);
         playerRB.constraints = RigidbodyConstraints.FreezeAll;
         Debug.Log("Entraste en combate");
         //deckScript.DrawCards();//COMENTAR AL DESCOMENTAR LO DE ABAJO
-        //vigordeckscript.DrawCards();//COMENTAR AL DESCOMENTAR LO DE ABAJO
+        //vigorDeckScript.DrawCards();//COMENTAR AL DESCOMENTAR LO DE ABAJO
         combatScript.DrawCardsStartCombat();
         combatON = true;
     }
@@ -209,14 +209,14 @@ public class CombatPosition : MonoBehaviour
         Enemy actualenemy = Instantiate(enemyObj[counterForPlacesWhereEnemiesSpawns], areasWhereTheEnemiesSpawns[counterForPlacesWhereEnemiesSpawns].transform.position, areasWhereTheEnemiesSpawns[counterForPlacesWhereEnemiesSpawns].transform.rotation).GetComponent<Enemy>();
 
         actualenemy.Setcombat(this);
-        actualenemy.SetPlayer(stadisticplayerscript);
-        stadisticplayerscript.SetEnemy(actualenemy);//PARTE DEL NUEVO SISTEMA DE PASIVAS
+        actualenemy.SetPlayer(stadisticPlayerScript);
+        stadisticPlayerScript.SetEnemy(actualenemy);//PARTE DEL NUEVO SISTEMA DE PASIVAS
         combatScript.setenemy(actualenemy);
        
         enemyhealthpointsscript.SetEnemyInEnemyHealthPoints(actualenemy);
-        //scriptvigorcarddisplayslot4.SetEnemy(actualenemy);
-        //scriptvigorcarddisplayslot5.SetEnemy(actualenemy);
-        //scriptvigorcarddisplayslot6.SetEnemy(actualenemy);
+        //scriptVigorCardDisplaySlot4.SetEnemy(actualenemy);
+        //scriptVigorCardDisplaySlot5.SetEnemy(actualenemy);
+        //scriptVigorCardDisplaySlot6.SetEnemy(actualenemy);
         enemyInvoke = true;
         counterForPlacesWhereEnemiesSpawns++;
     }

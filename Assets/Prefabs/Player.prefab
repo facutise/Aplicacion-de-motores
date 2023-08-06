@@ -383,11 +383,11 @@ MonoBehaviour:
   cameraScript: {fileID: 0}
   enemiesReminder: 0
   deckScript: {fileID: 7910656068851151482}
-  vigordeckscript: {fileID: 5712986794260492655}
-  scriptvigorcarddisplayslot4: {fileID: 0}
-  scriptvigorcarddisplayslot5: {fileID: 0}
-  scriptvigorcarddisplayslot6: {fileID: 0}
-  stadisticplayerscript: {fileID: 5273619601675263601}
+  vigorDeckScript: {fileID: 5712986794260492655}
+  scriptVigorCardDisplaySlot4: {fileID: 0}
+  scriptVigorCardDisplaySlot5: {fileID: 0}
+  scriptVigorCardDisplaySlot6: {fileID: 0}
+  stadisticPlayerScript: {fileID: 5273619601675263601}
   enemyhealthpointsscript: {fileID: 0}
   cardswipe: {fileID: 0}
   enemydiesaudio: {fileID: 0}

@@ -10,7 +10,7 @@ public class CardsPassives : MonoBehaviour
     // ACCEDAN A ELLOS A TRAVES DEL ARRAY EN UNA FUNCIÓN QUE RECIBA COMO PARAMETRO UN NUEVO INT QUE VOY A CREAR EN CARD Y DEPENDIENDO DE CUAL, ES EL SCRIPT HIJO QUE SE EJECUTA
     // EJEMPLO DE CARDDISPLAY: public void ExecutePassive(int intdelcard)
     // {
-    //    stadisticplayerscript.cardpassivesArray[intdelcard].MySkill;
+    //    stadisticPlayerScript.cardpassivesArray[intdelcard].MySkill;
     // }
 
     //LAS variables van en stadisticplayer y las llamamos desde los hijos
