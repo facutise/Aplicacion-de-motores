@@ -7,6 +7,8 @@ public interface IDisplayable
     
     void UpdateUiCardInfo();
     void ExecuteCardPassive();
+    
+
 }
 
 public class CardDisplay : MonoBehaviour, IDisplayable
@@ -24,8 +26,7 @@ public class CardDisplay : MonoBehaviour, IDisplayable
     public Text AttackText;
     [SerializeField]
     private Deck ScriptDeck;
-    [SerializeField]
-    private int MySlot;
+   
 
     public int thePLaceOfTheSkillInTheArray;
 
