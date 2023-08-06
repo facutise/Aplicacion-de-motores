@@ -126,7 +126,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  doorContador: 0
+  doorContador: 3
   doorCamera: {fileID: 0}
   player: {fileID: 0}
   playerColl: {fileID: 8796230871782648617}
