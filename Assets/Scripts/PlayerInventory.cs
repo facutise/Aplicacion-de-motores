@@ -83,14 +83,6 @@ public class PlayerInventory : MonoBehaviour
             if (isMenuActive)
                 ToggleMenu();
         }
-
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            if (!isInventoryActive && !isMenuActive)
-            {
-                ToggleControls();
-            }
-        }
     }
     public void ToggleInventory()
     {
@@ -133,18 +125,6 @@ public class PlayerInventory : MonoBehaviour
             myGM.Menudesactivate();
             Cursor.lockState = CursorLockMode.Locked;
             camerascript.enabled = true;
-        }
-    }
-    public void ToggleControls()
-    {
-        isControlsActive = !isControlsActive;
-        if (isControlsActive)
-        {
-            myGM.Showcontrols();
-        }
-        else
-        {
-            myGM.Hidecontrols();
         }
     }
 

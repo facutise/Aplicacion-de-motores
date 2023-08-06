@@ -106,14 +106,4 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
     }
-
-    public void Showcontrols()
-    {
-        controls.gameObject.SetActive(true);
-    }
-
-    public void Hidecontrols()
-    {
-        controls.gameObject.SetActive(false);
-    }
 }
