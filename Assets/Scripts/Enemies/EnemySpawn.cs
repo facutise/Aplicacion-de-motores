@@ -19,7 +19,7 @@ public class EnemySpawn : MonoBehaviour
             Destroy(other.gameObject);
             enemiesReminder = 1;
             Enemy actualenemy = Instantiate(enemyObj[Random.Range(0, enemyObj.Count)], areaWhereTheEnemySpawns.transform.position, areaWhereTheEnemySpawns.transform.rotation).GetComponent<Enemy>();
-            actualenemy.Setcombat(combatpositionscript);
+            actualenemy.SetCombat(combatpositionscript);
             actualenemy.SetPlayer(player);
             combatScript.SetEnemy(actualenemy);
             Destroy(areaWhereTheEnemySpawns.gameObject);

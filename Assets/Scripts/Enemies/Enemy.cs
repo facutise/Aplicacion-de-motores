@@ -29,7 +29,7 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void Start()
     {
-        Enemyapears();
+        EnemyAppears();
         GameObject PlayerObject = GameObject.Find("Player");
 
         if (PlayerObject != null)
@@ -58,7 +58,7 @@ public abstract class Enemy : MonoBehaviour
         debris_Combat3.Stop();
     }
 
-    void Enemyapears()
+    void EnemyAppears()
     {
         Debug.Log("Aparecio un " + enemyType);
     }
@@ -73,7 +73,7 @@ public abstract class Enemy : MonoBehaviour
 
     }
 
-    public void Setcombat(CombatPosition combatPosition)
+    public void SetCombat(CombatPosition combatPosition)
     {
         _combatPosition = combatPosition;
     }

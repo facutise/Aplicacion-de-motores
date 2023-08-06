@@ -208,7 +208,7 @@ public class CombatPosition : MonoBehaviour
     {
         Enemy actualenemy = Instantiate(enemyObj[counterForPlacesWhereEnemiesSpawns], areasWhereTheEnemiesSpawns[counterForPlacesWhereEnemiesSpawns].transform.position, areasWhereTheEnemiesSpawns[counterForPlacesWhereEnemiesSpawns].transform.rotation).GetComponent<Enemy>();
 
-        actualenemy.Setcombat(this);
+        actualenemy.SetCombat(this);
         actualenemy.SetPlayer(stadisticPlayerScript);
         stadisticPlayerScript.SetEnemy(actualenemy);//PARTE DEL NUEVO SISTEMA DE PASIVAS
         combatScript.setenemy(actualenemy);
