@@ -11,13 +11,13 @@ public class EnemySpawn : MonoBehaviour
     public Transform enemyTransf;
     public GameObject areaWhereTheEnemySpawns;
     public Player player;
-    int enemiesreminder;
+    int enemiesReminder;
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.layer == 9)
         {
             Destroy(other.gameObject);
-            enemiesreminder = 1;
+            enemiesReminder = 1;
             Enemy actualenemy = Instantiate(enemyObj[Random.Range(0, enemyObj.Count)], areaWhereTheEnemySpawns.transform.position, areaWhereTheEnemySpawns.transform.rotation).GetComponent<Enemy>();
             actualenemy.Setcombat(combatpositionscript);
             actualenemy.SetPlayer(player);

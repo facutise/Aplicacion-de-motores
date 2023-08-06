@@ -19,10 +19,10 @@ public class CombatPosition : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Player player;
     [SerializeField] private List<CinemachineVirtualCamera> cameras;
-    public CinemachineVirtualCamera activecamera;
+    public CinemachineVirtualCamera activeCamera;
     private GameManager myGM;
-    [SerializeField] private MyCamera camerascript;
-    [SerializeField] private int enemiesreminder;
+    [SerializeField] private MyCamera cameraScript;
+    [SerializeField] private int enemiesReminder;
     [SerializeField] private Deck deckscript;
     [SerializeField] private VigorDeck vigordeckscript;
     public VigorCardsDisplay scriptvigorcarddisplayslot4;
@@ -61,9 +61,9 @@ public class CombatPosition : MonoBehaviour
 
     public void RunOutOfCombat()
     {
-        enemiesreminder--;
+        enemiesReminder--;
 
-        if (enemiesreminder <= 0)
+        if (enemiesReminder <= 0)
         {
             Cursor.lockState = CursorLockMode.Locked;
             SwitchCamera(cameras[0]);
@@ -88,7 +88,7 @@ public class CombatPosition : MonoBehaviour
     {
         battlePosition = true;
         PlayAudio(cardswipe);
-        camerascript.enabled = false;
+        cameraScript.enabled = false;
         myGM.ActiveUI();
         player.enabled = false;
         vigordeckscript.CreateListOfMyCardBuildForCombat();
@@ -105,7 +105,7 @@ public class CombatPosition : MonoBehaviour
     public void SwitchCamera(CinemachineVirtualCamera camera)
     {
         camera.Priority = 10;
-        activecamera = camera;
+        activeCamera = camera;
 
         foreach (CinemachineVirtualCamera c in cameras)
         {
@@ -121,8 +121,8 @@ public class CombatPosition : MonoBehaviour
         if (other.gameObject.layer == 9)
         {
             Destroy(other.gameObject);
-            camerascript.canMoveCamera = false;
-            enemiesreminder = 1;
+            cameraScript.canMoveCamera = false;
+            enemiesReminder = 1;
             Vector3 direccion = new Vector3(15, 1, 15);
             transform.LookAt(direccion);
 
@@ -142,8 +142,8 @@ public class CombatPosition : MonoBehaviour
         else if (other.gameObject.layer == 13)
         {
             Destroy(other.gameObject);
-            camerascript.canMoveCamera = false;
-            enemiesreminder = 1;
+            cameraScript.canMoveCamera = false;
+            enemiesReminder = 1;
             Vector3 direccion = new Vector3(0, 1, 5);
             transform.LookAt(direccion);
 
@@ -163,8 +163,8 @@ public class CombatPosition : MonoBehaviour
         else if (other.gameObject.layer == 14)
         {
             Destroy(other.gameObject);
-            camerascript.canMoveCamera = false;
-            enemiesreminder = 1;
+            cameraScript.canMoveCamera = false;
+            enemiesReminder = 1;
             Vector3 direccion = new Vector3(-120, 1, 80);
             transform.LookAt(direccion);
 
@@ -184,8 +184,8 @@ public class CombatPosition : MonoBehaviour
         else if (other.gameObject.layer == 17)
         {
             Destroy(other.gameObject);
-            camerascript.canMoveCamera = false;
-            enemiesreminder = 1;
+            cameraScript.canMoveCamera = false;
+            enemiesReminder = 1;
             Vector3 direccion = new Vector3(-147, 1, 67);
             transform.LookAt(direccion);
 
