@@ -6,8 +6,8 @@ using Cinemachine;
 //TP2-Marco Lavacchielli
 public class CombatPosition : MonoBehaviour
 {
-    [SerializeField] private Combat combatscript;
-    [SerializeField] private List<GameObject> enemygobj;
+    [SerializeField] private Combat combatScript;
+    [SerializeField] private List<GameObject> enemyObj;
     [SerializeField] private Transform enemytransf;
     [SerializeField] private GameObject areawheretheenemyspawns;
     [SerializeField] private List<GameObject> areaswheretheenemiesspawns;
@@ -70,7 +70,7 @@ public class CombatPosition : MonoBehaviour
             PlayAudio(enemydiesaudio);
             myGM.ActiveUI();
 
-            combatscript.EmptyHandAtEndOfCombat();
+            combatScript.EmptyHandAtEndOfCombat();
             deckscript.EmptyListOfMyCardsBuildForCombat();
             vigordeckscript.EmptyListOfMyVigorCardsBuildForCombat();
 
@@ -98,7 +98,7 @@ public class CombatPosition : MonoBehaviour
         Debug.Log("Entraste en combate");
         //deckscript.DrawCards();//COMENTAR AL DESCOMENTAR LO DE ABAJO
         //vigordeckscript.DrawCards();//COMENTAR AL DESCOMENTAR LO DE ABAJO
-        combatscript.DrawCardsStartCombat();
+        combatScript.DrawCardsStartCombat();
         combatON = true;
     }
 
@@ -206,12 +206,12 @@ public class CombatPosition : MonoBehaviour
 
     void EnemyInvoke()
     {
-        Enemy actualenemy = Instantiate(enemygobj[counterforplaceswhereenemiesspawns], areaswheretheenemiesspawns[counterforplaceswhereenemiesspawns].transform.position, areaswheretheenemiesspawns[counterforplaceswhereenemiesspawns].transform.rotation).GetComponent<Enemy>();
+        Enemy actualenemy = Instantiate(enemyObj[counterforplaceswhereenemiesspawns], areaswheretheenemiesspawns[counterforplaceswhereenemiesspawns].transform.position, areaswheretheenemiesspawns[counterforplaceswhereenemiesspawns].transform.rotation).GetComponent<Enemy>();
 
         actualenemy.Setcombat(this);
         actualenemy.SetPlayer(stadisticplayerscript);
         stadisticplayerscript.SetEnemy(actualenemy);//PARTE DEL NUEVO SISTEMA DE PASIVAS
-        combatscript.setenemy(actualenemy);
+        combatScript.setenemy(actualenemy);
        
         enemyhealthpointsscript.SetEnemyInEnemyHealthPoints(actualenemy);
         //scriptvigorcarddisplayslot4.SetEnemy(actualenemy);

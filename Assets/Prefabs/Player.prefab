@@ -353,8 +353,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7864799debd9f1f49a415e9631e6210e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combatscript: {fileID: 5790167006782233436}
-  enemygobj:
+  combatScript: {fileID: 5790167006782233436}
+  enemyObj:
   - {fileID: 1883684176553347868, guid: d398157aa9b1e4f44aff92b21add58d9, type: 3}
   - {fileID: 6107105603314195914, guid: bf53cac988929f74ea49db6e9fff9c92, type: 3}
   - {fileID: 3232888709861344664, guid: db88ad0712515b245824c40d7c152d01, type: 3}
@@ -367,9 +367,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   counterforplaceswhereenemiesspawns: 0
-  battlePosition: 0
+  battleposition: 0
   combatON: 0
-  enemyInvoke: 0
+  enemyinvoke: 0
   playerRB: {fileID: 8077958657708868332}
   mainCamera: {fileID: 0}
   player: {fileID: 8077958657708868335}
@@ -446,44 +446,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a75fb82f03a3d5846b756eb4c4bfd576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardDisplayScriptsInTheSlots:
+  cardDisplayScriptsInTheSlots:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  VigorCardDisplayScriptsInTheSlots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  OrangeCards:
+  vigorCardDisplayScriptsInTheSlots:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  ButtonsofSlot:
+  orangeCards:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  CardsHadBeenUsed: 010101010101
-  TheCanvasesForFade:
+  buttonsofSlot: []
+  cardsHadBeenUsed: 010101010101
+  theCanvasesForFade:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  PassButton: {fileID: 0}
-  VigorDeckScript: {fileID: 5712986794260492655}
-  PlayerStadisticsScript: {fileID: 5273619601675263601}
+  passButton: {fileID: 0}
+  vigorDeckScript: {fileID: 5712986794260492655}
+  playerStadisticsScript: {fileID: 0}
   Enemy: {fileID: 0}
-  DeckScript: {fileID: 7910656068851151482}
+  deckScript: {fileID: 0}
 --- !u!114 &7910656068851151482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,9 +490,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77dde7aaf5a5160458b2bad6508c44bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CarddisplaysScriptsInTheSlots: []
-  SlotBools: 
-  DeckOfTheDeck:
+  carddisplaysScriptsInTheSlots: []
+  slotBools: 
+  deckOfTheDeck:
   - {fileID: 11400000, guid: 8e20a41ed110f5d48a501ed02773741c, type: 2}
   - {fileID: 11400000, guid: 60ff571e932c28842930df7c5147f318, type: 2}
   - {fileID: 11400000, guid: 6f19c75e623ebe643963cf66516398a3, type: 2}
@@ -507,8 +501,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  EquipOrUnequipTheNormalCardBool: 0101010101000000
-  TrueDeckInCombat: []
+  equipOrUnequipTheNormalCardBool: 0101010101000000
+  trueDeckInCombat: []
 --- !u!114 &5712986794260492655
 MonoBehaviour:
   m_ObjectHideFlags: 0

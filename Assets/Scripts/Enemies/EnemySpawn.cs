@@ -5,9 +5,9 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     /*public Enemy Enemy;
-    public Combat combatscript;
+    public Combat combatScript;
     public CombatPosition combatpositionscript;
-    public List<GameObject> enemygobj;
+    public List<GameObject> enemyObj;
     public Transform enemytransf;
     public GameObject areawheretheenemyspawns;
     public Player player;
@@ -18,10 +18,10 @@ public class EnemySpawn : MonoBehaviour
         {
             Destroy(other.gameObject);
             enemiesreminder = 1;
-            Enemy actualenemy = Instantiate(enemygobj[Random.Range(0, enemygobj.Count)], areawheretheenemyspawns.transform.position, areawheretheenemyspawns.transform.rotation).GetComponent<Enemy>();
+            Enemy actualenemy = Instantiate(enemyObj[Random.Range(0, enemyObj.Count)], areawheretheenemyspawns.transform.position, areawheretheenemyspawns.transform.rotation).GetComponent<Enemy>();
             actualenemy.Setcombat(combatpositionscript);
             actualenemy.SetPlayer(player);
-            combatscript.SetEnemy(actualenemy);
+            combatScript.SetEnemy(actualenemy);
             Destroy(areawheretheenemyspawns.gameObject);
             combatpositionscript.combatON();
         }
