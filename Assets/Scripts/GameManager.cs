@@ -10,17 +10,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private Image combatUi;
     [SerializeField] private Image inventory;
-    public bool cardsequiped = false;
-    public bool inventoryactive = false;
+    public bool cardsEquiped = false;
+    public bool inventoryActive = false;
     [SerializeField] private List<Card> deck = new List<Card>();
-    [SerializeField] private Transform[] cardslots;
-    [SerializeField] private bool[] availablecardslots;
-    [SerializeField] private Text decksizetext;
-    public bool gameispaused;
-    [SerializeField] private Image pausemenu;
+    [SerializeField] private Transform[] cardSlots;
+    [SerializeField] private bool[] availableCardSlots;
+    [SerializeField] private Text deckSizeText;
+    public bool gameIsPaused;
+    [SerializeField] private Image pauseMenu;
     [SerializeField] private GameObject menu;
     [SerializeField] private GameObject controls;
-    [SerializeField] private MyCamera camerascript;
+    [SerializeField] private MyCamera cameraScript;
     [SerializeField] private Rigidbody playerRB;
 
     public void DrawCard()
@@ -29,11 +29,11 @@ public class GameManager : MonoBehaviour
         {
             Card randomCard = deck[Random.Range(0, deck.Count)];
 
-            for (int i = 0; i < availablecardslots.Length; i++)
+            for (int i = 0; i < availableCardSlots.Length; i++)
             {
-                if (availablecardslots[i] == true)
+                if (availableCardSlots[i] == true)
                 {
-                    availablecardslots[i] = false;
+                    availableCardSlots[i] = false;
                     deck.Remove(randomCard);
                     return;
                 }
@@ -69,8 +69,8 @@ public class GameManager : MonoBehaviour
 
     public void ActiveUI()
     {
-        cardsequiped = !cardsequiped;
-        combatUi.gameObject.SetActive(cardsequiped);
+        cardsEquiped = !cardsEquiped;
+        combatUi.gameObject.SetActive(cardsEquiped);
     }
 
     public void Activeinventory()
