@@ -18,7 +18,7 @@ public class PlayerSensor : MonoBehaviour
     public Rigidbody playerRB;
     public List<CinemachineVirtualCamera> camarasDoor;
     public CinemachineVirtualCamera activeCamera;
-    public MyCamera mycamera;
+    public MyCamera myCamera;
 
     public Light keyLight;
 
@@ -31,7 +31,7 @@ public class PlayerSensor : MonoBehaviour
         {
             SwitchCameraDoor(camarasDoor[1]);
             player.enabled = false;
-            mycamera.canMoveCamera = false;
+            myCamera.canMoveCamera = false;
             playerRB.constraints = RigidbodyConstraints.FreezeAll;
             EV_OnPlayerEnter.Invoke();
             playerColl.enabled = false;
@@ -89,7 +89,7 @@ public class PlayerSensor : MonoBehaviour
         player.enabled = true;
         playerRB.constraints = RigidbodyConstraints.None;
         playerRB.constraints = RigidbodyConstraints.FreezeRotation;
-        mycamera.canMoveCamera = true;
+        myCamera.canMoveCamera = true;
 
     }
 }
