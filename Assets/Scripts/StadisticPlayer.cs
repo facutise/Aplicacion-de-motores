@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-//TP2-"Facundo Sebastian Tisera"
+//TPFINAL-"Facundo Sebastian Tisera"
 
 
 public class StadisticPlayer : MonoBehaviour

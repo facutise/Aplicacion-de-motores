@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-//TP2-"Facundo Sebastian Tisera"
+//TPFINAL-"Facundo Sebastian Tisera"
 public interface IDisplayable
 {
     

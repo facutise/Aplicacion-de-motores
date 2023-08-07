@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Serialization;
-//TP2-"Facundo Sebastian Tisera"
+//TPFINAL-"Facundo Sebastian Tisera"
 
 /*Hola buen día profe, le comento que he tratado de cambiar ls variables para que estén en pascalCase como con los demás integrantes
  pero creo que debo tener un error en mi monitor entre unity y visual ya que cuando lo intentaba(click derecho->cambiarnombre->incluir en cadenas y comentarios)

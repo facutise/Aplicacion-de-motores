@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-//TP2 - Lucas Torres
+//TPFINAL - Lucas Torres
 
 public class AnimationCards : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {

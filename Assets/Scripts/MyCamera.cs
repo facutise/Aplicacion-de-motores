@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//TP2 - Lucas Torres
+//TPFINAL - Lucas Torres
 
 public class MyCamera : MonoBehaviour
 {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//TP2 - Santiago Andres Sanchez Barrio
+//TPFINAL - Santiago Andres Sanchez Barrio
 
 public class MenuManager : MonoBehaviour
 {

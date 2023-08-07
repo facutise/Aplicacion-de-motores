@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//TP2 - Lucas Torres
+//TPFINAL - Lucas Torres
 
 public class ConsoleDisplay : MonoBehaviour
 {

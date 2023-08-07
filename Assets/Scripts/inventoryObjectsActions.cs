@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//TP2 - Lucas Torres
+//TPFINAL - Lucas Torres
 
 public class inventoryObjectsActions : MonoBehaviour
 {

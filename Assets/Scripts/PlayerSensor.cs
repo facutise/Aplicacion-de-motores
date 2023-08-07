@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Cinemachine;
 
-//TP2 - Santiago Andres Sanchez Barrio
+//TPFINAL - Santiago Andres Sanchez Barrio
 
 public class PlayerSensor : MonoBehaviour
 {

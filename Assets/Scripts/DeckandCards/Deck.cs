@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Serialization;
-//TP2-"Facundo Sebastian Tisera"
+//TPFINAL-"Facundo Sebastian Tisera"
 public interface IDeckable
 {
     
