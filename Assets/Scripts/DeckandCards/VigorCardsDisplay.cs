@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 //TP2-"Facundo Sebastian Tisera"
-public class VigorCardsDisplay : MonoBehaviour, IDisplayable
+public class VigorCardsDisplay : MonoBehaviour, IDisplayable, Itext
 {
     public VigorCards Card;
     [SerializeField]
@@ -25,6 +25,13 @@ public class VigorCardsDisplay : MonoBehaviour, IDisplayable
 
     private static Dictionary<string, VigorCards> VigorcardDictionary = new Dictionary<string, VigorCards>();
 
+    private Itext itextInterfaceVariable;
+
+    public int thePLaceOfTheSkillInTheArrayRef { get => thePLaceOfTheSkillInTheArray; set => thePLaceOfTheSkillInTheArray = value; }
+    public VigorCards CardRef { get => Card; set => Card = value; }
+    public StadisticPlayer stadisticPlayerScriptRef { get => stadisticplayerScipt; set => stadisticplayerScipt = value; }
+
+
     private void Awake()
     {
         // Agregamos las cartas al diccionario cuando se crea cada objeto CardDisplay
@@ -33,6 +40,19 @@ public class VigorCardsDisplay : MonoBehaviour, IDisplayable
             VigorcardDictionary.Add(Card.name, Card);
         }
     }
+
+    private Itext textFunc()
+    {
+        thePLaceOfTheSkillInTheArrayRef = thePLaceOfTheSkillInTheArray;
+        CardRef = Card;
+        stadisticPlayerScriptRef = stadisticplayerScipt;
+
+        thePLaceOfTheSkillInTheArrayRef = CardRef.myPassiveInt;
+        stadisticPlayerScriptRef.arrayOfCardPassives[thePLaceOfTheSkillInTheArrayRef].MySkill();
+
+        return null;
+    }
+
 
     public static VigorCards GetVigorCardByName(string name)
     {
@@ -75,9 +95,10 @@ public class VigorCardsDisplay : MonoBehaviour, IDisplayable
     }
     public virtual void ExecuteCardPassive()
     {
-        thePLaceOfTheSkillInTheArray = Card.myPassiveInt;
-        stadisticplayerScipt.arrayOfCardPassives[thePLaceOfTheSkillInTheArray].MySkill();
-        
+        //thePLaceOfTheSkillInTheArray = Card.myPassiveInt;
+        //stadisticplayerScipt.arrayOfCardPassives[thePLaceOfTheSkillInTheArray].MySkill();
+
+        textFunc();
 
 
     }

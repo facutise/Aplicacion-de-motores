@@ -11,6 +11,18 @@ public interface IDisplayable
 
 }
 
+public interface Itext
+{
+    int thePLaceOfTheSkillInTheArrayRef { get; set; }
+    VigorCards CardRef { get; set; }
+    StadisticPlayer stadisticPlayerScriptRef { get; set; }
+    public void textfunc()
+    {
+        thePLaceOfTheSkillInTheArrayRef = CardRef.myPassiveInt;
+        stadisticPlayerScriptRef.arrayOfCardPassives[thePLaceOfTheSkillInTheArrayRef].MySkill();
+    }
+}
+
 public class CardDisplay : MonoBehaviour, IDisplayable
 {
     private static Dictionary<string, Card> cardDictionary = new Dictionary<string, Card>();
