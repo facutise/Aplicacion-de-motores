@@ -57,14 +57,14 @@ public class EnemySectarian : Enemy
         playerStadisticsScript.health -= 3;
         Debug.Log("El enemigo inflingio 3 de daño al jugador con un ataque basico");
        
-        PlayBasicAttackParticles();
+        
     }
     public void HeavyDamage()
     {
         playerStadisticsScript.health -= 5;
         Debug.Log("El enemigo inflingio 5 de daño al jugador con un golpe pesado");
        
-        PlayHeavyAttackParticles();
+       
     }
     public void Regeneration()
     {

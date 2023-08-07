@@ -56,8 +56,11 @@ public class Combat : MonoBehaviour
     private int playerCountDown;
     [SerializeField]
     private Deck deckScript;
-   
-   
+
+    [SerializeField] private ParticleSystem[] particleEnemyArray;
+    [SerializeField] private ParticleSystem[] particleEnemyArray2;
+    [SerializeField] private ParticleSystem[] particleEnemyArray3;
+    [SerializeField] private ParticleSystem[] particleEnemyArray4;
 
     public void ActivateOrDeactivateCardInTheSlot(int MyCardOrangeAndCardUsedInTheArray)                            //NUEVO METODO PARA REEMPLAZAR LO DE ABAJO
     {
@@ -99,7 +102,14 @@ public class Combat : MonoBehaviour
                 }
             }
 
-           
+            int z = Random.Range(0, particleEnemyArray.Length);
+            particleEnemyArray[z].Play();
+            int n = Random.Range(0, particleEnemyArray2.Length);
+            particleEnemyArray2[n].Play();
+            int t = Random.Range(0, particleEnemyArray3.Length);
+            particleEnemyArray3[t].Play();
+            int d = Random.Range(0, particleEnemyArray4.Length);
+            particleEnemyArray4[d].Play();
             enemyAttack = false;
             Debug.Log("Final del turno");
             Debug.Log("Inicio el siguiente turno");
