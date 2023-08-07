@@ -84,10 +84,10 @@ public class inventoryObjectsActions : MonoBehaviour
             {
                 myDelegateParticle.Invoke();
             }
-            stadisticPlayerScript.health += 10;
+            stadisticPlayerScript.health += 30;
             healthPotions -= 1;
             //healthPlayerParticles.Play();
-            Debug.Log("Te has curado 10 puntos de salud con una mejora de salud");
+            Debug.Log("Te has curado 30 puntos de salud con una mejora de salud");
         }
     }
 
@@ -103,10 +103,10 @@ public class inventoryObjectsActions : MonoBehaviour
             {
                 myDelegateParticle.Invoke();
             }
-            stadisticPlayerScript.health += 10;
+            stadisticPlayerScript.health += 30;
             healthPotions -= 1;
             //healthPlayerParticles.Play();
-            Debug.Log("Te has curado 10 puntos de salud con una mejora de salud");
+            Debug.Log("Te has curado 30 puntos de salud con una mejora de salud");
         }
     }
 

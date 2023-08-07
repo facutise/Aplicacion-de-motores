@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 //TP2-"Facundo Sebastian Tisera"
-public class VigorCardsDisplay : MonoBehaviour, IDisplayable, Itext
+public class VigorCardsDisplay : MonoBehaviour, IDisplayable, IPassible
 {
     public VigorCards Card;
     [SerializeField]
@@ -25,7 +25,7 @@ public class VigorCardsDisplay : MonoBehaviour, IDisplayable, Itext
 
     private static Dictionary<string, VigorCards> VigorcardDictionary = new Dictionary<string, VigorCards>();
 
-    private Itext itextInterfaceVariable;
+    private IPassible itextInterfaceVariable;
 
     public int thePLaceOfTheSkillInTheArrayRef { get => thePLaceOfTheSkillInTheArray; set => thePLaceOfTheSkillInTheArray = value; }
     public VigorCards CardRef { get => Card; set => Card = value; }
@@ -41,7 +41,7 @@ public class VigorCardsDisplay : MonoBehaviour, IDisplayable, Itext
         }
     }
 
-    private Itext textFunc()
+    private IPassible PassibleFunc()
     {
         thePLaceOfTheSkillInTheArrayRef = thePLaceOfTheSkillInTheArray;
         CardRef = Card;
@@ -98,7 +98,7 @@ public class VigorCardsDisplay : MonoBehaviour, IDisplayable, Itext
         //thePLaceOfTheSkillInTheArray = Card.myPassiveInt;
         //stadisticplayerScipt.arrayOfCardPassives[thePLaceOfTheSkillInTheArray].MySkill();
 
-        textFunc();
+        PassibleFunc();
 
 
     }

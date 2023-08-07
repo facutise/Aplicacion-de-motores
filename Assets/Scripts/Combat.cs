@@ -74,7 +74,7 @@ public class Combat : MonoBehaviour
     }
    
 
-    public void setenemy(Enemy enemy)
+    public void SetEnemy(Enemy enemy)
     {
         Enemy = enemy;
     }

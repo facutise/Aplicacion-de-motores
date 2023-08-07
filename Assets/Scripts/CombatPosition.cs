@@ -211,7 +211,7 @@ public class CombatPosition : MonoBehaviour
         actualenemy.SetCombat(this);
         actualenemy.SetPlayer(stadisticPlayerScript);
         stadisticPlayerScript.SetEnemy(actualenemy);//PARTE DEL NUEVO SISTEMA DE PASIVAS
-        combatScript.setenemy(actualenemy);
+        combatScript.SetEnemy(actualenemy);
        
         enemyHealthPointsScript.SetEnemyInEnemyHealthPoints(actualenemy);
         //scriptVigorCardDisplaySlot4.SetEnemy(actualenemy);

@@ -11,12 +11,12 @@ public interface IDisplayable
 
 }
 
-public interface Itext
+public interface IPassible
 {
     int thePLaceOfTheSkillInTheArrayRef { get; set; }
     VigorCards CardRef { get; set; }
     StadisticPlayer stadisticPlayerScriptRef { get; set; }
-    public void textfunc()
+    public void PassibleFunc()
     {
         thePLaceOfTheSkillInTheArrayRef = CardRef.myPassiveInt;
         stadisticPlayerScriptRef.arrayOfCardPassives[thePLaceOfTheSkillInTheArrayRef].MySkill();
