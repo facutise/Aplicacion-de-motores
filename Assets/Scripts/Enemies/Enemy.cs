@@ -17,15 +17,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private Transform attackEnemy1SpawnPoint_Combat3;
     [SerializeField] private Transform attackEnemigo2SpawnPoint_Combat3;
 
-    //private ParticleSystem attackEnemy1;
-    //private ParticleSystem attackEnemy2;
-    //private ParticleSystem debris;
-    //private ParticleSystem attackEnemy1_Combat2;
-    //private ParticleSystem attackEnemy2_Combat2;
-    //private ParticleSystem debris_Combat2;
-    //private ParticleSystem attackEnemy1_Combat3;
-    //private ParticleSystem attackEnemy2_Combat3;
-    //private ParticleSystem debris_Combat3;
+   
 
     public virtual void Start()
     {
